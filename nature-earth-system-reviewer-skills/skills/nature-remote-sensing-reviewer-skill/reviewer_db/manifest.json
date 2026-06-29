@@ -1,0 +1,99 @@
+{
+  "schema": "nature-remote-sensing-reviewer-db-v1.7.2",
+  "source_pdf_count": 71,
+  "raw_pdf_included": false,
+  "document_count": 71,
+  "source_comment_chunk_count": 4299,
+  "source_comment_chunk_count_note": "Reviewer/referee units extracted from formal reviewer report zones across all 71 public PDFs; author rebuttal zones are excluded.",
+  "distilled_review_unit_count": 4299,
+  "unique_review_unit_text_count": 4289,
+  "source_coverage_count": 71,
+  "cluster_count": 17,
+  "issue_pattern_count": 31,
+  "contribution_pattern_count": 10,
+  "style_move_count": 13,
+  "search": "keyword-jsonl",
+  "embedding_runtime_required": false,
+  "reviewer_only_cleaning": {
+    "formal_reviewer_zones_only": true,
+    "author_rebuttal_zones_excluded": true,
+    "author_response_pattern_filtering": true,
+    "zero_unit_pdfs": []
+  },
+  "files": {
+    "documents": "documents.jsonl",
+    "review_units": "review_units.jsonl",
+    "extraction_coverage": "extraction_coverage.jsonl",
+    "extraction_quality": "extraction_quality.json",
+    "issue_patterns": "issue_patterns.jsonl",
+    "contribution_patterns": "contribution_patterns.jsonl",
+    "style_moves": "style_moves.jsonl",
+    "style_motifs": "style_motifs.jsonl",
+    "trend_issue_patterns": "trend_issue_patterns.jsonl",
+    "inference_integrity_patterns": "inference_integrity_patterns.jsonl",
+    "referee_voice_profiles": "referee_voice_profiles.jsonl",
+    "method_reference_patterns": "method_reference_patterns.jsonl",
+    "anchor_comment_patterns": "anchor_comment_patterns.jsonl"
+  },
+  "style_motif_count": 10,
+  "format_style_upgrade": {
+    "nature_peer_review_file_format": true,
+    "uploaded_file_autorun": true,
+    "micro_consistency_gate": true,
+    "author_facing_audit_separated": true
+  },
+  "published_paper_comparison": {
+    "enabled_when_retrieval_allowed": true,
+    "verified_sources_only": true,
+    "external_literature_snapshot_included": false,
+    "query_builder": "../scripts/published_paper_query_builder.py"
+  },
+  "trend_issue_pattern_count": 14,
+  "inference_integrity_pattern_count": 24,
+  "claim_dependent_gate_routing": {
+    "enabled": true,
+    "major_concern_only_when_central_claim_depends": true,
+    "manuscript_content_based": true
+  },
+  "conditional_evidence_gates": {
+    "trend_time_series_evidence_gate": "enabled for temporal claims only",
+    "sampling_validation_inference_integrity_gate": "enabled for reference data, validation, geospatial modeling, inference, causal, rare-event, or reproducibility claims",
+    "published_paper_comparison_gate": "enabled when retrieval is allowed or user-provided references are available"
+  },
+  "referee_voice_profile_count": 10,
+  "method_reference_pattern_count": 8,
+  "referee_voice_diversity": {
+    "enabled": true,
+    "avoid_template_repetition": true,
+    "distinct_referee_styles": true
+  },
+  "method_reference_suggestions": {
+    "enabled_when_directly_relevant": true,
+    "verified_citations_only": true
+  },
+  "output_delivery": {
+    "markdown_in_chat": true,
+    "markdown_file": true,
+    "docx_file": true,
+    "docx_renderer": "../scripts/render_review_docx.py",
+    "md_file": true,
+    "mandatory_in_file_capable_environment": true
+  },
+  "editorial_assessment": {
+    "allowed_when_requested_or_warranted": true,
+    "editors_not_bound_by_referee_opinion": true
+  },
+  "review_depth_and_completeness": {
+    "enabled": true,
+    "full_manuscript_depth_floor": true,
+    "voice_diversity_must_not_reduce_depth": true
+  },
+  "anchor_comment_pattern_count": 8,
+  "line_anchor_specificity": {
+    "enabled": true,
+    "real_line_numbers_only_when_present": true,
+    "generated_anchors_when_line_numbers_absent": true,
+    "locatable_detailed_comments_required_for_full_reviews": true,
+    "anchor_extractor": "../scripts/extract_text_with_anchors.py"
+  }
+}

@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest a review gate, output-format improvement, or tooling enhancement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Need
+      description: What review or tooling need does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Keep the proposal concise and high-level.
+    validations:
+      required: false

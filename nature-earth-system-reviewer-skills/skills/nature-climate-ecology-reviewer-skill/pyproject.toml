@@ -1,0 +1,43 @@
+[project]
+name = "nature-climate-ecology-reviewer-skill"
+version = "1.0.1"
+description = "Nature-style climate and ecology manuscript reviewer skill for testing biodiversity, ecosystem-function, carbon-cycle, conservation, global-change and ecological-inference claims against sampling, causal design, model structure, uncertainty and management scope."
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["scripts", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "W",
+  "F",
+  "I",
+  "B",
+  "UP",
+  "SIM",
+  "C4",
+  "PT",
+  "RUF",
+]
+ignore = [
+  "E501",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+  "--strict-markers",
+  "--strict-config",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]

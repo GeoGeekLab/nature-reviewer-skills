@@ -1,0 +1,14 @@
+{
+  "name": "nature-earth-system-reviewer-skills",
+  "version": "1.0.1",
+  "repository": "nature-earth-system-reviewer-skills",
+  "license": "MIT OR Apache-2.0",
+  "description": "Umbrella repository for independent Earth-system Nature reviewer skills.",
+  "skills": [
+    "nature-remote-sensing-reviewer-skill",
+    "nature-atmospheric-science-reviewer-skill",
+    "nature-hydrology-reviewer-skill",
+    "nature-climate-ecology-reviewer-skill"
+  ],
+  "merged_mega_skill": false
+}

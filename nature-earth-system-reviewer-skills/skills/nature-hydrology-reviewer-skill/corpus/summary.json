@@ -1,0 +1,42 @@
+{
+  "status": "public best-effort corpus; not official complete dataset",
+  "time_range": "2024-01-01 to 2026-06-25",
+  "peer_review_files": 44,
+  "manifest_pages": 2025,
+  "journals": {
+    "Nature": 11,
+    "Nature Communications": 31,
+    "Nature Water": 2
+  },
+  "relevance_classes": {
+    "high_core": 34,
+    "medium_high_related": 10
+  },
+  "raw_pdfs_in_repository": false,
+  "distillation": {
+    "review_unit_index_non_verbatim_count": 3905,
+    "gate_classes": 16,
+    "abstract_pattern_count": 148,
+    "raw_review_text_stored": false,
+    "gate_counts": {
+      "hydrological_variable_validity": 587,
+      "novelty_related_work_positioning": 121,
+      "claim_evidence_calibration": 339,
+      "trend_attribution_temporal_support": 305,
+      "sampling_gauge_representativeness": 173,
+      "remote_sensing_data_assimilation": 74,
+      "detail_audit": 592,
+      "scale_basin_consistency": 940,
+      "human_water_interaction": 108,
+      "statistical_uncertainty": 69,
+      "reproducibility_data_code": 51,
+      "water_quality_transport": 33,
+      "model_assumption_sensitivity": 254,
+      "extreme_event_definition": 173,
+      "validation_independent_testing": 74,
+      "management_policy_interpretation": 12
+    },
+    "classic_stress_test_count": 10,
+    "classic_stress_tests_weighted": false
+  }
+}

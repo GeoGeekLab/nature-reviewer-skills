@@ -1,0 +1,331 @@
+{
+  "generated_on": "2026-06-25",
+  "corpus_type": "publicly accessible, article-verified, best-effort corpus; not an official Nature export",
+  "field": "Engineering / engineering sciences, with Nature and Nature Communications prioritized",
+  "time_range": {
+    "start": "2024-01-01",
+    "end": "2026-06-25"
+  },
+  "previous_downloaded_count": 20,
+  "incremental_downloaded_count": 22,
+  "expanded_downloaded_count": 42,
+  "pdf_file_count": 42,
+  "index_downloaded_count": 42,
+  "pdf_count_matches_index": true,
+  "zero_byte_pdfs": [],
+  "duplicate_doi_count": 0,
+  "duplicate_pdf_sha256_count": 0,
+  "journal_group_counts_downloaded": {
+    "Nature Communications": 20,
+    "Nature": 19,
+    "Nature Portfolio subjournal": 3
+  },
+  "relevance_counts_downloaded": {
+    "high_core": 37,
+    "medium_high_related": 5
+  },
+  "status_counts_index": {
+    "downloaded": 42
+  },
+  "pdf_open_checks": [
+    {
+      "file_name": "2024_nature_s41586-024-07409-w_peer_review.pdf",
+      "ok": true,
+      "pages": 18,
+      "file_size_bytes": 361090,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2024_nature_s41586-024-07613-8_peer_review.pdf",
+      "ok": true,
+      "pages": 32,
+      "file_size_bytes": 1020713,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2024_nature_s41586-024-08173-7_peer_review.pdf",
+      "ok": true,
+      "pages": 36,
+      "file_size_bytes": 1147545,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2024_nature_s41586-024-08449-y_peer_review.pdf",
+      "ok": true,
+      "pages": 34,
+      "file_size_bytes": 1225306,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-024-08404-x_peer_review.pdf",
+      "ok": true,
+      "pages": 15,
+      "file_size_bytes": 237815,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-024-08501-x_peer_review.pdf",
+      "ok": true,
+      "pages": 24,
+      "file_size_bytes": 323678,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-024-08445-2_peer_review.pdf",
+      "ok": true,
+      "pages": 23,
+      "file_size_bytes": 457487,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-025-08978-0_peer_review.pdf",
+      "ok": true,
+      "pages": 44,
+      "file_size_bytes": 2485373,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-025-09170-0_peer_review.pdf",
+      "ok": true,
+      "pages": 35,
+      "file_size_bytes": 50282845,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-025-09459-0_peer_review.pdf",
+      "ok": true,
+      "pages": 45,
+      "file_size_bytes": 19550348,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-025-09269-4_peer_review.pdf",
+      "ok": true,
+      "pages": 79,
+      "file_size_bytes": 4166083,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-025-09620-9_peer_review.pdf",
+      "ok": true,
+      "pages": 56,
+      "file_size_bytes": 6779809,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-025-09674-9_peer_review.pdf",
+      "ok": true,
+      "pages": 90,
+      "file_size_bytes": 50340853,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_nature_s41586-025-09673-w_peer_review.pdf",
+      "ok": true,
+      "pages": 49,
+      "file_size_bytes": 2758857,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_nature_s41586-025-10042-w_peer_review.pdf",
+      "ok": true,
+      "pages": 14,
+      "file_size_bytes": 389518,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_nature_s41586-026-10265-5_peer_review.pdf",
+      "ok": true,
+      "pages": 16,
+      "file_size_bytes": 8234419,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_nature_s41586-026-10338-5_peer_review.pdf",
+      "ok": true,
+      "pages": 18,
+      "file_size_bytes": 156613,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_nature_s41586-026-10658-6_peer_review.pdf",
+      "ok": true,
+      "pages": 56,
+      "file_size_bytes": 3771244,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_nature_s41586-026-10768-1_peer_review.pdf",
+      "ok": true,
+      "pages": 65,
+      "file_size_bytes": 25748454,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2024_ncomms_s41467-024-54249-3_peer_review.pdf",
+      "ok": true,
+      "pages": 24,
+      "file_size_bytes": 1307044,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2024_ncomms_s41467-024-55199-6_peer_review.pdf",
+      "ok": true,
+      "pages": 24,
+      "file_size_bytes": 11574393,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-024-55591-2_peer_review.pdf",
+      "ok": true,
+      "pages": 16,
+      "file_size_bytes": 1287535,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-56596-1_peer_review.pdf",
+      "ok": true,
+      "pages": 12,
+      "file_size_bytes": 164066,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-56025-3_peer_review.pdf",
+      "ok": true,
+      "pages": 19,
+      "file_size_bytes": 297285,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-56805-x_peer_review.pdf",
+      "ok": true,
+      "pages": 32,
+      "file_size_bytes": 5881352,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-58091-z_peer_review.pdf",
+      "ok": true,
+      "pages": 35,
+      "file_size_bytes": 1508014,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-59023-7_peer_review.pdf",
+      "ok": true,
+      "pages": 39,
+      "file_size_bytes": 973086,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-59876-y_peer_review.pdf",
+      "ok": true,
+      "pages": 29,
+      "file_size_bytes": 10441567,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-60496-9_peer_review.pdf",
+      "ok": true,
+      "pages": 98,
+      "file_size_bytes": 4348934,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-62538-8_peer_review.pdf",
+      "ok": true,
+      "pages": 52,
+      "file_size_bytes": 6200285,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-63209-4_peer_review.pdf",
+      "ok": true,
+      "pages": 14,
+      "file_size_bytes": 3735245,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-63521-z_peer_review.pdf",
+      "ok": true,
+      "pages": 34,
+      "file_size_bytes": 683520,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_ncomms_s41467-025-63373-7_peer_review.pdf",
+      "ok": true,
+      "pages": 48,
+      "file_size_bytes": 6092172,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_ncomms_s41467-026-68967-3_peer_review.pdf",
+      "ok": true,
+      "pages": 70,
+      "file_size_bytes": 7995677,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_ncomms_s41467-026-70256-y_peer_review.pdf",
+      "ok": true,
+      "pages": 19,
+      "file_size_bytes": 880307,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_ncomms_s41467-026-70685-9_peer_review.pdf",
+      "ok": true,
+      "pages": 34,
+      "file_size_bytes": 1304888,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_ncomms_s41467-026-72398-5_peer_review.pdf",
+      "ok": true,
+      "pages": 58,
+      "file_size_bytes": 2874297,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_ncomms_s41467-026-73303-w_peer_review.pdf",
+      "ok": true,
+      "pages": 90,
+      "file_size_bytes": 5633258,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2026_ncomms_s41467-026-74548-1_peer_review.pdf",
+      "ok": true,
+      "pages": 45,
+      "file_size_bytes": 2287380,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_natbiomedeng_s41551-025-01350-7_peer_review.pdf",
+      "ok": true,
+      "pages": 21,
+      "file_size_bytes": 806172,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_natbiomedeng_s41551-025-01537-y_peer_review.pdf",
+      "ok": true,
+      "pages": 31,
+      "file_size_bytes": 858419,
+      "peer_review_text_indicator": true
+    },
+    {
+      "file_name": "2025_natchemeng_s44286-025-00336-1_peer_review.pdf",
+      "ok": true,
+      "pages": 29,
+      "file_size_bytes": 2670845,
+      "peer_review_text_indicator": true
+    }
+  ],
+  "notes": [
+    "All newly added PDFs were downloaded from static-content.springer.com URLs reached from Nature article pages or verified peer-review-file URL patterns.",
+    "Some image-based/scanned peer review PDFs may not expose text to pypdf; openability, file size, article-page labeling, and peer-review URL lineage were used as QC evidence.",
+    "Failure/excluded list from the first build is preserved; no failed downloads occurred among the newly added PDFs after retry."
+  ]
+}

@@ -1,0 +1,15 @@
+gate,candidate_units,patterns_released,qc_status,note
+atmospheric_claim_evidence_calibration,264,4,PASS,non-verbatim abstraction only
+ai_weather_climate_model_fidelity,222,4,PASS,non-verbatim abstraction only
+observational_product_reanalysis_validity,210,4,PASS,non-verbatim abstraction only
+model_physics_assumption_sensitivity,204,4,PASS,non-verbatim abstraction only
+detail_audit,187,4,PASS,non-verbatim abstraction only
+sampling_event_representativeness,166,4,PASS,non-verbatim abstraction only
+scale_resolution_boundary_consistency,162,4,PASS,non-verbatim abstraction only
+aerosol_cloud_radiation_microphysics,77,4,PASS,non-verbatim abstraction only
+mechanism_causality_circulation_dynamics,77,4,PASS,non-verbatim abstraction only
+trend_internal_variability_signal_detection,69,4,PASS,non-verbatim abstraction only
+chemistry_emissions_budget,54,4,PASS,non-verbatim abstraction only
+uncertainty_statistics_skill_metrics,46,4,PASS,non-verbatim abstraction only
+extreme_event_attribution_counterfactual,45,4,PASS,non-verbatim abstraction only
+reproducibility_data_code,24,4,PASS,non-verbatim abstraction only

@@ -1,0 +1,39 @@
+{
+  "name": "nature-engineering-reviewer-skill",
+  "repository": "nature-engineering-reviewer-skill",
+  "version": "1.0.1",
+  "domain": "engineering",
+  "license": "MIT OR Apache-2.0",
+  "description": "Nature-style engineering manuscript reviewer skill for testing devices, robots, platforms, systems, algorithms embodied in physical systems and engineering methods against requirements, validation, benchmarking, uncertainty, robustness and failure modes.",
+  "entrypoint": "SKILL.md",
+  "pattern_count": 37,
+  "source_corpus": {
+    "type": "public best-effort corpus metadata",
+    "downloaded_peer_review_pdf_count": 42,
+    "source_index_rows": 42,
+    "date_range": "2024-01-01 to 2026-06-25",
+    "priority_journals": [
+      "Nature",
+      "Nature Communications"
+    ],
+    "subjournals_included": [
+      "Nature Chemical Engineering",
+      "Nature Biomedical Engineering"
+    ],
+    "raw_peer_review_text_redistributed": false
+  },
+  "required_outputs": [
+    "2-4 independent Nature-style referee reports",
+    "default 3 referees"
+  ],
+  "validation_commands": [
+    "python scripts/validate_package.py .",
+    "python -m compileall -q scripts",
+    "python -m pytest -q",
+    "python -m ruff check .",
+    "python -m ruff format --check .",
+    "python -m bandit -q -r scripts",
+    "python scripts/render_review_docx.py examples/example_review_report.md /tmp/example_review_report.docx"
+  ],
+  "skill_name": "nature-engineering-reviewer"
+}

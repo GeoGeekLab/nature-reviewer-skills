@@ -1,0 +1,9 @@
+keyword_class,terms
+core_hydrological_variables,hydrology; streamflow; river discharge; river stage; runoff; baseflow; groundwater; aquifer; recharge; terrestrial water storage; soil moisture; evapotranspiration; precipitation; snow water equivalent
+hydrological_extremes,flood; flood timing; flood exposure; flash flood; drought; hydrological drought; water scarcity; water stress; compound flooding; extreme precipitation
+basin_and_water_resources_systems,watershed; catchment; river basin; reservoir; dam operation; irrigation; water allocation; water demand; transboundary water; water gap
+groundwater,groundwater depletion; groundwater decline; groundwater recovery; groundwater quality; water table; aquifer storage; land subsidence; groundwater recharge
+cryosphere_hydrology,snowmelt; glacier runoff; cryosphere hydrology; mountain water tower; snowpack; permafrost hydrology; ice melt runoff
+water_quality_transport,dissolved organic carbon; nutrient export; nitrogen transport; phosphorus transport; solute transport; sediment transport; contaminant transport; river chemistry
+observation_and_modelling,hydrological model; global hydrological model; land surface model; data assimilation; satellite altimetry; GRACE; SWOT; Sentinel-3; SAR flood mapping; gauge network
+missable_terms,water cycle; freshwater availability; blue water; green water; water security; water balance; hydroclimatic extremes; runoff sensitivity; flow regime

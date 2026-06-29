@@ -1,0 +1,21 @@
+[project]
+name = "nature-materials-science-reviewer-skill"
+version = "1.0.1"
+description = "Nature-style materials science manuscript reviewer skill for testing materials design, synthesis, processing, structure-property, mechanism, stability, scalability, computational prediction and application claims against materials evidence chains."
+requires-python = ">=3.10"
+license = { text = "MIT OR Apache-2.0" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = []
+
+[tool.bandit]
+skips = []

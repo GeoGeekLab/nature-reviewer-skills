@@ -1,0 +1,22 @@
+{
+  "name": "nature-reviewer-skills",
+  "version": "1.0.1",
+  "license": "MIT OR Apache-2.0",
+  "repositories": [
+    "nature-earth-system-reviewer-skills",
+    "nature-chemistry-reviewer-skill",
+    "nature-engineering-reviewer-skill",
+    "nature-materials-science-reviewer-skill"
+  ],
+  "earth_system_skills": [
+    "nature-remote-sensing-reviewer-skill",
+    "nature-atmospheric-science-reviewer-skill",
+    "nature-hydrology-reviewer-skill",
+    "nature-climate-ecology-reviewer-skill"
+  ],
+  "standalone_non_earth_skills": [
+    "nature-chemistry-reviewer-skill",
+    "nature-engineering-reviewer-skill",
+    "nature-materials-science-reviewer-skill"
+  ]
+}

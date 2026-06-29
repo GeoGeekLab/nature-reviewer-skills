@@ -1,0 +1,66 @@
+{
+  "name": "nature-materials-science-reviewer-skill",
+  "repository": "nature-materials-science-reviewer-skill",
+  "version": "1.0.1",
+  "license": "MIT OR Apache-2.0",
+  "domain": "materials science",
+  "main": "SKILL.md",
+  "description": "Nature-style materials science manuscript reviewer skill for testing materials design, synthesis, processing, structure-property, mechanism, stability, scalability, computational prediction and application claims against materials evidence chains.",
+  "source_corpus": {
+    "type": "public Nature Portfolio peer-review files, best-effort corpus",
+    "time_range": "2024-01-01 to 2026-06-25",
+    "downloaded_peer_review_files": 44,
+    "journals": {
+      "Nature Communications": 29,
+      "Nature": 11,
+      "Communications Materials": 4
+    },
+    "raw_pdfs_in_repository": false,
+    "source_package_name": "nature_materials_science_peer_review_2024_2026_v0_2.zip",
+    "metadata_folder": "corpus/"
+  },
+  "distillation": {
+    "review_unit_index_rows": 3817,
+    "abstract_patterns": 95,
+    "gates": 13,
+    "non_verbatim": true,
+    "anonymous_reviewer_identity_inference": false
+  },
+  "required_files": [
+    "README.md",
+    "SKILL.md",
+    "MANIFEST.json",
+    "LICENSE",
+    "LICENSE-MIT",
+    "LICENSE-APACHE",
+    "reviewer_db/patterns.csv",
+    "reviewer_db/patterns.jsonl",
+    "reviewer_db/gate_router.yaml",
+    "references/referee_voice_style_gate.md",
+    "scripts/validate_package.py",
+    "scripts/render_review_docx.py",
+    "corpus/index.csv",
+    "corpus/failures_excluded.csv",
+    "corpus/keyword_expansion.csv",
+    "corpus/qa_report.csv",
+    "corpus/checksums.sha256",
+    "corpus/README.md",
+    "corpus/summary.json",
+    "corpus/corpus.zip",
+    "scripts/extract_text_with_anchors.py",
+    "scripts/published_paper_query_builder.py",
+    "scripts/reviewer_db.py",
+    "scripts/sample_referee_style.py"
+  ],
+  "topics": [
+    "nature",
+    "peer-review",
+    "scientific-writing",
+    "manuscript-review",
+    "codex-skill",
+    "research-tools",
+    "ai-skill",
+    "materials-science"
+  ],
+  "skill_name": "nature-materials-science-reviewer"
+}

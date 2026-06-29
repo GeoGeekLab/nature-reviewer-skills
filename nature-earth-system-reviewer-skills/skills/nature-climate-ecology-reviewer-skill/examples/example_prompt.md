@@ -1,0 +1,3 @@
+Use $nature-climate-ecology-reviewer-skill-v1.0 to review the uploaded manuscript, figures, methods, supplementary materials, and data/code availability statements.
+
+Produce a Nature-style peer-review-file report with 2-4 independent referees. Use three referees by default. Do not expose internal gate routing, decision-threshold tables, or detail-audit tables unless explicitly requested. Compare with close prior work where verified. Include locatable comments on definitions, units, baselines, thresholds, figures, tables, models, uncertainty and reproducibility when these details affect the main claims. If file outputs are requested, provide both Markdown and Word formats.

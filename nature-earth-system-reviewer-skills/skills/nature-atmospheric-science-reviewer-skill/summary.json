@@ -1,0 +1,10 @@
+{
+  "skill": "nature-atmospheric-science-reviewer",
+  "corpus_peer_review_files": 35,
+  "candidate_review_units": 1807,
+  "released_patterns": 56,
+  "raw_text_stored": false,
+  "validation_target": "GitHub-ready v1.0 package",
+  "gate_classes": 15,
+  "review_format": "Nature-style independent referee reports with major comments, specific comments, and overall judgment."
+}

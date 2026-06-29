@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Validate package
+        run: python scripts/validate_package.py .
+      - name: Compile scripts
+        run: python -m compileall -q scripts
+      - name: Tests
+        run: python -m pytest -q
+      - name: Ruff lint
+        run: python -m ruff check .
+      - name: Ruff format check
+        run: python -m ruff format --check .
+      - name: Bandit
+        run: python -m bandit -q -r scripts
+      - name: DOCX smoke test
+        run: python scripts/render_review_docx.py examples/example_review_report.md /tmp/example_review_report.docx

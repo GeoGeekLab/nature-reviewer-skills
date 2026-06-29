@@ -1,0 +1,8 @@
+{
+  "name": "nature-remote-sensing-reviewer-skill",
+  "skill_name": "nature-remote-sensing-reviewer",
+  "version": "1.0.1",
+  "source_pdf_count": 71,
+  "raw_pdf_included": false,
+  "reviewer_memory_scope": "abstracted reviewer behavior memory"
+}

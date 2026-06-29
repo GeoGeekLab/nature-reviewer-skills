@@ -1,0 +1,52 @@
+{
+  "name": "nature-climate-ecology-reviewer",
+  "version": "1.0",
+  "source_peer_review_pdfs": 63,
+  "distilled_reviewer_units": 5774,
+  "peer_review_corpus_patterns": 100,
+  "controversy_derived_patterns": 12,
+  "total_patterns": 112,
+  "raw_reviewer_text_included": false,
+  "primary_gates": [
+    "biodiversity_ecosystem_function_gate",
+    "sampling_representativeness_gate",
+    "climate_trend_attribution_gate",
+    "forest_land_use_conservation_gate",
+    "model_assumption_validation_gate",
+    "carbon_nitrogen_cycle_gate",
+    "mechanism_claim_gate",
+    "observational_product_uncertainty_gate",
+    "statistical_inference_gate",
+    "published_paper_comparison_gate",
+    "policy_management_claim_gate",
+    "reproducibility_data_code_gate",
+    "generalist_clarity_gate",
+    "novelty_scope_gate",
+    "decision_threshold_gate",
+    "detail_audit_gate"
+  ],
+  "stress_test_topics": [
+    "nature_based_climate_mitigation_claims",
+    "ecological_classification_claims",
+    "resilience_and_tipping_point_claims",
+    "dominant_mechanism_claims",
+    "boundary_and_threshold_claims",
+    "biodiversity_change_claims",
+    "observational_product_mechanism_claims"
+  ],
+  "review_standard": {
+    "claim_dependent_gate_routing": true,
+    "decision_thresholds": true,
+    "detail_audit": true,
+    "concise_high_level_output": true,
+    "independent_referee_output": "2-4 referees",
+    "markdown_and_docx_file_output": true
+  },
+  "github_ready": true,
+  "tooling": {
+    "validate_package": "scripts/validate_package.py",
+    "render_review_docx": "scripts/render_review_docx.py",
+    "tests": "tests/",
+    "ci": ".github/workflows/ci.yml"
+  }
+}

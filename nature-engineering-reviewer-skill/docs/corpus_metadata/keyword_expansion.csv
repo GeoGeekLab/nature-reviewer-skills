@@ -1,0 +1,19 @@
+category,keyword,notes
+field_core_terms,engineering,Broad umbrella; used only with Nature journal filters and article relevance checks.
+field_core_terms,robotics,"Robotics, control, autonomy and embodied systems."
+field_core_terms,device engineering,"Materials, electronics, photonics, sensors and device systems."
+field_core_terms,bioengineering,"Biomedical, cellular, genetic and translational engineering."
+synonyms,systems engineering,Integrated engineering system claims.
+synonyms,platform technology,Broad platform or method papers.
+methods,fabrication,Materials and device process validation.
+methods,control algorithm,Robotics and automation evaluation.
+methods,closed-loop optimization,Autonomous laboratory and AI-assisted engineering.
+data_platforms,event camera,Engineering sensing platform.
+data_platforms,soft robot,Robotics/mechanical engineering platform.
+data_platforms,wearable sensor,Biomedical/device engineering platform.
+applications,autonomous laboratory,Engineering automation and chemical engineering.
+applications,electronic skin,"Flexible electronics, tactile sensing and devices."
+abbreviations,QEC,Quantum error correction; included when engineering relevance is substantial.
+abbreviations,AI scientist,Automation and end-to-end engineering research systems.
+easy_to_miss,embodied intelligence,Robotics papers may not use engineering in title.
+easy_to_miss,self-driving laboratory,Automation papers often appear in chemistry or materials journals.

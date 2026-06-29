@@ -1,0 +1,92 @@
+{
+  "name": "nature-atmospheric-science-reviewer-skill",
+  "repository": "nature-atmospheric-science-reviewer-skill",
+  "version": "1.0.1",
+  "license": "MIT OR Apache-2.0",
+  "domain": "atmospheric science",
+  "created": "2026-06-25",
+  "description": "Nature-style atmospheric science manuscript reviewer skill for testing observation, reanalysis, model, aerosol-cloud-radiation, extreme-event, circulation-mechanism and attribution claims against their physical evidence chain.",
+  "corpus_basis": {
+    "name": "atmospheric_peer_review_corpus_2024_2026_best_effort",
+    "date_range": "2024-01-01 to 2026-06-25",
+    "source_rounds": {
+      "round1": "Nature + Nature Communications",
+      "round2": "Nature Geoscience + Nature Climate Change",
+      "round3": "classic controversy stress-test index only"
+    },
+    "peer_review_files": 35,
+    "total_pages": 1421,
+    "total_size_bytes": 139159468,
+    "journals": {
+      "Nature": 9,
+      "Nature Communications": 23,
+      "Nature Geoscience": 1,
+      "Nature Climate Change": 2
+    },
+    "relevance_levels": {
+      "high_core": 26,
+      "medium_high_related": 9
+    },
+    "classic_stress_tests": 10,
+    "raw_reviewer_text_for_skill_release": "not redistributed; raw PDFs are corpus-only inputs; final skill should store abstract patterns only",
+    "best_effort": true
+  },
+  "distillation": {
+    "candidate_review_units": 1807,
+    "released_patterns": 56,
+    "raw_reviewer_text_in_release": false,
+    "raw_pdfs_in_release": false,
+    "gate_classes": 15,
+    "review_format": "Opening contribution, major comments, specific comments, and overall judgment for each referee."
+  },
+  "required_files": [
+    "LICENSE",
+    "LICENSE-APACHE",
+    "LICENSE-MIT",
+    "MANIFEST.json",
+    "README.md",
+    "SKILL.md",
+    "corpus/README.md",
+    "corpus/checksums.sha256",
+    "corpus/failures_excluded.csv",
+    "corpus/index.csv",
+    "corpus/keyword_expansion.csv",
+    "corpus/qa_report.csv",
+    "corpus/summary.json",
+    "docs/distillation_sufficiency.md",
+    "references/gate_index.md",
+    "references/novelty_related_work_positioning_gate.md",
+    "references/referee_voice_style_gate.md",
+    "reviewer_db/gate_counts.csv",
+    "reviewer_db/patterns.csv",
+    "reviewer_db/patterns.jsonl",
+    "scripts/extract_text_with_anchors.py",
+    "scripts/published_paper_query_builder.py",
+    "scripts/render_review_docx.py",
+    "scripts/reviewer_db.py",
+    "scripts/sample_referee_style.py",
+    "scripts/validate_package.py"
+  ],
+  "default_output": "2-4 independent Nature-style referee reports; default 3",
+  "reference_files": [
+    "references/gate_index.md",
+    "references/claim_dependent_gate_router.md",
+    "references/referee_voice_style_gate.md",
+    "references/claim_evidence_calibration_gate.md",
+    "references/observational_product_reanalysis_gate.md",
+    "references/sampling_event_representativeness_gate.md",
+    "references/scale_resolution_boundary_gate.md",
+    "references/model_physics_sensitivity_gate.md",
+    "references/ai_weather_climate_model_gate.md",
+    "references/aerosol_cloud_radiation_gate.md",
+    "references/chemistry_emissions_budget_gate.md",
+    "references/extreme_event_attribution_gate.md",
+    "references/trend_signal_detection_gate.md",
+    "references/circulation_mechanism_causality_gate.md",
+    "references/statistical_uncertainty_gate.md",
+    "references/reproducibility_data_code_gate.md",
+    "references/novelty_related_work_positioning_gate.md",
+    "references/detail_audit_gate.md"
+  ],
+  "skill_name": "nature-atmospheric-science-reviewer"
+}
