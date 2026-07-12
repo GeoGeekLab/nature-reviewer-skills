@@ -1,0 +1,11 @@
+# Reproducible development/document environment for Python 3.10+
+bandit==1.8.2
+defusedxml==0.7.1
+mypy==1.14.1
+pypdf==5.1.0
+pytest==8.3.4
+pytest-cov==6.0.0
+python-docx==1.1.2
+ruff==0.9.4
+setuptools==75.8.0
+wheel==0.45.1

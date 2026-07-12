@@ -1,4 +1,1 @@
-python-docx>=1.1.0
-pytest>=8.0.0
-ruff>=0.6.0
-bandit>=1.7.0
+-r ../requirements.lock

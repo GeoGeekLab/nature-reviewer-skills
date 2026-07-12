@@ -1,9 +1,0 @@
-__pycache__/
-.pytest_cache/
-.ruff_cache/
-*.pyc
-*.pyo
-*.docx
-!.gitkeep
-.DS_Store
-.env

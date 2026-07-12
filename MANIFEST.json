@@ -1,22 +1,205 @@
 {
+  "schema_version": 2,
   "name": "nature-reviewer-skills",
-  "version": "1.0.1",
-  "license": "MIT OR Apache-2.0",
-  "repositories": [
-    "nature-earth-system-reviewer-skills",
-    "nature-chemistry-reviewer-skill",
-    "nature-engineering-reviewer-skill",
-    "nature-materials-science-reviewer-skill"
+  "version": "2.0.0",
+  "license": "MIT",
+  "skill_count": 7,
+  "pattern_count": 540,
+  "skills": [
+    {
+      "skill": "nature-chemistry-reviewer-skill",
+      "schema_version": 2,
+      "generated_from": "patterns.csv",
+      "pattern_count": 51,
+      "gate_count": 14,
+      "patterns_by_gate": {
+        "catalysis_and_performance": 3,
+        "chemical_biology_and_biointerface": 3,
+        "claim_evidence_calibration": 3,
+        "computational_model_assumptions": 3,
+        "controls_and_validation": 3,
+        "detail_audit_and_clarity": 3,
+        "materials_energy_interface": 3,
+        "mechanism_and_causality": 3,
+        "novelty_and_positioning": 3,
+        "reaction_scope_and_selectivity": 3,
+        "reproducibility_data_and_code": 3,
+        "statistical_inference_and_uncertainty": 3,
+        "subfield_specific_evidence_calibration": 12,
+        "synthesis_characterization_and_analytical_evidence": 3
+      },
+      "patterns_by_severity": {
+        "major": 45,
+        "unknown": 6
+      },
+      "normalized_sha256": "6d75d61b0bad28adfa2b7d8f8891ece5a113bbc483330ed4c7a769d0af66e4db"
+    },
+    {
+      "skill": "nature-atmospheric-science-reviewer-skill",
+      "schema_version": 2,
+      "generated_from": "patterns.csv",
+      "pattern_count": 56,
+      "gate_count": 14,
+      "patterns_by_gate": {
+        "aerosol_cloud_radiation_microphysics": 4,
+        "ai_weather_climate_model_fidelity": 4,
+        "atmospheric_claim_evidence_calibration": 4,
+        "chemistry_emissions_budget": 4,
+        "detail_audit": 4,
+        "extreme_event_attribution_counterfactual": 4,
+        "mechanism_causality_circulation_dynamics": 4,
+        "model_physics_assumption_sensitivity": 4,
+        "observational_product_reanalysis_validity": 4,
+        "reproducibility_data_code": 4,
+        "sampling_event_representativeness": 4,
+        "scale_resolution_boundary_consistency": 4,
+        "trend_internal_variability_signal_detection": 4,
+        "uncertainty_statistics_skill_metrics": 4
+      },
+      "patterns_by_severity": {
+        "major": 54,
+        "minor": 2
+      },
+      "normalized_sha256": "3873414b4304270651a1212aa3f1ec4d77433121397722adf4cf406709efa093"
+    },
+    {
+      "skill": "nature-climate-ecology-reviewer-skill",
+      "schema_version": 2,
+      "generated_from": "patterns.csv",
+      "pattern_count": 112,
+      "gate_count": 15,
+      "patterns_by_gate": {
+        "biodiversity_ecosystem_function_gate": 9,
+        "carbon_nitrogen_cycle_gate": 9,
+        "claim_calibration_gate": 1,
+        "climate_trend_attribution_gate": 9,
+        "forest_land_use_conservation_gate": 9,
+        "generalist_clarity_gate": 9,
+        "mechanism_claim_gate": 9,
+        "model_assumption_validation_gate": 8,
+        "novelty_scope_gate": 8,
+        "observational_product_uncertainty_gate": 9,
+        "policy_management_claim_gate": 9,
+        "published_paper_comparison_gate": 1,
+        "reproducibility_data_code_gate": 5,
+        "sampling_representativeness_gate": 8,
+        "statistical_inference_gate": 9
+      },
+      "patterns_by_severity": {
+        "major": 90,
+        "minor": 1,
+        "unknown": 21
+      },
+      "normalized_sha256": "a2d657047805561da95f10ee0741d33594cf28d29de3a38fd6623349f5fa3d36"
+    },
+    {
+      "skill": "nature-hydrology-reviewer-skill",
+      "schema_version": 2,
+      "generated_from": "patterns.csv",
+      "pattern_count": 158,
+      "gate_count": 17,
+      "patterns_by_gate": {
+        "claim_evidence_calibration": 10,
+        "detail_audit": 12,
+        "extreme_event_definition": 8,
+        "human_water_interaction": 9,
+        "hydrological_variable_validity": 9,
+        "management_policy_interpretation": 10,
+        "model_assumption_sensitivity": 10,
+        "novelty_related_work_positioning": 11,
+        "referee_voice_output_format": 11,
+        "remote_sensing_data_assimilation": 8,
+        "reproducibility_data_code": 9,
+        "sampling_gauge_representativeness": 8,
+        "scale_basin_consistency": 9,
+        "statistical_uncertainty": 9,
+        "trend_attribution_temporal_support": 9,
+        "validation_independent_testing": 8,
+        "water_quality_transport": 8
+      },
+      "patterns_by_severity": {
+        "major": 135,
+        "unknown": 23
+      },
+      "normalized_sha256": "9f6d7aea823ab9277befdc8f8bd63b7b6852b254f9f9727a56ac4f5551de90a2"
+    },
+    {
+      "skill": "nature-remote-sensing-reviewer-skill",
+      "schema_version": 2,
+      "generated_from": "patterns.csv",
+      "pattern_count": 31,
+      "gate_count": 4,
+      "patterns_by_gate": {
+        "claim_evidence_calibration": 2,
+        "remote_sensing_evidence_integrity": 19,
+        "spatiotemporal_inference": 4,
+        "validation_and_generalization": 6
+      },
+      "patterns_by_severity": {
+        "major": 27,
+        "moderate": 4
+      },
+      "normalized_sha256": "01e9ed266b0a75c29a021527eae202e95da0ba11e1c607430641800f31278b1f"
+    },
+    {
+      "skill": "nature-engineering-reviewer-skill",
+      "schema_version": 2,
+      "generated_from": "patterns.csv",
+      "pattern_count": 37,
+      "gate_count": 15,
+      "patterns_by_gate": {
+        "automation_ai_and_closed_loop_systems": 3,
+        "benchmark_and_comparability": 2,
+        "biomedical_and_bioengineering_translation": 3,
+        "claim_evidence_calibration": 2,
+        "design_specification_and_requirements": 2,
+        "detail_audit_and_presentation": 2,
+        "experimental_validation_and_controls": 3,
+        "materials_devices_and_fabrication": 4,
+        "mechanism_and_causality": 2,
+        "model_assumptions_and_sensitivity": 2,
+        "novelty_and_positioning": 2,
+        "reproducibility_data_and_code": 2,
+        "robotics_control_and_embodiment": 4,
+        "scaling_boundary_and_operating_envelope": 2,
+        "uncertainty_statistics_and_failure_modes": 2
+      },
+      "patterns_by_severity": {
+        "major": 37
+      },
+      "normalized_sha256": "3d72f2212570043af02044a518e5d084bb024cf89b37c34b8795535d7d811c36"
+    },
+    {
+      "skill": "nature-materials-science-reviewer-skill",
+      "schema_version": 2,
+      "generated_from": "patterns.csv",
+      "pattern_count": 95,
+      "gate_count": 13,
+      "patterns_by_gate": {
+        "composition_phase_purity_and_identity": 7,
+        "computational_design_and_model_validation": 7,
+        "control_materials_and_benchmarking": 7,
+        "data_code_materials_and_reporting_completeness": 8,
+        "editorial_significance_and_novelty": 8,
+        "property_measurement_and_metric_validity": 8,
+        "reader_logic_and_figure_narrative": 10,
+        "scalability_processability_and_application_boundary": 4,
+        "stability_durability_and_operando_relevance": 6,
+        "statistical_inference_uncertainty_and_replicates": 4,
+        "structural_characterization_and_spatial_evidence": 9,
+        "structure_property_causality_and_mechanism": 9,
+        "synthesis_route_and_reproducibility": 8
+      },
+      "patterns_by_severity": {
+        "major": 71,
+        "moderate": 24
+      },
+      "normalized_sha256": "e7e3573fda6ccce4d95d91badb84bb236136b65fd2f462b5acb7ec4e2ea286d9"
+    }
   ],
-  "earth_system_skills": [
-    "nature-remote-sensing-reviewer-skill",
-    "nature-atmospheric-science-reviewer-skill",
-    "nature-hydrology-reviewer-skill",
-    "nature-climate-ecology-reviewer-skill"
-  ],
-  "standalone_non_earth_skills": [
-    "nature-chemistry-reviewer-skill",
-    "nature-engineering-reviewer-skill",
-    "nature-materials-science-reviewer-skill"
-  ]
+  "source_snapshot": {
+    "upstream": "GeoGeekLab/nature-reviewer-skills",
+    "upstream_branch": "main",
+    "retrieval_mode": "individual public raw files due environment archive restrictions"
+  }
 }

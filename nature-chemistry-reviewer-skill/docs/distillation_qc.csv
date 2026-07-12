@@ -1,6 +1,0 @@
-check,status,notes
-raw_pdf_in_repo,pass,no PDF files are included
-raw_reviewer_text_in_patterns,pass,patterns are abstract and non-verbatim
-review_unit_index_hash_only,pass,unit index stores hashes and metadata only
-patterns_csv_exists,pass,reviewer_db/patterns.csv exists
-patterns_jsonl_exists,pass,reviewer_db/patterns.jsonl exists

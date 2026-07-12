@@ -1,5 +1,1 @@
-pytest>=8.0
-ruff>=0.5
-bandit>=1.7
-python-docx>=1.1
-PyMuPDF>=1.23
+-r ../../../requirements.lock
