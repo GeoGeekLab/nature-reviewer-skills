@@ -1,0 +1,8 @@
+{
+  "case_id": "polar-negative-independent-validation",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "polar_remote_sensing",
+  "scenario": "The product is validated on held-out regions, with product lineage, scale mismatch and uncertainty explicitly reported.",
+  "expected_concerns": [],
+  "negative_control": true
+}

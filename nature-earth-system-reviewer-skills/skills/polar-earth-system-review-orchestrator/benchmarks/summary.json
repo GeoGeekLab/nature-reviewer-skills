@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "case_count": 12,
+  "positive_control_count": 8,
+  "negative_control_count": 4,
+  "routes": [
+    "ecology_biogeochemistry",
+    "ice_sheet_glacier",
+    "paleoclimate",
+    "permafrost_snow",
+    "polar_fieldwork",
+    "polar_ocean_atmosphere",
+    "polar_remote_sensing",
+    "sea_ice"
+  ],
+  "interpretation": "Synthetic fixtures validate routing and gate contracts only; they do not establish expert-review performance."
+}

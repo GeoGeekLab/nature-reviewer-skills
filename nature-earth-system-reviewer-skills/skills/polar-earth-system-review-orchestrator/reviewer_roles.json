@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "default_panel_size": 3,
+  "roles": [
+    {
+      "reviewer_id": "referee-1",
+      "name": "Observation and product reliability",
+      "primary_focus": [
+        "sampling design",
+        "field representativeness",
+        "remote-sensing retrievals",
+        "product lineage",
+        "independent validation",
+        "measurement uncertainty"
+      ],
+      "avoid_primary_focus": [
+        "policy recommendations"
+      ]
+    },
+    {
+      "reviewer_id": "referee-2",
+      "name": "Physical process and conservation",
+      "primary_focus": [
+        "mass, energy, freshwater and carbon budgets",
+        "ice dynamics",
+        "ocean-ice-atmosphere coupling",
+        "model resolution",
+        "boundary conditions"
+      ],
+      "avoid_primary_focus": [
+        "copyediting"
+      ]
+    },
+    {
+      "reviewer_id": "referee-3",
+      "name": "Attribution, scale and generalization",
+      "primary_focus": [
+        "causality",
+        "internal variability",
+        "nonstationarity",
+        "spatial and temporal transfer",
+        "statistics",
+        "claim calibration"
+      ],
+      "avoid_primary_focus": [
+        "repeating product details already owned by referee-1"
+      ]
+    },
+    {
+      "reviewer_id": "referee-4",
+      "name": "Research responsibility and regional governance",
+      "conditional": true,
+      "trigger_signals": [
+        "Indigenous",
+        "community",
+        "traditional knowledge",
+        "protected area",
+        "ASPA",
+        "permit",
+        "wildlife sampling",
+        "sensitive location"
+      ],
+      "primary_focus": [
+        "Indigenous and community research governance",
+        "sensitive data",
+        "Antarctic environmental permits",
+        "field disturbance",
+        "policy overreach"
+      ],
+      "avoid_primary_focus": [
+        "making legal determinations"
+      ]
+    }
+  ],
+  "synthesis_rules": [
+    "deduplicate concerns by scientific failure mode",
+    "preserve genuine disagreements",
+    "rank revisions by effect on the central claim",
+    "do not count simulated reviewers as statistically independent evidence"
+  ]
+}

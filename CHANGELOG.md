@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.1.0 - Polar Earth-System Review Orchestrator
+
+### Added
+
+- One upper-layer Polar Earth-System Review Orchestrator without changing the seven-skill domain taxonomy.
+- 104 non-verbatim polar reviewer patterns distilled from 34 public peer-review files and eight official sources.
+- Claim routing, distinct reviewer roles, polar evidence gates, source provenance, negative-control benchmarks and package tests.
+- Shared deterministic routing utilities and explicit discovery of orchestrators.
+
+### Changed
+
+- Repository validation now requires seven domain skills plus one orchestrator.
+- Asset synchronization and pattern tests cover all review packages.
+
 ## 2.0.0 — Reliability and evaluation refactor
 
 ### Added

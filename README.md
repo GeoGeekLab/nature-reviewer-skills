@@ -77,7 +77,7 @@ and either support the transferability claim or narrow it to the tested domain.
 
 ## Included reviewer skills
 
-The suite contains seven domain-specific skills and 540 abstracted reviewer-reasoning patterns.
+The suite contains seven domain-specific skills, one Polar Earth-System Review Orchestrator, and 644 abstracted reviewer-reasoning patterns.
 
 | Skill | Best suited for | Typical stress tests |
 |---|---|---|
@@ -88,6 +88,15 @@ The suite contains seven domain-specific skills and 540 abstracted reviewer-reas
 | **Chemistry** | synthesis, catalysis, analytical chemistry, mechanisms, chemical biology and molecular discovery | identity and purity, discriminating controls, scope, selectivity, mechanistic support, reproducibility |
 | **Engineering** | devices, systems, robotics, biomedical and environmental engineering, physical AI | requirement–design–validation coherence, benchmark fairness, operating envelope, failure modes, real-world utility |
 | **Materials science** | synthesis, characterization, structure–property relations, stability and applications | phase identity, benchmark comparability, mechanism, durability, processability, scalability and application boundaries |
+
+
+## Polar Earth-System Review Orchestrator
+
+The repository now includes **one upper-layer polar orchestrator in addition to the seven domain skills**. It is not counted as an eighth discipline. It routes Arctic, Antarctic and Southern Ocean claims to the existing domain reviewers, applies 104 polar-specific evidence patterns, assigns non-overlapping reviewer roles, and consolidates the review.
+
+Typical checks include sparse and logistics-driven sampling, season and regional scope, sea-ice/glacier/permafrost variable identity, satellite-product lineage, mass and energy budgets, model geometry, internal variability, proxy chronology, community/Indigenous knowledge governance, and Antarctic environmental reporting.
+
+See [`nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/`](nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/). The package is colocated with the Earth-system skills but remains classified as an orchestrator by its manifest.
 
 ## Who it is for
 

@@ -5,7 +5,7 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from .discovery import discover_skill_roots
+from .discovery import discover_orchestrator_roots, discover_skill_roots
 from .patterns import load_patterns, validate_patterns
 
 REQUIRED_FILES = ("SKILL.md", "README.md", "MANIFEST.json", "LICENSE")
@@ -99,8 +99,15 @@ def validate_skill(root: Path) -> ValidationReport:
 
 def validate_repository(root: Path) -> list[ValidationReport]:
     skills = discover_skill_roots(root)
+    orchestrators = discover_orchestrator_roots(root)
+    reports: list[ValidationReport] = []
     if len(skills) != 7:
         missing = ValidationReport(root=root)
-        missing.errors.append(f"expected 7 skills, discovered {len(skills)}")
-        return [missing, *(validate_skill(skill) for skill in skills)]
-    return [validate_skill(skill) for skill in skills]
+        missing.errors.append(f"expected 7 domain skills, discovered {len(skills)}")
+        reports.append(missing)
+    if len(orchestrators) != 1:
+        missing = ValidationReport(root=root)
+        missing.errors.append(f"expected 1 review orchestrator, discovered {len(orchestrators)}")
+        reports.append(missing)
+    reports.extend(validate_skill(package) for package in [*skills, *orchestrators])
+    return reports

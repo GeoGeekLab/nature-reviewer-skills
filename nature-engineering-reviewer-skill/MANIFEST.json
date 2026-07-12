@@ -1,11 +1,12 @@
 {
   "schema_version": 2,
   "name": "nature-engineering-reviewer-skill",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "MIT",
   "skill_entrypoint": "SKILL.md",
   "pattern_count": 37,
-  "shared_runtime": "nature-reviewer-core>=2.0.0,<3",
+  "shared_runtime": "nature-reviewer-core>=2.1.0,<3",
   "generated": true,
-  "evidence_boundary": "research-assistance only; expert validation required"
+  "evidence_boundary": "research-assistance only; expert validation required",
+  "package_type": "domain_skill"
 }

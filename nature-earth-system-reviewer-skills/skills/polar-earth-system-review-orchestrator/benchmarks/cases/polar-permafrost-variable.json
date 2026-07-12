@@ -1,0 +1,22 @@
+{
+  "case_id": "polar-permafrost-variable",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "permafrost_snow",
+  "scenario": "Borehole warming is described as widespread thermokarst and carbon release without active-layer or flux evidence.",
+  "expected_concerns": [
+    {
+      "issue_id": "permafrost indicators are conflated",
+      "severity": "major",
+      "anchors": [
+        "results:borehole trend",
+        "discussion:impact"
+      ],
+      "required_terms": [
+        "permafrost",
+        "indicators",
+        "are"
+      ]
+    }
+  ],
+  "negative_control": false
+}

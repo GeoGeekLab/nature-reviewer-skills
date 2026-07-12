@@ -1,0 +1,22 @@
+{
+  "case_id": "polar-icefree-threshold",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "sea_ice",
+  "scenario": "The paper predicts the first ice-free day but never defines area, extent, concentration threshold, region or duration.",
+  "expected_concerns": [
+    {
+      "issue_id": "ice-free threshold is not explicit",
+      "severity": "major",
+      "anchors": [
+        "abstract:claim",
+        "methods:event definition"
+      ],
+      "required_terms": [
+        "ice-free",
+        "threshold",
+        "is"
+      ]
+    }
+  ],
+  "negative_control": false
+}

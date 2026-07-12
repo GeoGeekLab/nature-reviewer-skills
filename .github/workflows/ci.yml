@@ -46,6 +46,7 @@ jobs:
           - nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill
           - nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill
           - nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill
+          - nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

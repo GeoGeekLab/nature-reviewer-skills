@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "generated_from": "patterns.csv",
+  "pattern_count": 104,
+  "gate_count": 13,
+  "patterns_by_gate": {
+    "attribution_coupling_nonstationarity": 8,
+    "ice_sheet_glacier_dynamics": 8,
+    "mass_energy_water_budget": 8,
+    "model_resolution_assimilation": 8,
+    "paleoclimate_proxy_chronology": 8,
+    "permafrost_ecology_biogeochemistry": 8,
+    "polar_remote_sensing_products": 8,
+    "regional_scope_seasonality": 8,
+    "research_responsibility_governance": 8,
+    "sampling_representativeness": 8,
+    "sea_ice_ocean_atmosphere": 8,
+    "uncertainty_statistics_validation": 8,
+    "variable_identity_comparability": 8
+  },
+  "patterns_by_severity": {
+    "major": 103,
+    "moderate": 1
+  },
+  "normalized_sha256": "906c92f1237f2790a35d5291cac19bc97f3ce2f1c81d1baa023e2039f775bd49"
+}

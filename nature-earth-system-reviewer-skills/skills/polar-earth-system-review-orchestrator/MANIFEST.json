@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "name": "polar-earth-system-review-orchestrator",
+  "version": "2.1.0",
+  "license": "MIT",
+  "package_type": "orchestrator",
+  "skill_entrypoint": "SKILL.md",
+  "pattern_count": 104,
+  "shared_runtime": "nature-reviewer-core>=2.1.0,<3",
+  "generated": true,
+  "evidence_boundary": "research-assistance only; expert validation required",
+  "base_skill_count": 7,
+  "source_count": 42
+}

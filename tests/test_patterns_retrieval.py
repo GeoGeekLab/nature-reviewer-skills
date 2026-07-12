@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from nature_reviewer_core.discovery import discover_skill_roots
+from nature_reviewer_core.discovery import discover_review_package_roots
 from nature_reviewer_core.patterns import load_patterns
 from nature_reviewer_core.retrieval import search_patterns, tokenize
 
@@ -12,7 +12,7 @@ def test_unicode_tokenization() -> None:
 
 
 def test_all_source_schemas_normalize() -> None:
-    for skill in discover_skill_roots(ROOT):
+    for skill in discover_review_package_roots(ROOT):
         patterns = load_patterns(skill)
         assert patterns
         assert all(

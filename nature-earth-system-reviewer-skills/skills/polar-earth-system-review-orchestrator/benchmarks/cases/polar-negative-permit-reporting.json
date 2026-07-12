@@ -1,0 +1,8 @@
+{
+  "case_id": "polar-negative-permit-reporting",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "polar_fieldwork",
+  "scenario": "Antarctic protected-area status, permit identifier, management-plan compliance and disturbance controls are clearly reported.",
+  "expected_concerns": [],
+  "negative_control": true
+}

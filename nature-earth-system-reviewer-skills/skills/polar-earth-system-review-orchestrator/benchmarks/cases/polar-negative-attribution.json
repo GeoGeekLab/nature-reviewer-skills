@@ -1,0 +1,8 @@
+{
+  "case_id": "polar-negative-attribution",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "polar_ocean_atmosphere",
+  "scenario": "The attribution uses large ensembles, an explicit counterfactual, detrended sensitivity tests and calibrated probability language.",
+  "expected_concerns": [],
+  "negative_control": true
+}

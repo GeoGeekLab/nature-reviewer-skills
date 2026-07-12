@@ -1,0 +1,22 @@
+{
+  "case_id": "polar-glacier-local-generalization",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "ice_sheet_glacier",
+  "scenario": "Two accessible Svalbard glaciers are used to support an Arctic-wide ocean-forced retreat claim.",
+  "expected_concerns": [
+    {
+      "issue_id": "single sector generalized to a hemisphere",
+      "severity": "major",
+      "anchors": [
+        "methods:sites",
+        "discussion:scope"
+      ],
+      "required_terms": [
+        "single",
+        "sector",
+        "generalized"
+      ]
+    }
+  ],
+  "negative_control": false
+}

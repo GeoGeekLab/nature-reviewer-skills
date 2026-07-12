@@ -1,0 +1,18 @@
+{
+  "case_id": "polar-seaice-sensor-transition",
+  "selected_routes": [
+    "sea_ice"
+  ],
+  "concerns": [
+    {
+      "issue_id": "sensor transition creates artificial trend",
+      "severity": "major",
+      "text": "The multi-mission record lacks a homogeneity assessment.",
+      "anchors": [
+        "methods:product record"
+      ],
+      "reviewer_id": "referee-1",
+      "confidence": 0.92
+    }
+  ]
+}

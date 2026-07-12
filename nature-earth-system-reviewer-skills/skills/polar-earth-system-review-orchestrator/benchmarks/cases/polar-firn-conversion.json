@@ -1,0 +1,21 @@
+{
+  "case_id": "polar-firn-conversion",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "ice_sheet_glacier",
+  "scenario": "Altimetric elevation change is converted to mass using a fixed ice density without firn correction.",
+  "expected_concerns": [
+    {
+      "issue_id": "firn and density assumptions dominate conversion",
+      "severity": "major",
+      "anchors": [
+        "methods:mass conversion"
+      ],
+      "required_terms": [
+        "firn",
+        "and",
+        "density"
+      ]
+    }
+  ],
+  "negative_control": false
+}
