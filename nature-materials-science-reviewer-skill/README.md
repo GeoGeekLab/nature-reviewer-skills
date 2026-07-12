@@ -1,273 +1,167 @@
 # Nature Materials Science Reviewer Skill
 
-![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-yellow.svg) ![Codex Skill](https://img.shields.io/badge/Codex-Skill-blue) ![Status](https://img.shields.io/badge/status-v1.0.1-green) ![Domain](https://img.shields.io/badge/domain-materials%20science-brightgreen) ![Repo Size](https://img.shields.io/github/repo-size/GeoGeekLab/nature-materials-science-reviewer-skill)
+![Version](https://img.shields.io/badge/version-2.1.0-blue)
+![Package type](https://img.shields.io/badge/package-domain%20skill-4c1)
+![Domain](https://img.shields.io/badge/domain-materials%20science-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-yellow)
 
-A Nature-style reviewer skill for rigorous evaluation of materials-science manuscripts.
+**Evidence-centered review for materials synthesis, processing, identity, structure–property relations, performance, mechanism, stability, computation, scalability, and applications.**
 
-Distilled from publicly available Nature and Nature Communications peer-review files, it helps researchers stress-test manuscripts against high-level reviewer concerns using review-pattern distillation, evidence-chain checks, and referee-style reasoning before submission or revision.
+This package is one of the seven foundational domain reviewer skills in
+[Nature Reviewer Skills](https://github.com/GeoGeekLab/nature-reviewer-skills).
 
-> This project is not affiliated with Nature Portfolio. It does not include raw peer-review PDFs or reproduce copyrighted review reports.
+> The objective is not language polishing. The objective is to determine whether the manuscript's strongest scientific claims are supported by the evidence actually presented.
 
-## What this skill does
+## Scientific value
 
-This skill helps researchers conduct a strict, journal-level review of materials-science manuscripts. It focuses on synthesis and processing, structure and phase identity, property measurement, mechanism, benchmark fairness, stability, device relevance, reproducibility, novelty, and claim calibration.
+Materials claims depend on a long evidence chain: synthesis and processing, material identity, representative structure, valid property measurement, mechanism, fair benchmarking, stability, and application boundaries. This skill tests every link and distinguishes intrinsic material behavior from device, protocol, or system effects.
 
-It is especially useful for:
+The skill is intended for pre-submission review, internal research-group red teaming, revision planning, reviewer-response preparation, and evidence-centered training for early-career researchers.
 
-- pre-submission review of materials synthesis, characterization, structure-property, device-material, and computational materials manuscripts;
-- major revision preparation for performance, mechanism, stability, and application claims;
-- stress-testing whether property improvements are benchmarked fairly and tied to verified material structure;
-- checking whether short-term measurements are overextended into durability or application claims;
-- improving the scientific defensibility of materials-science papers.
+## Appropriate scope
 
-## Key capabilities
+Use this skill for:
 
-- Generates Nature-style referee reports.
-- Reviews main manuscripts and supplementary materials together.
-- Identifies weaknesses in synthesis control, material identity, phase purity, structural characterization, property measurement, benchmark comparability, stability, novelty, and reproducibility.
-- Checks whether mechanism and performance claims are supported by convergent structural, chemical, physical, and device-level evidence.
-- Provides detailed comments anchored to figures, spectra, microscopy, tables, methods, supplementary sections, or manuscript text when available.
-- Can compare the manuscript with closely related published work when literature search is available and permitted.
-- Can generate both Markdown and Word review outputs in file-capable environments.
+- structural, functional, soft, porous, polymeric, composite, nano-, bio-, and quantum materials
+- synthesis, processing, fabrication, interfaces, defects, phases, and microstructure
+- spectroscopy, microscopy, diffraction, tomography, scattering, and operando studies
+- electrochemical, mechanical, optical, thermal, magnetic, adsorption, and transport properties
+- DFT, molecular simulation, materials informatics, screening, and generative design
+- energy, catalysis, separation, sensing, electronics, photonics, and biointerface applications
 
-## Repository structure
+For interdisciplinary manuscripts, combine it with other domain skills or a relevant orchestrator rather than forcing all claims through one disciplinary lens.
+
+## Core evidence gates
+
+The gates are activated according to the manuscript's central claims; they are not applied as a mechanical checklist.
+
+| Review area | What is stress-tested |
+|---|---|
+| **Synthesis and reproducibility** | Process windows, yields, batch consistency, sample history, fabrication, and failure modes |
+| **Identity and structure** | Composition, phase, purity, defects, interfaces, morphology, assignment, and representative sampling |
+| **Property measurement** | Protocol, calibration, normalization, geometry, sample preparation, uncertainty, and intrinsic versus system effects |
+| **Controls and benchmarks** | Reference materials, state of the art, comparable conditions, architecture, loading, and reporting fairness |
+| **Mechanism** | Convergent characterization, perturbations, operando evidence, alternative explanations, and structure–property causality |
+| **Stability and application** | Degradation, cycling, environment, scale-up, processability, toxicity, cost, and real-use relevance |
+
+The package contains **95 abstracted reviewer-reasoning patterns**. They support retrieval and review planning without reproducing raw referee reports.
+
+## Expected review output
+
+A standard run produces **2–4 complementary referee-style reports**, defaulting to three. Each report should:
+
+1. identify the manuscript's central contribution and strongest claims;
+2. distinguish direct evidence from derived products, models, correlations, mechanisms, and extrapolations;
+3. anchor major concerns to figures, tables, methods, results, supplementary evidence, or explicit missing evidence;
+4. explain why each concern matters to the central claim;
+5. propose a proportionate resolution: additional analysis, stronger validation, a discriminating experiment, clearer uncertainty, or narrower wording;
+6. separate major concerns from local reporting and presentation issues.
+
+A major concern should follow this logic:
 
 ```text
-nature-materials-science-reviewer-skill/
-├─ README.md
-├─ SKILL.md
-├─ MANIFEST.json
-├─ LICENSE
-├─ LICENSE-APACHE
-├─ LICENSE-MIT
-├─ reviewer_db/
-├─ references/
-├─ templates/
-├─ examples/
-├─ scripts/
-└─ tests/
+claim under review
+→ evidence or missing evidence
+→ scientific risk
+→ alternative explanation or failure mode
+→ actionable revision path
 ```
 
-## Installation
+## Use with an agent runtime
 
-Codex skills are installed as folders containing a `SKILL.md` file. The folder name should be stable and easy to invoke.
-
-### Option 1: User-level installation
-
-Use this option if you want the skill available across all projects.
+Clone the suite and install the shared runtime:
 
 ```bash
-mkdir -p ~/.agents/skills
-git clone https://github.com/GeoGeekLab/nature-materials-science-reviewer-skill.git ~/.agents/skills/nature-materials-science-reviewer
+git clone https://github.com/GeoGeekLab/nature-reviewer-skills.git
+cd nature-reviewer-skills
+python -m pip install -e ".[documents]"
 ```
 
-Expected structure:
+Point the agent runtime to:
 
 ```text
-~/.agents/skills/nature-materials-science-reviewer/SKILL.md
-~/.agents/skills/nature-materials-science-reviewer/reviewer_db/
-~/.agents/skills/nature-materials-science-reviewer/references/
-~/.agents/skills/nature-materials-science-reviewer/templates/
-~/.agents/skills/nature-materials-science-reviewer/scripts/
+nature-materials-science-reviewer-skill/SKILL.md
 ```
 
-### Option 2: Project-level installation
+For runtimes using `.agents/skills`, copy the complete package directory and keep `SKILL.md`, `reviewer_db/`, `references/`, `templates/`, and `scripts/` together.
 
-Use this option if you want the skill available only inside one manuscript project.
+Invoke the skill as:
 
 ```text
-your-manuscript-project/
-├─ manuscript.docx
-├─ supplementary.docx
-└─ .agents/
-   └─ skills/
-      └─ nature-materials-science-reviewer/
-         ├─ SKILL.md
-         ├─ reviewer_db/
-         ├─ references/
-         ├─ templates/
-         └─ scripts/
+$nature-materials-science-reviewer
 ```
 
-Clone into the project-level skill directory:
+Example request:
+
+```text
+Use $nature-materials-science-reviewer to review the manuscript and supplement. Test synthesis reproducibility, material identity, structure and spatial evidence, property metrics, controls, benchmark fairness, mechanism, stability, computational assumptions, scalability, and application claims.
+```
+
+## Package contents
+
+```text
+README.md                         user-facing overview
+SKILL.md                          agent instructions and review workflow
+MANIFEST.json                     version, type, runtime, and pattern metadata
+reviewer_db/patterns.jsonl        canonical reviewer-pattern database
+reviewer_db/patterns.csv          tabular reviewer-pattern export
+reviewer_db/summary.json          pattern and gate statistics
+references/                       evidence protocol, domain gates, and evaluation contract
+templates/review_report.md        report structure
+scripts/                          validation, retrieval, extraction, and DOCX rendering wrappers
+tests/                            package-level regression tests
+checksums.sha256                  package integrity manifest
+```
+
+## Validation and reviewer-memory search
+
+From the repository root:
 
 ```bash
-mkdir -p .agents/skills
-git clone https://github.com/GeoGeekLab/nature-materials-science-reviewer-skill.git .agents/skills/nature-materials-science-reviewer
+python scripts/validate_all.py
+python -m pytest
 ```
 
-## Windows installation
-
-For Windows PowerShell, user-level installation can be done with:
-
-```powershell
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.agents\skills" | Out-Null
-git clone https://github.com/GeoGeekLab/nature-materials-science-reviewer-skill.git "$env:USERPROFILE\.agents\skills\nature-materials-science-reviewer"
-```
-
-Expected structure:
-
-```text
-%USERPROFILE%\.agents\skills\nature-materials-science-reviewer\SKILL.md
-%USERPROFILE%\.agents\skills\nature-materials-science-reviewer\reviewer_db\
-%USERPROFILE%\.agents\skills\nature-materials-science-reviewer\references\
-%USERPROFILE%\.agents\skills\nature-materials-science-reviewer\templates\
-%USERPROFILE%\.agents\skills\nature-materials-science-reviewer\scripts\
-```
-
-## Optional validation
-
-After installation, you can validate the package:
+Validate this package directly:
 
 ```bash
-python ~/.agents/skills/nature-materials-science-reviewer/scripts/validate_package.py --root ~/.agents/skills/nature-materials-science-reviewer
+nature-reviewer-validate "nature-materials-science-reviewer-skill"
 ```
 
-On Windows PowerShell:
-
-```powershell
-python "$env:USERPROFILE\.agents\skills\nature-materials-science-reviewer\scripts\validate_package.py" --root "$env:USERPROFILE\.agents\skills\nature-materials-science-reviewer"
-```
-
-## Using the skill in Codex CLI
-
-Open a terminal in the manuscript project directory:
+Search its reviewer memory:
 
 ```bash
-cd path/to/your/manuscript-project
-codex
+nature-reviewer-search \
+  --root "nature-materials-science-reviewer-skill" \
+  --query "describe the scientific concern to stress-test" \
+  --limit 5
 ```
 
-Inside Codex CLI, select the skill:
+## v2.1 at a glance
 
-```text
-/skills
-```
+Compared with the v1 generation, v2.1 provides:
 
-Choose:
+- a shared, typed `nature_reviewer_core` runtime instead of duplicated package logic;
+- field-weighted BM25 retrieval with phrase support, query expansion, confidence reporting, and diversity-aware selection;
+- standardized manifests, package validation, checksums, tests, and benchmark contracts;
+- safer manuscript extraction and report generation with explicit input and evidence boundaries;
+- clearer multi-referee roles, evidence anchoring, severity calibration, and non-fabrication requirements.
 
-```text
-nature-materials-science-reviewer
-```
+These improvements strengthen consistency and auditability. They do not replace expert scientific judgment.
 
-Then ask Codex to review the manuscript:
+## Reliability boundary
 
-```text
-Use $nature-materials-science-reviewer to review the uploaded files.
-```
+This skill is a research-assistance and manuscript-quality-control tool. It does not:
 
-If the files are already in the project directory, you can be more specific:
+- replace qualified domain experts, editors, or formal peer review;
+- guarantee correctness, novelty, acceptance, or reproducibility;
+- justify unsupported research-misconduct allegations;
+- treat a model, retrieval, proxy, correlation, or benchmark as direct proof without validation.
 
-```text
-Use $nature-materials-science-reviewer to review manuscript.docx and supplementary.docx. Treat manuscript.docx as the main paper and supplementary.docx as supplementary material.
-```
+The reviewer memory contains abstracted, non-verbatim reasoning patterns. Raw referee reports are not redistributed.
 
-## Using the skill in Codex GUI / App
+This project is not affiliated with Nature Portfolio or Springer Nature.
 
-1. Open the manuscript project in Codex GUI / App.
-2. Upload or reference the main manuscript, supplementary materials, figures, tables, or appendices.
-3. Invoke the skill:
+## License
 
-```text
-Use $nature-materials-science-reviewer to review the uploaded files.
-```
-
-You can also type:
-
-```text
-/skills
-```
-
-or start typing:
-
-```text
-$nature
-```
-
-to check whether the skill is available.
-
-If the skill does not appear, check that `SKILL.md` is located directly inside the installed skill folder, then restart Codex.
-
-## Recommended input files
-
-The skill can work with one or more files, for example:
-
-```text
-manuscript.docx
-supplementary.docx
-appendix.pdf
-figures.pdf
-tables.xlsx
-response_letter.docx
-```
-
-If multiple files are provided, the skill will infer their roles as main manuscript, supplementary material, figures, tables, appendices, or supporting files.
-
-## Expected output
-
-In a file-capable environment, the skill writes:
-
-```text
-review_outputs/nature_review_report.md
-review_outputs/nature_review_report.docx
-```
-
-It also prints the Markdown version of the review in the chat for immediate reading, copying, and revision.
-
-## Example prompt
-
-```text
-Use $nature-materials-science-reviewer to review the uploaded files.
-
-Please produce a Nature-style referee report. Treat the main manuscript as the primary paper and all other files as supplementary or supporting materials. Save the review as both Markdown and Word.
-```
-
-For a shorter prompt:
-
-```text
-Use $nature-materials-science-reviewer to review the uploaded files.
-```
-
-## Review style
-
-The skill produces reviewer-style reports rather than language-polishing feedback. A typical report includes:
-
-```text
-Reviewer Reports on the Initial Version:
-Referees' comments:
-
-Referee #1 (Remarks to the Author):
-...
-
-Referee #2 (Remarks to the Author):
-...
-
-Referee #3 (Remarks to the Author):
-...
-```
-
-The report may include:
-
-- major concerns;
-- figure-, spectrum-, microscopy-, table-, method-, or supplement-specific comments;
-- novelty and prior-work positioning;
-- synthesis, identity, structure, property, and benchmark concerns;
-- mechanism, stability, device relevance, and reproducibility concerns;
-- data/code/materials availability concerns;
-- editorial-level suitability comments when materials evidence does not support the claimed advance.
-
-## Notes on literature search
-
-When web or literature search is available and permitted, the skill may compare the manuscript with closely related published work to evaluate novelty, methodological positioning, and evidence strength.
-
-If literature search is unavailable or prohibited, the skill should not invent references. It will base the review only on the provided manuscript files and clearly state the evidence boundary.
-
-## Citation and copyright policy
-
-This repository contains distilled review patterns and workflow instructions. It does not include raw peer-review PDFs and does not reproduce full copyrighted review reports.
-
-Users should cite or acknowledge the repository when reusing or adapting the skill in their own research workflows.
-
-## Disclaimer
-
-This skill is an independent research-assistance tool. It is not affiliated with Nature Portfolio, Springer Nature, or any journal. It does not provide official editorial decisions. Its output should be treated as a rigorous pre-submission or revision-stage review aid.
+Released under the [MIT License](LICENSE).
