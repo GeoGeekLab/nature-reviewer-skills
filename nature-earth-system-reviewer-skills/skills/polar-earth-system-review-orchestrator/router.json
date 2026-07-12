@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "orchestrator": "polar-earth-system-review-orchestrator",
+  "base_skills": [
+    "nature-remote-sensing-reviewer-skill",
+    "nature-atmospheric-science-reviewer-skill",
+    "nature-hydrology-reviewer-skill",
+    "nature-climate-ecology-reviewer-skill",
+    "nature-engineering-reviewer-skill",
+    "nature-chemistry-reviewer-skill",
+    "nature-materials-science-reviewer-skill"
+  ],
+  "routes": [
+    {
+      "route_id": "sea_ice",
+      "signals": [
+        "sea ice",
+        "ice concentration",
+        "ice extent",
+        "ice thickness",
+        "ice volume",
+        "ice age",
+        "lead",
+        "melt pond"
+      ],
+      "primary_skills": [
+        "nature-remote-sensing-reviewer-skill",
+        "nature-atmospheric-science-reviewer-skill"
+      ],
+      "gates": [
+        "regional_scope_seasonality",
+        "variable_identity_comparability",
+        "polar_remote_sensing_products",
+        "sea_ice_ocean_atmosphere",
+        "uncertainty_statistics_validation"
+      ]
+    },
+    {
+      "route_id": "ice_sheet_glacier",
+      "signals": [
+        "ice sheet",
+        "glacier",
+        "ice shelf",
+        "ice tongue",
+        "grounding line",
+        "calving",
+        "firn",
+        "mass balance"
+      ],
+      "primary_skills": [
+        "nature-hydrology-reviewer-skill",
+        "nature-remote-sensing-reviewer-skill"
+      ],
+      "gates": [
+        "mass_energy_water_budget",
+        "ice_sheet_glacier_dynamics",
+        "polar_remote_sensing_products",
+        "model_resolution_assimilation"
+      ]
+    },
+    {
+      "route_id": "permafrost_snow",
+      "signals": [
+        "permafrost",
+        "active layer",
+        "thermokarst",
+        "ground ice",
+        "snow depth",
+        "snow water equivalent"
+      ],
+      "primary_skills": [
+        "nature-hydrology-reviewer-skill",
+        "nature-climate-ecology-reviewer-skill"
+      ],
+      "gates": [
+        "sampling_representativeness",
+        "variable_identity_comparability",
+        "permafrost_ecology_biogeochemistry",
+        "uncertainty_statistics_validation"
+      ]
+    },
+    {
+      "route_id": "polar_ocean_atmosphere",
+      "signals": [
+        "Southern Ocean",
+        "Arctic Ocean",
+        "polar atmosphere",
+        "atmospheric river",
+        "boundary layer",
+        "ocean heat",
+        "stratification"
+      ],
+      "primary_skills": [
+        "nature-atmospheric-science-reviewer-skill",
+        "nature-climate-ecology-reviewer-skill"
+      ],
+      "gates": [
+        "mass_energy_water_budget",
+        "attribution_coupling_nonstationarity",
+        "sea_ice_ocean_atmosphere",
+        "model_resolution_assimilation"
+      ]
+    },
+    {
+      "route_id": "ecology_biogeochemistry",
+      "signals": [
+        "ecosystem",
+        "microbiome",
+        "biological pump",
+        "carbon uptake",
+        "methane",
+        "mercury",
+        "food web",
+        "primary production"
+      ],
+      "primary_skills": [
+        "nature-climate-ecology-reviewer-skill",
+        "nature-chemistry-reviewer-skill"
+      ],
+      "gates": [
+        "sampling_representativeness",
+        "permafrost_ecology_biogeochemistry",
+        "mass_energy_water_budget",
+        "research_responsibility_governance"
+      ]
+    },
+    {
+      "route_id": "paleoclimate",
+      "signals": [
+        "ice core",
+        "sediment core",
+        "proxy",
+        "paleoclimate",
+        "Last Interglacial",
+        "chronology",
+        "isotope",
+        "age model"
+      ],
+      "primary_skills": [
+        "nature-climate-ecology-reviewer-skill",
+        "nature-chemistry-reviewer-skill"
+      ],
+      "gates": [
+        "paleoclimate_proxy_chronology",
+        "regional_scope_seasonality",
+        "uncertainty_statistics_validation"
+      ]
+    },
+    {
+      "route_id": "polar_instrumentation",
+      "signals": [
+        "sensor",
+        "instrument",
+        "autonomous platform",
+        "buoy",
+        "radar system",
+        "field platform",
+        "drone",
+        "radar"
+      ],
+      "primary_skills": [
+        "nature-engineering-reviewer-skill",
+        "nature-remote-sensing-reviewer-skill"
+      ],
+      "gates": [
+        "sampling_representativeness",
+        "polar_remote_sensing_products",
+        "research_responsibility_governance"
+      ]
+    }
+  ],
+  "always_apply": [
+    "regional_scope_seasonality",
+    "sampling_representativeness",
+    "uncertainty_statistics_validation"
+  ],
+  "conditional_ethics_signals": [
+    "Indigenous",
+    "community",
+    "traditional knowledge",
+    "protected area",
+    "ASPA",
+    "permit",
+    "wildlife sampling",
+    "sensitive location"
+  ],
+  "minimum_routes": 1,
+  "maximum_routes": 4
+}

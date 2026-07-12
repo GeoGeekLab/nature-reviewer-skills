@@ -12,8 +12,9 @@ from .models import Pattern, Severity
 FIELD_ALIASES: dict[str, tuple[str, ...]] = {
     "id": ("pattern_id", "id"),
     "gate": ("gate", "gate_id", "parent_cluster"),
-    "title": ("pattern_name", "gate_name", "claim_type", "abstract_risk_pattern"),
+    "title": ("title", "pattern_name", "gate_name", "claim_type", "abstract_risk_pattern"),
     "concern": (
+        "concern",
         "reviewer_concern",
         "abstract_risk_pattern",
         "trigger",
@@ -22,7 +23,13 @@ FIELD_ALIASES: dict[str, tuple[str, ...]] = {
     ),
     "risk": ("evidence_risk", "why_it_matters", "claim_language_risk"),
     "revision": ("revision_direction", "requested_actions", "evidence_expected"),
-    "severity": ("default_severity", "severity_default", "severity_hint", "severity_rule"),
+    "severity": (
+        "severity",
+        "default_severity",
+        "severity_default",
+        "severity_hint",
+        "severity_rule",
+    ),
     "triggers": ("triggers", "common_triggers", "trigger", "subfield_signals"),
 }
 

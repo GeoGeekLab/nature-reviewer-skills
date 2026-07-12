@@ -1,0 +1,8 @@
+{
+  "case_id": "polar-negative-budget-closure",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "ice_sheet_glacier",
+  "scenario": "The study closes the mass budget, propagates firn and density uncertainty, and confirms the trend with gravimetry.",
+  "expected_concerns": [],
+  "negative_control": true
+}

@@ -1,6 +1,9 @@
 {
   "schema_version": 1,
-  "file_count": 191,
+  "release_version": "2.1.0",
+  "layout": "polar orchestrator under nature-earth-system-reviewer-skills/skills",
+  "file_count": 251,
+  "total_size_bytes": 1904233,
   "files": [
     {
       "path": ".editorconfig",
@@ -9,8 +12,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "size_bytes": 2038,
-      "sha256": "7827508b55edde7e388c1557469431c1b4a50973fc1fe44f7ce29c9609843134"
+      "size_bytes": 2132,
+      "sha256": "828a60f9512611070728dc2fd291577afc156c2a0883cf54fb4aec9e6e8411e0"
     },
     {
       "path": ".gitignore",
@@ -19,8 +22,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "size_bytes": 1222,
-      "sha256": "94bbda73ba1c098d3d929ef807caaf747740100e5a8b4fbf5276b5f78c683cdc"
+      "size_bytes": 1881,
+      "sha256": "7a4878bf6cce50c80afce303b081e728a9ae1e10642e4bcd4205a2af6ce10fcc"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -39,8 +42,8 @@
     },
     {
       "path": "MANIFEST.json",
-      "size_bytes": 7452,
-      "sha256": "5e9d55148de903b84c9e80e299877adc17a5bd1fb47a2ab68ee76fb3293ec46c"
+      "size_bytes": 8495,
+      "sha256": "69b4088dc0a050ff7d08b94ba1f6a587fcfdc680680446088ad94b07a4c566c4"
     },
     {
       "path": "Makefile",
@@ -48,14 +51,24 @@
       "sha256": "0541cfdbefbeebd221ccf55f9e569a9ec5c9b195d7c2594bbe693c7046f02f7a"
     },
     {
+      "path": "POLAR_PRODUCT_REPORT.md",
+      "size_bytes": 3083,
+      "sha256": "e99054b4f84d708d1981b57b69ece0b0f83dc1ae3118abaa5960ad2648fe4e43"
+    },
+    {
       "path": "README.md",
-      "size_bytes": 2928,
-      "sha256": "f86bd4c21c224a8e8f0935df3b9e46e9a7a3ae1d809a70ab1fc216acb3451a14"
+      "size_bytes": 13872,
+      "sha256": "1932737fae04cea89214459e1821f1949d14900c7d88247465a88d9a5dc96487"
     },
     {
       "path": "RECONSTRUCTION_NOTES.md",
       "size_bytes": 710,
       "sha256": "0a6cc67c9ecf57dad54e7f41639f9e2f38752aa60fd1eb53bc23e9084f80898b"
+    },
+    {
+      "path": "REORGANIZATION_REPORT.md",
+      "size_bytes": 1802,
+      "sha256": "232406e50e9e82e32561ddfada85f0005b67d431690318599951c8a976ae59e1"
     },
     {
       "path": "SECURITY.md",
@@ -64,8 +77,8 @@
     },
     {
       "path": "TEST_REPORT.md",
-      "size_bytes": 1270,
-      "sha256": "c0337c9eae0a4aa5647b5618bcd85b8c8b7c9d68a5758070758d45fdda48f515"
+      "size_bytes": 1902,
+      "sha256": "b0df2ac8ed308084a8b96c2283fdda1ba530a9bec6e176ace0bb3383c601a978"
     },
     {
       "path": "UPSTREAM_README.md",
@@ -134,8 +147,8 @@
     },
     {
       "path": "nature-chemistry-reviewer-skill/MANIFEST.json",
-      "size_bytes": 324,
-      "sha256": "58e43603ff39df1884a3ae371e5359e4563a44bfe88ca33b588c6bf735dbecff"
+      "size_bytes": 358,
+      "sha256": "cf7e15955b49a58389d2aa33ee310a062fec368260644bcc53ca2a5bc25d7049"
     },
     {
       "path": "nature-chemistry-reviewer-skill/README.md",
@@ -150,7 +163,7 @@
     {
       "path": "nature-chemistry-reviewer-skill/checksums.sha256",
       "size_bytes": 1711,
-      "sha256": "34dff9856e574e09a70e1d8e22567ad23f94ac1a2f5040fad0fdbdb6c5ca1f58"
+      "sha256": "c68cac453e54fe8d5ae9c9afae3915675fe6ba37fb84f9ad29e662ae05368436"
     },
     {
       "path": "nature-chemistry-reviewer-skill/docs/SECURITY.md",
@@ -229,8 +242,8 @@
     },
     {
       "path": "nature-earth-system-reviewer-skills/README.md",
-      "size_bytes": 262,
-      "sha256": "e0d759e4cf844b4b6896c4ee574c2c93946f0620bc658d7cccd19405ccba5ec7"
+      "size_bytes": 890,
+      "sha256": "69ad420bb46aa62c067ae467919e35405e3e7e926aec4d52cbb79177d31a3b32"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/LICENSE",
@@ -239,8 +252,8 @@
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/MANIFEST.json",
-      "size_bytes": 334,
-      "sha256": "449ac8d2874d90d50ab7009d3275f3af71b696f6dc5ddffa9d60060c8294d40f"
+      "size_bytes": 368,
+      "sha256": "53f2fde89c0979eea6b5ae4d42fbbf0cdc2ef76e45067c6fe1611b4121b897ad"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/README.md",
@@ -255,7 +268,7 @@
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/checksums.sha256",
       "size_bytes": 1711,
-      "sha256": "9a24be83c11cc18cbdd3de8ff4eedc0a7e1a18847e59cc89b2f38f51613db310"
+      "sha256": "54224467e74fc4ce5e71e8c995c8670d4bc7b3be225c0eff8eac273aaaa1377c"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/docs/SECURITY.md",
@@ -339,8 +352,8 @@
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/MANIFEST.json",
-      "size_bytes": 331,
-      "sha256": "3e9c876de2a34d4d7bc6676013118499aeb5fe194e4da8f10774ccf6bdb04036"
+      "size_bytes": 365,
+      "sha256": "519ec3ffdf0f64d9cf2ee9e746151c87b5c975679d4f11f402e9fcbf21b96541"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/README.md",
@@ -355,7 +368,7 @@
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/checksums.sha256",
       "size_bytes": 1711,
-      "sha256": "8082628154ffc213743c9bd8323e55d447c4fb05cd69be0427341d7482cda995"
+      "sha256": "599f2f172f2dd6b5e348b1f25472a98854fe4c0b07e1d3eab4bcdba2b3dc0d84"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/docs/SECURITY.md",
@@ -439,8 +452,8 @@
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/MANIFEST.json",
-      "size_bytes": 325,
-      "sha256": "810d6099968e429580a4d4682cd553ddf81ee6855b973004641abbc45d361595"
+      "size_bytes": 359,
+      "sha256": "dbb58eeeca83dedb0131a89d13b78db14ff48e204d3f68030fccb6bab3fce5f0"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/README.md",
@@ -455,7 +468,7 @@
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/checksums.sha256",
       "size_bytes": 1711,
-      "sha256": "63957ec6ce7cfb08a69b1a06ad69833553f6561d4dfad57fe3b0f65dbf8f48d6"
+      "sha256": "e9f4d50af117076de9bc4febf7e49de6074bc8f7ad90763b2fbb2ec7811b5665"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/docs/SECURITY.md",
@@ -539,8 +552,8 @@
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/MANIFEST.json",
-      "size_bytes": 329,
-      "sha256": "6f896190b8fd3340d65c055d4950c196923a89069efb12535e87494bc8388a4c"
+      "size_bytes": 363,
+      "sha256": "e5c0f0d3565cf8bb055ab8f3d8882ca1166aa70b1f64fa1b2fa09e033982a80c"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/README.md",
@@ -555,7 +568,7 @@
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/checksums.sha256",
       "size_bytes": 1711,
-      "sha256": "8eec279ea3d3c9ed87b375e4bc19ba0785af6de8ae502d629267b62043a1fab8"
+      "sha256": "1a96a8b37c155445fda95d3ed7566d7d47e663ac8f22c12528d8554a1f9c66c6"
     },
     {
       "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/docs/SECURITY.md",
@@ -633,14 +646,294 @@
       "sha256": "0728d988c32c86c1558491f347ff18f9d09c33c14a80d0a6f260a6bf358f798a"
     },
     {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/MANIFEST.json",
+      "size_bytes": 413,
+      "sha256": "5dd8eaf3ffdd3d6822589c27fcc5a17f5d8faba3e6a2c10892dae6ee021e5687"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/README.md",
+      "size_bytes": 5531,
+      "sha256": "e60ca334210adb6a6cfb9c93bcc2bd24160b17fa9c38061ace28b7a7943e24fa"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/SKILL.md",
+      "size_bytes": 6823,
+      "sha256": "c0c1cd5ed6b7bf4f039c8413e046f848339dbf593d109980522bbd56f816a324"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/README.md",
+      "size_bytes": 304,
+      "sha256": "1ff1681d42fe554d1f2bc382d72ea3b3c05e8b2c5af371818d7957bcae7daa73"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-firn-conversion.json",
+      "size_bytes": 550,
+      "sha256": "39ed0510f7e5e61a3daa3def49d86426e4afcad1f21b5a45af6a7877ec6599b2"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-glacier-local-generalization.json",
+      "size_bytes": 579,
+      "sha256": "6593989df8967400afde32293b191af38631fb4d19753da70e9fa5662c29b766"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-icefree-threshold.json",
+      "size_bytes": 579,
+      "sha256": "3202e1fd8fc29036f5644b624d857f4e24f5aa15c8d08ed3bd6c6eb62f8c52da"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-indigenous-governance.json",
+      "size_bytes": 623,
+      "sha256": "fc0b3045f02197452a4e232753c2c35aca04ce1c0bb7055a3551356f3af1923b"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-negative-attribution.json",
+      "size_bytes": 333,
+      "sha256": "adc4cbca31b54ac02e54af647b80fe4349098f17a599a0e0c0e05b24259b147a"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-negative-budget-closure.json",
+      "size_bytes": 315,
+      "sha256": "9081a6f87695e4a4dd09c79f263a821a37e25626f045f1439ec4584f88f9b33f"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-negative-independent-validation.json",
+      "size_bytes": 331,
+      "sha256": "9d3d98ebb07af88d33c0fda57b5f9793f76a87c6a4add6c1fdd74742831da2ce"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-negative-permit-reporting.json",
+      "size_bytes": 326,
+      "sha256": "e386b8457251e23a719f765558208c1182251ac890b05d30ba47558667f2bcdc"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-permafrost-variable.json",
+      "size_bytes": 590,
+      "sha256": "5fff563c4085c335babf17f10dfceafd80d54268e7725dd956d581833004e1f6"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-proxy-age.json",
+      "size_bytes": 579,
+      "sha256": "301362406b4b155a7c21d60f15a153d7048ceae2482e534c0ec0aa70fd4e0278"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-random-cv.json",
+      "size_bytes": 539,
+      "sha256": "eafdf93d64e34787a1020d5588a82f0817e26eaac422fdd14eb0247125fd1d18"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/cases/polar-seaice-sensor-transition.json",
+      "size_bytes": 569,
+      "sha256": "ee4efa7359dd1dbde4cc8c19e3036c786c5e430000a1878508613845579c0005"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/benchmarks/summary.json",
+      "size_bytes": 454,
+      "sha256": "f36772e7ea672472f68f25bd3a201ae885870e13725f149f4b01785caefe80c7"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/checksums.sha256",
+      "size_bytes": 5444,
+      "sha256": "4b21a888bc4026f0a29e66e734454654c323eb6dd13288816e01e1eab05982ad"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/corpus/README.md",
+      "size_bytes": 200,
+      "sha256": "91b2939723db57c764e0dabb5c8ebfc20abfee9b6420936287991ce2edf8c002"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/corpus/distillation_report.md",
+      "size_bytes": 2238,
+      "sha256": "d7c854fa1ea29b539b94d2eba90be484d6f126adefc9ca4f4b42a5aae9eb1e67"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/corpus/index.csv",
+      "size_bytes": 18944,
+      "sha256": "4032d2f16beb873c2bcf52679fbcd98addc0e6560c083aa277b723cf227e2a93"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/corpus/sources.jsonl",
+      "size_bytes": 27276,
+      "sha256": "01c77a2f51c0050f43e862d0e21a4878ea053b8700c6cdb176b09e0c4e032d7f"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/docs/SECURITY.md",
+      "size_bytes": 317,
+      "sha256": "a88bcb44d685c6dd0132100b1a6118a65cbf8d7b9e94316cbe8a8b76f5609df1"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/examples/evaluation_prediction.json",
+      "size_bytes": 410,
+      "sha256": "0056a4b30f1fb88601b22a89393bb00eb64e934a11b9aaa84b9eb76581f8bd86"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/attribution_coupling_nonstationarity.md",
+      "size_bytes": 2968,
+      "sha256": "8a8ff1825e1dfc98cc420767231381f0d6a3ae37849b28ec079dd3b64d433fb9"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/ice_sheet_glacier_dynamics.md",
+      "size_bytes": 2842,
+      "sha256": "d57039496bceffcbebe8796cc6e9345e8d4754420d4339a7bad3e6c7ed0d8827"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/mass_energy_water_budget.md",
+      "size_bytes": 2923,
+      "sha256": "e20aee4d84eaa4b9d913769f2b2b1b36dfc39ff7923478fceeef0635797755a5"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/model_resolution_assimilation.md",
+      "size_bytes": 2858,
+      "sha256": "db48099a93ce7895800e01bb08fbe538e2acc739d819e1454bf4fe8bf10a9a3b"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/paleoclimate_proxy_chronology.md",
+      "size_bytes": 2801,
+      "sha256": "dd735560d3a8fcbb1072992520934d77461472ecb05fcdff861a0cd6e81f5693"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/permafrost_ecology_biogeochemistry.md",
+      "size_bytes": 2988,
+      "sha256": "d4a24706296b805fa12e3c2db2471fe0adb5d6de204b7e201dc4da96e245edf7"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/polar_remote_sensing_products.md",
+      "size_bytes": 2946,
+      "sha256": "6c5bccde341e8f3eb6fd8bd13882efde946b3f9da54f38a064577f48341fa6cf"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/regional_scope_seasonality.md",
+      "size_bytes": 3050,
+      "sha256": "ffa7f06c31b52cf232743365be0925fd1ecbf9d85396d56816438a431f5793fb"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/research_responsibility_governance.md",
+      "size_bytes": 3048,
+      "sha256": "1128c1beb16b7c97220a0b97b441dc2e75eed7b48ebd4bebe9232331292e8df6"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/sampling_representativeness.md",
+      "size_bytes": 2847,
+      "sha256": "1c40c1a26712283c8b4531566adfda984f53aa530f7ddee1c3d3a284845dd862"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/sea_ice_ocean_atmosphere.md",
+      "size_bytes": 2982,
+      "sha256": "6c658e21e5c8b102d53e1270cb3b393c687d1cc3cce6b17342f59aac451420ea"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/uncertainty_statistics_validation.md",
+      "size_bytes": 2799,
+      "sha256": "c26c7decac8c653bfe260564cae5feac2ee2d5d6c0ccd7d6bc906f67677ebf14"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/gates/variable_identity_comparability.md",
+      "size_bytes": 2959,
+      "sha256": "96b83211e0a3a24d00048dcd7dd840afe319ad51c415cbc215fbcab39674b786"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/references/architecture.md",
+      "size_bytes": 354,
+      "sha256": "a32797b76046b4dd9a49752472cf00526a5ba6972f70b2604ddacdbe1dc15faa"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/references/claim_dependent_gate_router.md",
+      "size_bytes": 402,
+      "sha256": "21aa4fd8ba5dd7f381f851e50faffa81529be7a3614dcd2db76386daa266b87f"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/references/evaluation_contract.md",
+      "size_bytes": 419,
+      "sha256": "67e6a74158914dbf31559d0aca0616cad879ec525733823fd51ae1419d3d6e5d"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/references/evidence_boundary.md",
+      "size_bytes": 400,
+      "sha256": "874473db7c5e313711ee6fa5976b0e27654a926d0fd86fe0c6141b70cacbecf3"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/references/source_methodology.md",
+      "size_bytes": 524,
+      "sha256": "eca7d5e7451ab82e0930e946231cdff31ba3ae6cb4e399015dd58cd197635479"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/requirements-dev.txt",
+      "size_bytes": 27,
+      "sha256": "ee8f3e3a15196c312c3703569ae388fd63b06f3b2f7d47480681bce045545a0d"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/reviewer_db/patterns.csv",
+      "size_bytes": 76182,
+      "sha256": "0dfb1ce4390a8e11b836ddebb216fc6bbac2edb0447317f4b565eaf7cdef4a74"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/reviewer_db/patterns.jsonl",
+      "size_bytes": 165290,
+      "sha256": "906c92f1237f2790a35d5291cac19bc97f3ce2f1c81d1baa023e2039f775bd49"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/reviewer_db/summary.json",
+      "size_bytes": 819,
+      "sha256": "5f70970f6090aac6efc660c790c2bce5b63a6d043b73f57a93482be8dbcb3cc2"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/reviewer_roles.json",
+      "size_bytes": 2163,
+      "sha256": "6f02b20d11baaf2bf278cbbbae79f13c9bbfb8c5cbf77de6b708a70f658ebc7b"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/router.json",
+      "size_bytes": 4741,
+      "sha256": "bda794746e9f26126d952c825464d5531da63fb73ace90637f0fa9efb63b4faa"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/scripts/extract_text_with_anchors.py",
+      "size_bytes": 1261,
+      "sha256": "4a13f4872027ff49559f35d4589321ace4a239f857be29ca79706d04844f4efe"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/scripts/render_review_docx.py",
+      "size_bytes": 971,
+      "sha256": "7ff84aa04e569d6f70d0d6e242dc244c160002d67421bb69049d682ff3a01a92"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/scripts/reviewer_db.py",
+      "size_bytes": 1490,
+      "sha256": "527562019bdd79bb4a05e980b51cb0ca5d4d0ca19bf6c7f4d68cf8112a3629a7"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/scripts/route_review.py",
+      "size_bytes": 836,
+      "sha256": "ca18bbefbae5eb538b04c97b0a7f9fe3ea672a46fdf08b42d58c02faef8e88d1"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/scripts/validate_package.py",
+      "size_bytes": 928,
+      "sha256": "1c351cb8851917caa4226c100c647db680a626e5eab72da5077c30da1be14dfc"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/templates/review_report.md",
+      "size_bytes": 1219,
+      "sha256": "a9174a0cf0fe6391b68d57e4f2daab39e542ba321eb028c38eae797df9a09293"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/tests/test_package.py",
+      "size_bytes": 2506,
+      "sha256": "6efc61798cae9c5d046644f648e66420d7a82f926f2e028926afb391244d1d5c"
+    },
+    {
       "path": "nature-engineering-reviewer-skill/LICENSE",
       "size_bytes": 1114,
       "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
     },
     {
       "path": "nature-engineering-reviewer-skill/MANIFEST.json",
-      "size_bytes": 326,
-      "sha256": "00b574577b25c4b0f56b02f2a4b3854c4c33ca9e76f519740b66decf7dc8621f"
+      "size_bytes": 360,
+      "sha256": "64cf55fff40277a80477c01d15d4822b997acd546e1e0438f6e0b4942ed8a83f"
     },
     {
       "path": "nature-engineering-reviewer-skill/README.md",
@@ -655,7 +948,7 @@
     {
       "path": "nature-engineering-reviewer-skill/checksums.sha256",
       "size_bytes": 1711,
-      "sha256": "1f7500716f8f2676c04dd62fe6de65c47619e842ec2212ad0f612aae375ab981"
+      "sha256": "fb578837ba918d959dc276e196b2165d5b934de919e627103159f9d18e6a4295"
     },
     {
       "path": "nature-engineering-reviewer-skill/docs/SECURITY.md",
@@ -739,8 +1032,8 @@
     },
     {
       "path": "nature-materials-science-reviewer-skill/MANIFEST.json",
-      "size_bytes": 332,
-      "sha256": "64f72bd84085ea90517c724c45ad003293f567d7d8e776f078d69ece8a11592a"
+      "size_bytes": 366,
+      "sha256": "c2763345f5a1604cb1e6dcc422d6c6aa55d01cda031be00dec7263acac9f38b7"
     },
     {
       "path": "nature-materials-science-reviewer-skill/README.md",
@@ -755,7 +1048,7 @@
     {
       "path": "nature-materials-science-reviewer-skill/checksums.sha256",
       "size_bytes": 1711,
-      "sha256": "8bbdb803d81c953ef0993f14dec24585342e4d95cbffde3276f592f80daed996"
+      "sha256": "80d8f910aed6aad200746096554f51c3c16835df0a2c128c7c1b0a11a3dfdadd"
     },
     {
       "path": "nature-materials-science-reviewer-skill/docs/SECURITY.md",
@@ -835,7 +1128,7 @@
     {
       "path": "pyproject.toml",
       "size_bytes": 1303,
-      "sha256": "ad2b6fd81fa3f00b53a6eb1a42c42ad6103e3be7bcddeba1c661806f9fb42e4c"
+      "sha256": "f20a43f0a71d740717ceece46827260b392e22bf2fcee46614d679230a5620e1"
     },
     {
       "path": "requirements.lock",
@@ -870,7 +1163,7 @@
     {
       "path": "src/nature_reviewer_core/__init__.py",
       "size_bytes": 220,
-      "sha256": "b33cc65e7919fabaf7d0c6ae8bdb400758020720c1beeef86a7a92d3706bd2c9"
+      "sha256": "1b1016cacdbade00eac09293e1a54938dde3264a7ca9b1e25c2ae41d6432ea21"
     },
     {
       "path": "src/nature_reviewer_core/cli.py",
@@ -879,8 +1172,8 @@
     },
     {
       "path": "src/nature_reviewer_core/discovery.py",
-      "size_bytes": 1035,
-      "sha256": "4d8be8389e9913357105f418e878f865353cafb123f2df0e77972f9e88628652"
+      "size_bytes": 2342,
+      "sha256": "1ac4d88d53d224b9eca7028b5e7a84e23c664a21864caef9f20289ae1782eec2"
     },
     {
       "path": "src/nature_reviewer_core/evaluation.py",
@@ -898,14 +1191,19 @@
       "sha256": "97968ef87dd664cc741d0250b8d2cb757b03c4514f55e596544d429a80ceb1ee"
     },
     {
+      "path": "src/nature_reviewer_core/orchestration.py",
+      "size_bytes": 2647,
+      "sha256": "75a4bdb3bafb4597c9c05a44ecbcf353d0d168e581f44458de294440acd0e611"
+    },
+    {
       "path": "src/nature_reviewer_core/panel.py",
       "size_bytes": 2456,
       "sha256": "f8d3dd101cd2ce3098a176c38bd14a1e88762888d44b504f757ede04f7a8851d"
     },
     {
       "path": "src/nature_reviewer_core/patterns.py",
-      "size_bytes": 6025,
-      "sha256": "dd72b2f5ec174301e1d1393c20e05a7143e75bdc128d7742d8b5e0ad2dc9d3c8"
+      "size_bytes": 6112,
+      "sha256": "812977d7be4ac9617e1cef5eff3a62718b6fa16af9412810af7bcbe7efe34ed7"
     },
     {
       "path": "src/nature_reviewer_core/retrieval.py",
@@ -919,13 +1217,13 @@
     },
     {
       "path": "src/nature_reviewer_core/sync.py",
-      "size_bytes": 2625,
-      "sha256": "56362360b07d6b6d8653e2724844abb89894970de884fee58f9b58e565fb7020"
+      "size_bytes": 3276,
+      "sha256": "5e741dc0cb286ef3217cf63bc30518f26625b3139dee72f5d61b848c00159920"
     },
     {
       "path": "src/nature_reviewer_core/validation.py",
-      "size_bytes": 4231,
-      "sha256": "ec4e985ac6b8560d3aaca75747f38a826e6544b532e0d42e1dd705c680952d09"
+      "size_bytes": 4580,
+      "sha256": "ea2c1df15778d4f3f03600ce472a0aaede5f079a7d190e5f20763f2a43477e0a"
     },
     {
       "path": "tests/conftest.py",
@@ -934,13 +1232,13 @@
     },
     {
       "path": "tests/test_cli_sync.py",
-      "size_bytes": 802,
-      "sha256": "f00daf76207a142bd4fdb3d88df652fcb5c7913aead0f08895371ced8a2b0fa6"
+      "size_bytes": 829,
+      "sha256": "a717274b8d6e6a433517a656903910d40b8c5fbcad65afbf62e933de638dff9f"
     },
     {
       "path": "tests/test_discovery_validation.py",
-      "size_bytes": 638,
-      "sha256": "5e3f69844260ef3147b1da8d0a019e7e95285abc74606b677c476201161da8ed"
+      "size_bytes": 989,
+      "sha256": "c4d61a14593e667a33d0d26fa3504743ce1fd55a6f94dbd01a2ff4e85fa0a7c6"
     },
     {
       "path": "tests/test_evaluation_panel.py",
@@ -949,8 +1247,13 @@
     },
     {
       "path": "tests/test_patterns_retrieval.py",
-      "size_bytes": 1285,
-      "sha256": "536e1017904d11feea146fb739494c18ed7c6cc3f6a5771f23210a330a80ed7d"
+      "size_bytes": 1303,
+      "sha256": "96283769ae0585ff2ae9301a4d3c35f4ccc98e407eceb599a46b5af07009b21f"
+    },
+    {
+      "path": "tests/test_polar_orchestration.py",
+      "size_bytes": 1144,
+      "sha256": "ca9cb8749917b7c0f4b886027aba8c0966cfbf99c665b87934c983164c43ee44"
     },
     {
       "path": "tests/test_security_extractors.py",

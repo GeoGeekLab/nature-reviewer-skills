@@ -1,0 +1,22 @@
+{
+  "case_id": "polar-proxy-age",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "paleoclimate",
+  "scenario": "A 150-year lead is claimed while the two age models have century-scale correlated uncertainty that is not propagated.",
+  "expected_concerns": [
+    {
+      "issue_id": "age uncertainty is omitted from phase relation",
+      "severity": "major",
+      "anchors": [
+        "methods:chronology",
+        "figure:lead-lag"
+      ],
+      "required_terms": [
+        "age",
+        "uncertainty",
+        "is"
+      ]
+    }
+  ],
+  "negative_control": false
+}

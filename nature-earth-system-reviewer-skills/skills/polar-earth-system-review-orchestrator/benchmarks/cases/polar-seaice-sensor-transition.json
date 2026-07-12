@@ -1,0 +1,22 @@
+{
+  "case_id": "polar-seaice-sensor-transition",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "sea_ice",
+  "scenario": "A 45-year sea-ice concentration trend concatenates three sensors without overlap calibration.",
+  "expected_concerns": [
+    {
+      "issue_id": "sensor transition creates artificial trend",
+      "severity": "major",
+      "anchors": [
+        "methods:product record",
+        "figure:trend"
+      ],
+      "required_terms": [
+        "sensor",
+        "transition",
+        "creates"
+      ]
+    }
+  ],
+  "negative_control": false
+}

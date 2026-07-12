@@ -1,0 +1,21 @@
+{
+  "case_id": "polar-random-cv",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "polar_remote_sensing",
+  "scenario": "A geospatial model uses random pixel splits and claims transfer to unobserved Antarctic sectors.",
+  "expected_concerns": [
+    {
+      "issue_id": "cross-validation leaks space or time",
+      "severity": "major",
+      "anchors": [
+        "methods:validation"
+      ],
+      "required_terms": [
+        "cross-validation",
+        "leaks",
+        "space"
+      ]
+    }
+  ],
+  "negative_control": false
+}

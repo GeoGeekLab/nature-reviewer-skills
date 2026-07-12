@@ -1,0 +1,22 @@
+{
+  "case_id": "polar-indigenous-governance",
+  "domain": "polar-earth-system-orchestrator",
+  "route": "ecology_biogeochemistry",
+  "scenario": "Indigenous observations are treated as a public validation dataset without consent, stewardship or interpretive involvement.",
+  "expected_concerns": [
+    {
+      "issue_id": "Indigenous knowledge is treated as extractable data",
+      "severity": "major",
+      "anchors": [
+        "methods:data sources",
+        "data availability"
+      ],
+      "required_terms": [
+        "Indigenous",
+        "knowledge",
+        "is"
+      ]
+    }
+  ],
+  "negative_control": false
+}
