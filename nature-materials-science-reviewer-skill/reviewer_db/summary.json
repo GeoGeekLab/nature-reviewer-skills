@@ -1,0 +1,26 @@
+{
+  "schema_version": 2,
+  "generated_from": "patterns.csv",
+  "pattern_count": 95,
+  "gate_count": 13,
+  "patterns_by_gate": {
+    "composition_phase_purity_and_identity": 7,
+    "computational_design_and_model_validation": 7,
+    "control_materials_and_benchmarking": 7,
+    "data_code_materials_and_reporting_completeness": 8,
+    "editorial_significance_and_novelty": 8,
+    "property_measurement_and_metric_validity": 8,
+    "reader_logic_and_figure_narrative": 10,
+    "scalability_processability_and_application_boundary": 4,
+    "stability_durability_and_operando_relevance": 6,
+    "statistical_inference_uncertainty_and_replicates": 4,
+    "structural_characterization_and_spatial_evidence": 9,
+    "structure_property_causality_and_mechanism": 9,
+    "synthesis_route_and_reproducibility": 8
+  },
+  "patterns_by_severity": {
+    "major": 71,
+    "moderate": 24
+  },
+  "normalized_sha256": "e7e3573fda6ccce4d95d91badb84bb236136b65fd2f462b5acb7ec4e2ea286d9"
+}

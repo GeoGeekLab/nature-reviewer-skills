@@ -1,0 +1,12 @@
+{
+  "case_id": "replace-with-case-id",
+  "concerns": [
+    {
+      "issue_id": "stable-gold-or-taxonomy-id",
+      "severity": "major",
+      "text": "Evidence-linked concern",
+      "anchors": ["page:3:figure:2"],
+      "reviewer_id": "referee-2"
+    }
+  ]
+}

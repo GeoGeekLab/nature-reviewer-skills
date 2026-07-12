@@ -1,0 +1,23 @@
+{
+  "case_id": "chemistry-synthetic-001",
+  "domain": "chemistry",
+  "manuscript_text": "The catalyst is claimed to operate through pathway A, but only product yield is supplied and no discriminating control is reported.",
+  "gold_concerns": [
+    {
+      "issue_id": "mechanism-discrimination",
+      "severity": "major",
+      "text": "Yield alone does not distinguish pathway A from alternatives.",
+      "anchors": [
+        "paragraph:1"
+      ]
+    },
+    {
+      "issue_id": "control-completeness",
+      "severity": "major",
+      "text": "Mechanistically discriminating controls are absent.",
+      "anchors": [
+        "paragraph:1"
+      ]
+    }
+  ]
+}

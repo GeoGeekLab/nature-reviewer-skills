@@ -156,3 +156,12 @@ Use `references/output_delivery_gate.md`. For normal full reviews, provide the M
 ## Final Self-Check
 
 Before finalizing, verify that the report: states material completeness first; follows Nature peer-review-file conventions without looking templated; gives a decision-level assessment when warranted or requested; recognizes contribution before critique; applies only manuscript-triggered gates; uses verified literature comparisons only when allowed; avoids invented methods/literature/line numbers/datasets/products/sensor versions/results; includes locatable line/page/paragraph/figure/table comments when supported; distinguishes missing evidence from negative evidence; applies claim calibration; includes micro-consistency comments where appropriate; varies referee voice without reducing depth; includes full-manuscript depth when material is readable; and creates `.md` plus `.docx` outputs in any file-capable environment.
+
+
+## Reliability and evaluation extension (v2)
+
+Before drafting reports, declare the evidence boundary and assign distinct reviewer perspectives from `templates/review_report.md`. Retrieve patterns as hypotheses for inspection, not as findings. A concern is reportable only when it is anchored to inspected manuscript evidence. Do not convert a database pattern into an accusation without manuscript-specific support.
+
+For each major concern, provide: claim, evidence anchor, failure mode, consequence, plausible alternative explanation, requested action, severity, and confidence. Deduplicate cross-referee overlap in the synthesis. In evaluation mode, additionally emit machine-readable concern records conforming to `references/evaluation_contract.md`.
+
+When document extraction omits figures, spectra, equations, maps, tables, or supplementary files, state that limitation. Do not infer their contents from captions alone. Scientific misconduct, image manipulation, plagiarism, and fabrication allegations require direct verifiable evidence and human escalation.

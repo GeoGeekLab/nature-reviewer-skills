@@ -1,6 +1,27 @@
 {
-  "review_unit_index_rows": 262,
-  "abstract_patterns": 51,
-  "raw_reviewer_text_included": false,
-  "raw_pdf_included": false
+  "schema_version": 2,
+  "generated_from": "patterns.csv",
+  "pattern_count": 51,
+  "gate_count": 14,
+  "patterns_by_gate": {
+    "catalysis_and_performance": 3,
+    "chemical_biology_and_biointerface": 3,
+    "claim_evidence_calibration": 3,
+    "computational_model_assumptions": 3,
+    "controls_and_validation": 3,
+    "detail_audit_and_clarity": 3,
+    "materials_energy_interface": 3,
+    "mechanism_and_causality": 3,
+    "novelty_and_positioning": 3,
+    "reaction_scope_and_selectivity": 3,
+    "reproducibility_data_and_code": 3,
+    "statistical_inference_and_uncertainty": 3,
+    "subfield_specific_evidence_calibration": 12,
+    "synthesis_characterization_and_analytical_evidence": 3
+  },
+  "patterns_by_severity": {
+    "major": 45,
+    "unknown": 6
+  },
+  "normalized_sha256": "6d75d61b0bad28adfa2b7d8f8891ece5a113bbc483330ed4c7a769d0af66e4db"
 }

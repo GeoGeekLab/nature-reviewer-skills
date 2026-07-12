@@ -1,3 +1,1 @@
-pytest>=8
-ruff>=0.12
-bandit>=1.7
+-r ../../../requirements.lock

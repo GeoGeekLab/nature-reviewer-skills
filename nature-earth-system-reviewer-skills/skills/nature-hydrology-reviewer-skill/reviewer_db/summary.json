@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "generated_from": "patterns.csv",
+  "pattern_count": 158,
+  "gate_count": 17,
+  "patterns_by_gate": {
+    "claim_evidence_calibration": 10,
+    "detail_audit": 12,
+    "extreme_event_definition": 8,
+    "human_water_interaction": 9,
+    "hydrological_variable_validity": 9,
+    "management_policy_interpretation": 10,
+    "model_assumption_sensitivity": 10,
+    "novelty_related_work_positioning": 11,
+    "referee_voice_output_format": 11,
+    "remote_sensing_data_assimilation": 8,
+    "reproducibility_data_code": 9,
+    "sampling_gauge_representativeness": 8,
+    "scale_basin_consistency": 9,
+    "statistical_uncertainty": 9,
+    "trend_attribution_temporal_support": 9,
+    "validation_independent_testing": 8,
+    "water_quality_transport": 8
+  },
+  "patterns_by_severity": {
+    "major": 135,
+    "unknown": 23
+  },
+  "normalized_sha256": "9f6d7aea823ab9277befdc8f8bd63b7b6852b254f9f9727a56ac4f5551de90a2"
+}

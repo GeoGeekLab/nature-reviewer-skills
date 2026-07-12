@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "generated_from": "patterns.csv",
+  "pattern_count": 112,
+  "gate_count": 15,
+  "patterns_by_gate": {
+    "biodiversity_ecosystem_function_gate": 9,
+    "carbon_nitrogen_cycle_gate": 9,
+    "claim_calibration_gate": 1,
+    "climate_trend_attribution_gate": 9,
+    "forest_land_use_conservation_gate": 9,
+    "generalist_clarity_gate": 9,
+    "mechanism_claim_gate": 9,
+    "model_assumption_validation_gate": 8,
+    "novelty_scope_gate": 8,
+    "observational_product_uncertainty_gate": 9,
+    "policy_management_claim_gate": 9,
+    "published_paper_comparison_gate": 1,
+    "reproducibility_data_code_gate": 5,
+    "sampling_representativeness_gate": 8,
+    "statistical_inference_gate": 9
+  },
+  "patterns_by_severity": {
+    "major": 90,
+    "minor": 1,
+    "unknown": 21
+  },
+  "normalized_sha256": "a2d657047805561da95f10ee0741d33594cf28d29de3a38fd6623349f5fa3d36"
+}

@@ -1,0 +1,23 @@
+{
+  "case_id": "engineering-synthetic-001",
+  "domain": "engineering",
+  "manuscript_text": "A single prototype tested for two hours is described as a scalable, durable platform without a baseline or failure analysis.",
+  "gold_concerns": [
+    {
+      "issue_id": "validated-envelope",
+      "severity": "major",
+      "text": "Scalability and durability claims exceed the test envelope.",
+      "anchors": [
+        "paragraph:1"
+      ]
+    },
+    {
+      "issue_id": "baseline-comparison",
+      "severity": "major",
+      "text": "No baseline supports claimed superiority.",
+      "anchors": [
+        "paragraph:1"
+      ]
+    }
+  ]
+}
