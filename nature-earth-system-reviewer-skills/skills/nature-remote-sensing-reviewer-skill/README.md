@@ -1,273 +1,167 @@
 # Nature Remote Sensing Reviewer Skill
 
-![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-yellow.svg) ![Codex Skill](https://img.shields.io/badge/Codex-Skill-blue) ![Status](https://img.shields.io/badge/status-v1.0.1-green) ![Domain](https://img.shields.io/badge/domain-remote%20sensing-brightgreen) ![Repo Size](https://img.shields.io/github/repo-size/GeoGeekLab/nature-remote-sensing-reviewer-skill)
+![Version](https://img.shields.io/badge/version-2.1.0-blue)
+![Package type](https://img.shields.io/badge/package-domain%20skill-4c1)
+![Domain](https://img.shields.io/badge/domain-remote%20sensing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-yellow)
 
-A Nature-style reviewer skill for rigorous evaluation of remote-sensing manuscripts.
+**Evidence-centered review for Earth-observation retrievals, mapping, geospatial machine learning, multi-sensor products, validation, uncertainty, and transferability.**
 
-Distilled from publicly available Nature and Nature Communications peer-review files, it helps researchers stress-test manuscripts against high-level reviewer concerns using review-pattern distillation, evidence-chain checks, and referee-style reasoning before submission or revision.
+This package is one of the seven foundational domain reviewer skills in
+[Nature Reviewer Skills](https://github.com/GeoGeekLab/nature-reviewer-skills).
 
-> This project is not affiliated with Nature Portfolio. It does not include raw peer-review PDFs or reproduce copyrighted review reports.
+> The objective is not language polishing. The objective is to determine whether the manuscript's strongest scientific claims are supported by the evidence actually presented.
 
-## What this skill does
+## Scientific value
 
-This skill helps researchers conduct a strict, journal-level review of remote-sensing manuscripts. It focuses on scientific evidence, methodological robustness, product validity, validation design, uncertainty, reproducibility, novelty, and claim calibration in studies that use Earth-observation data as primary evidence.
+Remote-sensing papers often conflate sensor measurements, algorithm outputs, mapped variables, and scientific interpretation. This skill separates those layers and checks whether validation, sampling, uncertainty, spatial dependence, and out-of-domain testing justify the claimed product or Earth-system conclusion.
 
-It is especially useful for:
+The skill is intended for pre-submission review, internal research-group red teaming, revision planning, reviewer-response preparation, and evidence-centered training for early-career researchers.
 
-- pre-submission manuscript self-review;
-- major revision preparation;
-- stress-testing satellite-product, retrieval, mapping, and time-series studies;
-- identifying likely reviewer concerns before journal submission;
-- improving the scientific defensibility of remote-sensing papers.
+## Appropriate scope
 
-## Key capabilities
+Use this skill for:
 
-- Generates Nature-style referee reports.
-- Reviews main manuscripts and supplementary materials together.
-- Identifies major weaknesses in product validity, validation, uncertainty, trend inference, attribution, novelty, and reproducibility.
-- Provides detailed comments anchored to lines, pages, sections, paragraphs, figures, tables, or supplementary text when available.
-- Supports manuscript-level and supplement-level evidence-chain checking.
-- Can compare the manuscript with closely related published work when literature search is available and permitted.
-- Can generate both Markdown and Word review outputs in file-capable environments.
+- optical, thermal, microwave, radar, lidar, altimetry, and multi-sensor studies
+- retrieval algorithms and geophysical or biophysical products
+- classification, segmentation, mapping, change detection, and trend products
+- geospatial machine learning, foundation models, and transfer learning
+- data fusion, downscaling, super-resolution, and gap filling
+- satellite-derived products used in climate, hydrology, ecology, agriculture, or hazards
 
-## Repository structure
+For interdisciplinary manuscripts, combine it with other domain skills or a relevant orchestrator rather than forcing all claims through one disciplinary lens.
+
+## Core evidence gates
+
+The gates are activated according to the manuscript's central claims; they are not applied as a mechanical checklist.
+
+| Review area | What is stress-tested |
+|---|---|
+| **Measurement-to-variable chain** | Sensor response, preprocessing, retrieval assumptions, target definition, and physical meaning |
+| **Reference data** | Label quality, temporal alignment, spatial support, independence, and representativeness |
+| **Leakage and splitting** | Spatial, temporal, scene, tile, sensor, preprocessing, and benchmark leakage |
+| **Validation and metrics** | Independent test design, class imbalance, thresholding, calibration, uncertainty, and error geography |
+| **Resolution and scaling** | Mixed pixels, footprint mismatch, downscaling assumptions, aggregation, and change of support |
+| **Transfer and product claims** | Cross-region, cross-season, cross-sensor, cross-year, and operational generalization |
+
+The package contains **31 abstracted reviewer-reasoning patterns**. They support retrieval and review planning without reproducing raw referee reports.
+
+## Expected review output
+
+A standard run produces **2–4 complementary referee-style reports**, defaulting to three. Each report should:
+
+1. identify the manuscript's central contribution and strongest claims;
+2. distinguish direct evidence from derived products, models, correlations, mechanisms, and extrapolations;
+3. anchor major concerns to figures, tables, methods, results, supplementary evidence, or explicit missing evidence;
+4. explain why each concern matters to the central claim;
+5. propose a proportionate resolution: additional analysis, stronger validation, a discriminating experiment, clearer uncertainty, or narrower wording;
+6. separate major concerns from local reporting and presentation issues.
+
+A major concern should follow this logic:
 
 ```text
-nature-remote-sensing-reviewer-skill/
-├─ README.md
-├─ SKILL.md
-├─ MANIFEST.json
-├─ LICENSE
-├─ LICENSE-APACHE
-├─ LICENSE-MIT
-├─ reviewer_db/
-├─ references/
-├─ templates/
-├─ examples/
-├─ scripts/
-└─ tests/
+claim under review
+→ evidence or missing evidence
+→ scientific risk
+→ alternative explanation or failure mode
+→ actionable revision path
 ```
 
-## Installation
+## Use with an agent runtime
 
-Codex skills are installed as folders containing a `SKILL.md` file. The folder name should be stable and easy to invoke.
-
-### Option 1: User-level installation
-
-Use this option if you want the skill available across all projects.
+Clone the suite and install the shared runtime:
 
 ```bash
-mkdir -p ~/.agents/skills
-git clone https://github.com/GeoGeekLab/nature-remote-sensing-reviewer-skill.git ~/.agents/skills/nature-remote-sensing-reviewer
+git clone https://github.com/GeoGeekLab/nature-reviewer-skills.git
+cd nature-reviewer-skills
+python -m pip install -e ".[documents]"
 ```
 
-Expected structure:
+Point the agent runtime to:
 
 ```text
-~/.agents/skills/nature-remote-sensing-reviewer/SKILL.md
-~/.agents/skills/nature-remote-sensing-reviewer/reviewer_db/
-~/.agents/skills/nature-remote-sensing-reviewer/references/
-~/.agents/skills/nature-remote-sensing-reviewer/templates/
-~/.agents/skills/nature-remote-sensing-reviewer/scripts/
+nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/SKILL.md
 ```
 
-### Option 2: Project-level installation
+For runtimes using `.agents/skills`, copy the complete package directory and keep `SKILL.md`, `reviewer_db/`, `references/`, `templates/`, and `scripts/` together.
 
-Use this option if you want the skill available only inside one manuscript project.
+Invoke the skill as:
 
 ```text
-your-manuscript-project/
-├─ manuscript.docx
-├─ supplementary.docx
-└─ .agents/
-   └─ skills/
-      └─ nature-remote-sensing-reviewer/
-         ├─ SKILL.md
-         ├─ reviewer_db/
-         ├─ references/
-         ├─ templates/
-         └─ scripts/
+$nature-remote-sensing-reviewer
 ```
 
-Clone into the project-level skill directory:
+Example request:
+
+```text
+Use $nature-remote-sensing-reviewer to review the manuscript. Trace the measurement-to-product evidence chain, test reference-data independence, leakage, spatial and temporal validation, uncertainty, scale consistency, transferability, and whether mapped outputs support the scientific claims.
+```
+
+## Package contents
+
+```text
+README.md                         user-facing overview
+SKILL.md                          agent instructions and review workflow
+MANIFEST.json                     version, type, runtime, and pattern metadata
+reviewer_db/patterns.jsonl        canonical reviewer-pattern database
+reviewer_db/patterns.csv          tabular reviewer-pattern export
+reviewer_db/summary.json          pattern and gate statistics
+references/                       evidence protocol, domain gates, and evaluation contract
+templates/review_report.md        report structure
+scripts/                          validation, retrieval, extraction, and DOCX rendering wrappers
+tests/                            package-level regression tests
+checksums.sha256                  package integrity manifest
+```
+
+## Validation and reviewer-memory search
+
+From the repository root:
 
 ```bash
-mkdir -p .agents/skills
-git clone https://github.com/GeoGeekLab/nature-remote-sensing-reviewer-skill.git .agents/skills/nature-remote-sensing-reviewer
+python scripts/validate_all.py
+python -m pytest
 ```
 
-## Windows installation
-
-For Windows PowerShell, user-level installation can be done with:
-
-```powershell
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.agents\skills" | Out-Null
-git clone https://github.com/GeoGeekLab/nature-remote-sensing-reviewer-skill.git "$env:USERPROFILE\.agents\skills\nature-remote-sensing-reviewer"
-```
-
-Expected structure:
-
-```text
-%USERPROFILE%\.agents\skills\nature-remote-sensing-reviewer\SKILL.md
-%USERPROFILE%\.agents\skills\nature-remote-sensing-reviewer\reviewer_db\
-%USERPROFILE%\.agents\skills\nature-remote-sensing-reviewer\references\
-%USERPROFILE%\.agents\skills\nature-remote-sensing-reviewer\templates\
-%USERPROFILE%\.agents\skills\nature-remote-sensing-reviewer\scripts\
-```
-
-## Optional validation
-
-After installation, you can validate the package:
+Validate this package directly:
 
 ```bash
-python ~/.agents/skills/nature-remote-sensing-reviewer/scripts/validate_package.py --root ~/.agents/skills/nature-remote-sensing-reviewer
+nature-reviewer-validate "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill"
 ```
 
-On Windows PowerShell:
-
-```powershell
-python "$env:USERPROFILE\.agents\skills\nature-remote-sensing-reviewer\scripts\validate_package.py" --root "$env:USERPROFILE\.agents\skills\nature-remote-sensing-reviewer"
-```
-
-## Using the skill in Codex CLI
-
-Open a terminal in the manuscript project directory:
+Search its reviewer memory:
 
 ```bash
-cd path/to/your/manuscript-project
-codex
+nature-reviewer-search \
+  --root "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill" \
+  --query "describe the scientific concern to stress-test" \
+  --limit 5
 ```
 
-Inside Codex CLI, select the skill:
+## v2.1 at a glance
 
-```text
-/skills
-```
+Compared with the v1 generation, v2.1 provides:
 
-Choose:
+- a shared, typed `nature_reviewer_core` runtime instead of duplicated package logic;
+- field-weighted BM25 retrieval with phrase support, query expansion, confidence reporting, and diversity-aware selection;
+- standardized manifests, package validation, checksums, tests, and benchmark contracts;
+- safer manuscript extraction and report generation with explicit input and evidence boundaries;
+- clearer multi-referee roles, evidence anchoring, severity calibration, and non-fabrication requirements.
 
-```text
-nature-remote-sensing-reviewer
-```
+These improvements strengthen consistency and auditability. They do not replace expert scientific judgment.
 
-Then ask Codex to review the manuscript:
+## Reliability boundary
 
-```text
-Use $nature-remote-sensing-reviewer to review the uploaded files.
-```
+This skill is a research-assistance and manuscript-quality-control tool. It does not:
 
-If the files are already in the project directory, you can be more specific:
+- replace qualified domain experts, editors, or formal peer review;
+- guarantee correctness, novelty, acceptance, or reproducibility;
+- justify unsupported research-misconduct allegations;
+- treat a model, retrieval, proxy, correlation, or benchmark as direct proof without validation.
 
-```text
-Use $nature-remote-sensing-reviewer to review manuscript.docx and supplementary.docx. Treat manuscript.docx as the main paper and supplementary.docx as supplementary material.
-```
+The reviewer memory contains abstracted, non-verbatim reasoning patterns. Raw referee reports are not redistributed.
 
-## Using the skill in Codex GUI / App
+This project is not affiliated with Nature Portfolio or Springer Nature.
 
-1. Open the manuscript project in Codex GUI / App.
-2. Upload or reference the main manuscript, supplementary materials, figures, tables, or appendices.
-3. Invoke the skill:
+## License
 
-```text
-Use $nature-remote-sensing-reviewer to review the uploaded files.
-```
-
-You can also type:
-
-```text
-/skills
-```
-
-or start typing:
-
-```text
-$nature
-```
-
-to check whether the skill is available.
-
-If the skill does not appear, check that `SKILL.md` is located directly inside the installed skill folder, then restart Codex.
-
-## Recommended input files
-
-The skill can work with one or more files, for example:
-
-```text
-manuscript.docx
-supplementary.docx
-appendix.pdf
-figures.pdf
-tables.xlsx
-response_letter.docx
-```
-
-If multiple files are provided, the skill will infer their roles as main manuscript, supplementary material, figures, tables, appendices, or supporting files.
-
-## Expected output
-
-In a file-capable environment, the skill writes:
-
-```text
-review_outputs/nature_review_report.md
-review_outputs/nature_review_report.docx
-```
-
-It also prints the Markdown version of the review in the chat for immediate reading, copying, and revision.
-
-## Example prompt
-
-```text
-Use $nature-remote-sensing-reviewer to review the uploaded files.
-
-Please produce a Nature-style referee report. Treat the main manuscript as the primary paper and all other files as supplementary or supporting materials. Save the review as both Markdown and Word.
-```
-
-For a shorter prompt:
-
-```text
-Use $nature-remote-sensing-reviewer to review the uploaded files.
-```
-
-## Review style
-
-The skill produces reviewer-style reports rather than language-polishing feedback. A typical report includes:
-
-```text
-Reviewer Reports on the Initial Version:
-Referees' comments:
-
-Referee #1 (Remarks to the Author):
-...
-
-Referee #2 (Remarks to the Author):
-...
-
-Referee #3 (Remarks to the Author):
-...
-```
-
-The report may include:
-
-- major concerns;
-- detailed line-, paragraph-, page-, figure-, or table-specific comments;
-- novelty and prior-work positioning;
-- validation and uncertainty concerns;
-- trend and attribution concerns;
-- reproducibility and data/code availability concerns;
-- editorial-level suitability comments when the manuscript clearly falls below Nature-level contribution or evidence requirements.
-
-## Notes on literature search
-
-When web or literature search is available and permitted, the skill may compare the manuscript with closely related published work to evaluate novelty, methodological positioning, and evidence strength.
-
-If literature search is unavailable or prohibited, the skill should not invent references. It will base the review only on the provided manuscript files and clearly state the evidence boundary.
-
-## Citation and copyright policy
-
-This repository contains distilled review patterns and workflow instructions. It does not include raw peer-review PDFs and does not reproduce full copyrighted review reports.
-
-Users should cite or acknowledge the repository when reusing or adapting the skill in their own research workflows.
-
-## Disclaimer
-
-This skill is an independent research-assistance tool. It is not affiliated with Nature Portfolio, Springer Nature, or any journal. It does not provide official editorial decisions. Its output should be treated as a rigorous pre-submission or revision-stage review aid.
+Released under the [MIT License](LICENSE).

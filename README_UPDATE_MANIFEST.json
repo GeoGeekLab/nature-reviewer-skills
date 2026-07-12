@@ -1,0 +1,48 @@
+{
+  "version": "2.1.0",
+  "purpose": "Replacement README files for the seven foundational domain reviewer skills",
+  "files": [
+    {
+      "skill": "nature-atmospheric-science-reviewer",
+      "readme": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/README.md",
+      "checksum_manifest": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/checksums.sha256",
+      "pattern_count": 56
+    },
+    {
+      "skill": "nature-climate-ecology-reviewer",
+      "readme": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/README.md",
+      "checksum_manifest": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/checksums.sha256",
+      "pattern_count": 112
+    },
+    {
+      "skill": "nature-hydrology-reviewer",
+      "readme": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/README.md",
+      "checksum_manifest": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/checksums.sha256",
+      "pattern_count": 158
+    },
+    {
+      "skill": "nature-remote-sensing-reviewer",
+      "readme": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/README.md",
+      "checksum_manifest": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/checksums.sha256",
+      "pattern_count": 31
+    },
+    {
+      "skill": "nature-chemistry-reviewer",
+      "readme": "nature-chemistry-reviewer-skill/README.md",
+      "checksum_manifest": "nature-chemistry-reviewer-skill/checksums.sha256",
+      "pattern_count": 51
+    },
+    {
+      "skill": "nature-engineering-reviewer",
+      "readme": "nature-engineering-reviewer-skill/README.md",
+      "checksum_manifest": "nature-engineering-reviewer-skill/checksums.sha256",
+      "pattern_count": 37
+    },
+    {
+      "skill": "nature-materials-science-reviewer",
+      "readme": "nature-materials-science-reviewer-skill/README.md",
+      "checksum_manifest": "nature-materials-science-reviewer-skill/checksums.sha256",
+      "pattern_count": 95
+    }
+  ]
+}
