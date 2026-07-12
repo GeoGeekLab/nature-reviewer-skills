@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "generated_from": "patterns.csv",
+  "pattern_count": 31,
+  "gate_count": 4,
+  "patterns_by_gate": {
+    "claim_evidence_calibration": 2,
+    "remote_sensing_evidence_integrity": 19,
+    "spatiotemporal_inference": 4,
+    "validation_and_generalization": 6
+  },
+  "patterns_by_severity": {
+    "major": 27,
+    "moderate": 4
+  },
+  "normalized_sha256": "01e9ed266b0a75c29a021527eae202e95da0ba11e1c607430641800f31278b1f"
+}

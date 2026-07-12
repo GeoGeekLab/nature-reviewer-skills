@@ -1,0 +1,23 @@
+{
+  "case_id": "remote-sensing-synthetic-001",
+  "domain": "remote-sensing",
+  "manuscript_text": "Pixel-random cross-validation is used on spatially autocorrelated samples and the result is generalized globally.",
+  "gold_concerns": [
+    {
+      "issue_id": "spatial-leakage",
+      "severity": "major",
+      "text": "Random pixel folds leak spatial information.",
+      "anchors": [
+        "paragraph:1"
+      ]
+    },
+    {
+      "issue_id": "global-generalization",
+      "severity": "major",
+      "text": "Global scope exceeds the sampled regions.",
+      "anchors": [
+        "paragraph:1"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,0 @@
-check,value,status,notes
-downloaded_pdf_count,44,pass,Source corpus v0.2 metadata only; raw PDFs are not redistributed in this repository.
-review_unit_count,3817,pass,All units are non-verbatim abstractions with source text hashes only.
-pattern_count,95,pass,Patterns are abstracted from grouped unit signals and manual domain consolidation.
-raw_pdf_in_repo,0,pass,Public repo intentionally excludes peer-review PDFs.

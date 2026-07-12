@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r requirements.lock
+      - run: python -m pip install -e .
+      - run: python scripts/sync_skill_assets.py
+      - run: python scripts/validate_all.py
+      - run: python -m pytest --cov=nature_reviewer_core --cov-report=term-missing
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: mypy src/nature_reviewer_core
+      - run: bandit -q -r src scripts
+      - run: python scripts/run_benchmarks.py benchmarks/cases benchmarks/predictions/example_predictions.jsonl
+
+  package-matrix:
+    runs-on: ubuntu-latest
+    needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        skill:
+          - nature-chemistry-reviewer-skill
+          - nature-engineering-reviewer-skill
+          - nature-materials-science-reviewer-skill
+          - nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill
+          - nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill
+          - nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill
+          - nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.lock
+      - run: python -m pip install -e .
+      - run: python scripts/sync_skill_assets.py
+      - run: python "${{ matrix.skill }}/scripts/validate_package.py" --root "${{ matrix.skill }}"
+      - run: python -m pytest "${{ matrix.skill }}/tests"

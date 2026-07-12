@@ -170,3 +170,12 @@ Use short quotations from the manuscript only when they clarify claim calibratio
 ## Publication-level judgment
 
 End each referee report with a clear judgment such as: potentially suitable after major revision, suitable after substantial revision, technically interesting but not yet convincing for a broad Nature-family audience, or suitable after minor revision.
+
+
+## Reliability and evaluation extension (v2)
+
+Before drafting reports, declare the evidence boundary and assign distinct reviewer perspectives from `templates/review_report.md`. Retrieve patterns as hypotheses for inspection, not as findings. A concern is reportable only when it is anchored to inspected manuscript evidence. Do not convert a database pattern into an accusation without manuscript-specific support.
+
+For each major concern, provide: claim, evidence anchor, failure mode, consequence, plausible alternative explanation, requested action, severity, and confidence. Deduplicate cross-referee overlap in the synthesis. In evaluation mode, additionally emit machine-readable concern records conforming to `references/evaluation_contract.md`.
+
+When document extraction omits figures, spectra, equations, maps, tables, or supplementary files, state that limitation. Do not infer their contents from captions alone. Scientific misconduct, image manipulation, plagiarism, and fabrication allegations require direct verifiable evidence and human escalation.

@@ -1,4 +1,1 @@
-pytest
-ruff
-bandit
-python-docx
+-r ../../../requirements.lock

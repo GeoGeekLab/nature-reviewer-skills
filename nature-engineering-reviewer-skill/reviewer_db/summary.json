@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "generated_from": "patterns.csv",
+  "pattern_count": 37,
+  "gate_count": 15,
+  "patterns_by_gate": {
+    "automation_ai_and_closed_loop_systems": 3,
+    "benchmark_and_comparability": 2,
+    "biomedical_and_bioengineering_translation": 3,
+    "claim_evidence_calibration": 2,
+    "design_specification_and_requirements": 2,
+    "detail_audit_and_presentation": 2,
+    "experimental_validation_and_controls": 3,
+    "materials_devices_and_fabrication": 4,
+    "mechanism_and_causality": 2,
+    "model_assumptions_and_sensitivity": 2,
+    "novelty_and_positioning": 2,
+    "reproducibility_data_and_code": 2,
+    "robotics_control_and_embodiment": 4,
+    "scaling_boundary_and_operating_envelope": 2,
+    "uncertainty_statistics_and_failure_modes": 2
+  },
+  "patterns_by_severity": {
+    "major": 37
+  },
+  "normalized_sha256": "3d72f2212570043af02044a518e5d084bb024cf89b37c34b8795535d7d811c36"
+}

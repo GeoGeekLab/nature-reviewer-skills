@@ -183,3 +183,12 @@ Adjust this allocation to the manuscript. For example, a robotic-control paper m
 Never include raw peer-review source text, reviewer identities, provenance-specific reviewer phrases, gate IDs, pattern IDs, decision tables or diagnostic internals. The reviewer memory in this package is abstracted. The output should be a new review of the submitted manuscript, not a paraphrase of any source review.
 
 When files are requested, provide both Markdown and DOCX if the environment supports it. If evidence is missing from provided files, write that it is not evident from the provided material rather than asserting absence from the full submission.
+
+
+## Reliability and evaluation extension (v2)
+
+Before drafting reports, declare the evidence boundary and assign distinct reviewer perspectives from `templates/review_report.md`. Retrieve patterns as hypotheses for inspection, not as findings. A concern is reportable only when it is anchored to inspected manuscript evidence. Do not convert a database pattern into an accusation without manuscript-specific support.
+
+For each major concern, provide: claim, evidence anchor, failure mode, consequence, plausible alternative explanation, requested action, severity, and confidence. Deduplicate cross-referee overlap in the synthesis. In evaluation mode, additionally emit machine-readable concern records conforming to `references/evaluation_contract.md`.
+
+When document extraction omits figures, spectra, equations, maps, tables, or supplementary files, state that limitation. Do not infer their contents from captions alone. Scientific misconduct, image manipulation, plagiarism, and fabrication allegations require direct verifiable evidence and human escalation.

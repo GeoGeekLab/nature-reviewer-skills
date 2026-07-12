@@ -1,0 +1,93 @@
+{
+  "cases": [
+    {
+      "case_id": "chemistry-synthetic-001",
+      "domain": "chemistry",
+      "gold_count": 2,
+      "predicted_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "essential_issue_recall": 1.0,
+      "severity_agreement": 1.0,
+      "anchor_coverage": 1.0,
+      "panel_duplicate_rate": 0.0
+    },
+    {
+      "case_id": "engineering-synthetic-001",
+      "domain": "engineering",
+      "gold_count": 2,
+      "predicted_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "essential_issue_recall": 1.0,
+      "severity_agreement": 1.0,
+      "anchor_coverage": 1.0,
+      "panel_duplicate_rate": 0.0
+    },
+    {
+      "case_id": "remote-sensing-synthetic-001",
+      "domain": "remote-sensing",
+      "gold_count": 2,
+      "predicted_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "essential_issue_recall": 1.0,
+      "severity_agreement": 1.0,
+      "anchor_coverage": 1.0,
+      "panel_duplicate_rate": 0.0
+    }
+  ],
+  "aggregate": {
+    "case_count": 3,
+    "macro": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "essential_issue_recall": 1.0,
+      "severity_agreement": 1.0,
+      "anchor_coverage": 1.0,
+      "panel_duplicate_rate": 0.0
+    },
+    "by_domain": {
+      "chemistry": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "essential_issue_recall": 1.0,
+        "severity_agreement": 1.0,
+        "anchor_coverage": 1.0,
+        "panel_duplicate_rate": 0.0
+      },
+      "engineering": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "essential_issue_recall": 1.0,
+        "severity_agreement": 1.0,
+        "anchor_coverage": 1.0,
+        "panel_duplicate_rate": 0.0
+      },
+      "remote-sensing": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "essential_issue_recall": 1.0,
+        "severity_agreement": 1.0,
+        "anchor_coverage": 1.0,
+        "panel_duplicate_rate": 0.0
+      }
+    }
+  }
+}

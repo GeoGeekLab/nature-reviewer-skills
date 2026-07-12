@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "generated_from": "patterns.csv",
+  "pattern_count": 56,
+  "gate_count": 14,
+  "patterns_by_gate": {
+    "aerosol_cloud_radiation_microphysics": 4,
+    "ai_weather_climate_model_fidelity": 4,
+    "atmospheric_claim_evidence_calibration": 4,
+    "chemistry_emissions_budget": 4,
+    "detail_audit": 4,
+    "extreme_event_attribution_counterfactual": 4,
+    "mechanism_causality_circulation_dynamics": 4,
+    "model_physics_assumption_sensitivity": 4,
+    "observational_product_reanalysis_validity": 4,
+    "reproducibility_data_code": 4,
+    "sampling_event_representativeness": 4,
+    "scale_resolution_boundary_consistency": 4,
+    "trend_internal_variability_signal_detection": 4,
+    "uncertainty_statistics_skill_metrics": 4
+  },
+  "patterns_by_severity": {
+    "major": 54,
+    "minor": 2
+  },
+  "normalized_sha256": "3873414b4304270651a1212aa3f1ec4d77433121397722adf4cf406709efa093"
+}

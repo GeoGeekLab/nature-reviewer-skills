@@ -1,21 +1,19 @@
-from __future__ import annotations
-
 from pathlib import Path
 
+from nature_reviewer_core.patterns import load_patterns
+from nature_reviewer_core.retrieval import search_patterns
+from nature_reviewer_core.validation import validate_skill
 
-def test_required_repository_files_exist() -> None:
-    root = Path(__file__).resolve().parents[1]
-    required = [
-        'README.md',
-        'SKILL.md',
-        'MANIFEST.json',
-        'pyproject.toml',
-        'scripts/validate_package.py',
-        'scripts/render_review_docx.py',
-        'scripts/extract_text_with_anchors.py',
-        'scripts/published_paper_query_builder.py',
-        'scripts/reviewer_db.py',
-        'scripts/sample_referee_style.py',
-    ]
-    missing = [path for path in required if not (root / path).exists()]
-    assert missing == []
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_package_validates() -> None:
+    report = validate_skill(ROOT)
+    assert report.ok, report.errors
+    assert report.pattern_count >= 20
+
+
+def test_database_search_returns_revision_direction() -> None:
+    results = search_patterns(load_patterns(ROOT), "validation uncertainty mechanism", limit=3)
+    assert results
+    assert all(item.pattern.revision_direction for item in results)

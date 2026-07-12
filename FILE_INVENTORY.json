@@ -1,0 +1,961 @@
+{
+  "schema_version": 1,
+  "file_count": 191,
+  "files": [
+    {
+      "path": ".editorconfig",
+      "size_bytes": 197,
+      "sha256": "d7ab000ffcae85cafa923e2940e31dc1b27b3f08b8e39f684b4204a85674b339"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "size_bytes": 2038,
+      "sha256": "7827508b55edde7e388c1557469431c1b4a50973fc1fe44f7ce29c9609843134"
+    },
+    {
+      "path": ".gitignore",
+      "size_bytes": 146,
+      "sha256": "63370ecdd1d3730ae7520d452e98acadb5481f575f96be3056f718b450171bbd"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 1222,
+      "sha256": "94bbda73ba1c098d3d929ef807caaf747740100e5a8b4fbf5276b5f78c683cdc"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size_bytes": 594,
+      "sha256": "b9e97d9677a5f8409055b60f04178fb511fea7101778e034985fa6ce069fd895"
+    },
+    {
+      "path": "IMPROVEMENT_REPORT.md",
+      "size_bytes": 2395,
+      "sha256": "c78214b100c7fd911719448e196735c62f62b8ad06ab68c02a2489527253d243"
+    },
+    {
+      "path": "LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "MANIFEST.json",
+      "size_bytes": 7452,
+      "sha256": "5e9d55148de903b84c9e80e299877adc17a5bd1fb47a2ab68ee76fb3293ec46c"
+    },
+    {
+      "path": "Makefile",
+      "size_bytes": 419,
+      "sha256": "0541cfdbefbeebd221ccf55f9e569a9ec5c9b195d7c2594bbe693c7046f02f7a"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 2928,
+      "sha256": "f86bd4c21c224a8e8f0935df3b9e46e9a7a3ae1d809a70ab1fc216acb3451a14"
+    },
+    {
+      "path": "RECONSTRUCTION_NOTES.md",
+      "size_bytes": 710,
+      "sha256": "0a6cc67c9ecf57dad54e7f41639f9e2f38752aa60fd1eb53bc23e9084f80898b"
+    },
+    {
+      "path": "SECURITY.md",
+      "size_bytes": 527,
+      "sha256": "03f753f29a9a2c7fa3f24ee335f98e82ad5c6b9b8255ec1396a3c00ad5325890"
+    },
+    {
+      "path": "TEST_REPORT.md",
+      "size_bytes": 1270,
+      "sha256": "c0337c9eae0a4aa5647b5618bcd85b8c8b7c9d68a5758070758d45fdda48f515"
+    },
+    {
+      "path": "UPSTREAM_README.md",
+      "size_bytes": 16670,
+      "sha256": "5c2875756e960fc46f044fbfa68bcace3d0f3b8914ce1cb9df1c2099efdb8a84"
+    },
+    {
+      "path": "benchmark-report.json",
+      "size_bytes": 2285,
+      "sha256": "f7a08c096cce2b7dde398a885fa9b79fcaf72ce5f8c8049541146fba176d9665"
+    },
+    {
+      "path": "benchmarks/README.md",
+      "size_bytes": 414,
+      "sha256": "eed6c8297cb7540623dc2543fd3d2cd8b5a689669198b444cd2ac32b48e971a4"
+    },
+    {
+      "path": "benchmarks/case.schema.json",
+      "size_bytes": 1082,
+      "sha256": "3c65bd0e8efcf7046a9c743c814ebf259dcd667ab53bba449277cfcb934a4eea"
+    },
+    {
+      "path": "benchmarks/cases/chemistry-synthetic-001.json",
+      "size_bytes": 663,
+      "sha256": "b0db10362113ed27fd0a6fc7f4da13c80c8ba0046ce304bf6bf4e6b8a251cc90"
+    },
+    {
+      "path": "benchmarks/cases/engineering-synthetic-001.json",
+      "size_bytes": 641,
+      "sha256": "02d1917bed74dd4505f4ab13df5ae878f5ab5d851a326506525197cdf7afc99f"
+    },
+    {
+      "path": "benchmarks/cases/remote-sensing-synthetic-001.json",
+      "size_bytes": 620,
+      "sha256": "4a63753b45396a9c352d3dbbb10508b7739b56ddb56af0229f77f9557cf28811"
+    },
+    {
+      "path": "benchmarks/predictions/example_predictions.jsonl",
+      "size_bytes": 1222,
+      "sha256": "0f478568e26e49508f75c46c9d18e6167f4ccbac0322d89ebdc1f6dca88e2c63"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "size_bytes": 1001,
+      "sha256": "ff381f92e77c1aa800368a43ecd06f02b28ac1ecd6ed7081ee5d7fe7be9d6271"
+    },
+    {
+      "path": "docs/EVALUATION.md",
+      "size_bytes": 1126,
+      "sha256": "22c56bfaf43b6ec813d7e9063eff021553827101ba28ae20cb1d797936044c54"
+    },
+    {
+      "path": "docs/MIGRATION.md",
+      "size_bytes": 488,
+      "sha256": "c3e3b4e7dce86129653f9f651f6a9ed1070273ebda56cdc3bfeebceb76f4a999"
+    },
+    {
+      "path": "docs/SECURITY.md",
+      "size_bytes": 455,
+      "sha256": "28b035f1383008fbeb174de7bb2e837bdf24e18cf6871c5880ae337f2f03b0da"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/MANIFEST.json",
+      "size_bytes": 324,
+      "sha256": "58e43603ff39df1884a3ae371e5359e4563a44bfe88ca33b588c6bf735dbecff"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/README.md",
+      "size_bytes": 9310,
+      "sha256": "1b108ec51dc2a4f1ec53b749738d174d84976df434a64918e265f18f666ccc0f"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/SKILL.md",
+      "size_bytes": 11491,
+      "sha256": "d0aef112fd2bbad6048cb4875bcc21dc251b79f289dfb074b3f47ac679e5836c"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/checksums.sha256",
+      "size_bytes": 1711,
+      "sha256": "34dff9856e574e09a70e1d8e22567ad23f94ac1a2f5040fad0fdbdb6c5ca1f58"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/docs/SECURITY.md",
+      "size_bytes": 114,
+      "sha256": "b03eeec80a538412534e87c7545b42b88202bd4df41ec47007e7ae6cf18074aa"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/examples/evaluation_prediction.json",
+      "size_bytes": 260,
+      "sha256": "512b04d006a860772507927faa2cc4fff0de5254196e7396dd0c67db55cce3b6"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/references/claim_evidence_protocol.md",
+      "size_bytes": 550,
+      "sha256": "adfe900dcabad26503d74c784f3e62f58d32c1566eb8694acdc8a9f8d6b9d260"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/references/domain_gate.md",
+      "size_bytes": 171,
+      "sha256": "dc72808bf0790f54b92b87484a321fe7b616e0d16299ebe47bff90716d7497aa"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/references/evaluation_contract.md",
+      "size_bytes": 306,
+      "sha256": "f328df5aa745cc96da499c379fd07c85cbbb50b64a3140afce29b34ca6f84528"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/requirements-dev.txt",
+      "size_bytes": 24,
+      "sha256": "aed0a1ddadf1b30902a55ab1352702a4bea7e0b51e8212e1955dffd984c5d71e"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/reviewer_db/patterns.csv",
+      "size_bytes": 31103,
+      "sha256": "f57735f97984adef782e80f9227ecdc515b64d149750677f34779a196d27bb3b"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/reviewer_db/patterns.jsonl",
+      "size_bytes": 73703,
+      "sha256": "6d75d61b0bad28adfa2b7d8f8891ece5a113bbc483330ed4c7a769d0af66e4db"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/reviewer_db/summary.json",
+      "size_bytes": 864,
+      "sha256": "86957d33b8cb78bdaaf0bd7791fc493faf4b6bb33728509565cd173984c24637"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/scripts/extract_text_with_anchors.py",
+      "size_bytes": 1261,
+      "sha256": "4a13f4872027ff49559f35d4589321ace4a239f857be29ca79706d04844f4efe"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/scripts/render_review_docx.py",
+      "size_bytes": 971,
+      "sha256": "7ff84aa04e569d6f70d0d6e242dc244c160002d67421bb69049d682ff3a01a92"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/scripts/reviewer_db.py",
+      "size_bytes": 1659,
+      "sha256": "060ec7cd0a87f816d6947c03b1ff21371960c247de08c7d3943d5ee2bc3161d8"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/scripts/validate_package.py",
+      "size_bytes": 928,
+      "sha256": "1c351cb8851917caa4226c100c647db680a626e5eab72da5077c30da1be14dfc"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/templates/review_report.md",
+      "size_bytes": 953,
+      "sha256": "1f984c5318e670c5c4a962f54e90ab8b970704dc5f9cca35b198b4e786163719"
+    },
+    {
+      "path": "nature-chemistry-reviewer-skill/tests/test_package.py",
+      "size_bytes": 640,
+      "sha256": "0728d988c32c86c1558491f347ff18f9d09c33c14a80d0a6f260a6bf358f798a"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/README.md",
+      "size_bytes": 262,
+      "sha256": "e0d759e4cf844b4b6896c4ee574c2c93946f0620bc658d7cccd19405ccba5ec7"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/MANIFEST.json",
+      "size_bytes": 334,
+      "sha256": "449ac8d2874d90d50ab7009d3275f3af71b696f6dc5ddffa9d60060c8294d40f"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/README.md",
+      "size_bytes": 9539,
+      "sha256": "83977cc7be4debdfd4db1e912ee906788ac1c027ee1bfd8122317d63c309ae69"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/SKILL.md",
+      "size_bytes": 10673,
+      "sha256": "a1b6fd7f168d569fee25881ec656d1baa69bb50a179082cfa55c13dfe1b38624"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/checksums.sha256",
+      "size_bytes": 1711,
+      "sha256": "9a24be83c11cc18cbdd3de8ff4eedc0a7e1a18847e59cc89b2f38f51613db310"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/docs/SECURITY.md",
+      "size_bytes": 114,
+      "sha256": "b03eeec80a538412534e87c7545b42b88202bd4df41ec47007e7ae6cf18074aa"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/examples/evaluation_prediction.json",
+      "size_bytes": 260,
+      "sha256": "512b04d006a860772507927faa2cc4fff0de5254196e7396dd0c67db55cce3b6"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/references/claim_evidence_protocol.md",
+      "size_bytes": 550,
+      "sha256": "adfe900dcabad26503d74c784f3e62f58d32c1566eb8694acdc8a9f8d6b9d260"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/references/domain_gate.md",
+      "size_bytes": 155,
+      "sha256": "bcdb030bb4108de5652f9cad687f55e5dc4b864f2f30ae527d6d4c368c5c78a6"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/references/evaluation_contract.md",
+      "size_bytes": 306,
+      "sha256": "f328df5aa745cc96da499c379fd07c85cbbb50b64a3140afce29b34ca6f84528"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/requirements-dev.txt",
+      "size_bytes": 30,
+      "sha256": "25358a21b8e5c5b33a2563e81ba8fe6c0d371628b87aa2edbb1fb086a8477142"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/reviewer_db/patterns.csv",
+      "size_bytes": 17866,
+      "sha256": "8420e6196d294365a6b613a910279e0f55075cc3e91e25c302c3d31d0ad0e03d"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/reviewer_db/patterns.jsonl",
+      "size_bytes": 57236,
+      "sha256": "3873414b4304270651a1212aa3f1ec4d77433121397722adf4cf406709efa093"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/reviewer_db/summary.json",
+      "size_bytes": 919,
+      "sha256": "5b762c0135650f4f364450259a4b3206fb74c68169af23669f0615d1ab521779"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/scripts/extract_text_with_anchors.py",
+      "size_bytes": 1261,
+      "sha256": "4a13f4872027ff49559f35d4589321ace4a239f857be29ca79706d04844f4efe"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/scripts/render_review_docx.py",
+      "size_bytes": 971,
+      "sha256": "7ff84aa04e569d6f70d0d6e242dc244c160002d67421bb69049d682ff3a01a92"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/scripts/reviewer_db.py",
+      "size_bytes": 1659,
+      "sha256": "060ec7cd0a87f816d6947c03b1ff21371960c247de08c7d3943d5ee2bc3161d8"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/scripts/validate_package.py",
+      "size_bytes": 928,
+      "sha256": "1c351cb8851917caa4226c100c647db680a626e5eab72da5077c30da1be14dfc"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/templates/review_report.md",
+      "size_bytes": 953,
+      "sha256": "1f984c5318e670c5c4a962f54e90ab8b970704dc5f9cca35b198b4e786163719"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/tests/test_package.py",
+      "size_bytes": 640,
+      "sha256": "0728d988c32c86c1558491f347ff18f9d09c33c14a80d0a6f260a6bf358f798a"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/MANIFEST.json",
+      "size_bytes": 331,
+      "sha256": "3e9c876de2a34d4d7bc6676013118499aeb5fe194e4da8f10774ccf6bdb04036"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/README.md",
+      "size_bytes": 9427,
+      "sha256": "3b57ea6772d522ccaf5833d15ebc529afa52636a5cda1b7fc899a91e4887ebc2"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/SKILL.md",
+      "size_bytes": 10357,
+      "sha256": "1406f4357466cc4291e44729f69939ab9108ed909a30f236f9a3b20a49e49f77"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/checksums.sha256",
+      "size_bytes": 1711,
+      "sha256": "8082628154ffc213743c9bd8323e55d447c4fb05cd69be0427341d7482cda995"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/docs/SECURITY.md",
+      "size_bytes": 114,
+      "sha256": "b03eeec80a538412534e87c7545b42b88202bd4df41ec47007e7ae6cf18074aa"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/examples/evaluation_prediction.json",
+      "size_bytes": 260,
+      "sha256": "512b04d006a860772507927faa2cc4fff0de5254196e7396dd0c67db55cce3b6"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/references/claim_evidence_protocol.md",
+      "size_bytes": 550,
+      "sha256": "adfe900dcabad26503d74c784f3e62f58d32c1566eb8694acdc8a9f8d6b9d260"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/references/domain_gate.md",
+      "size_bytes": 155,
+      "sha256": "732192234ea4f94851d026c7dc4fe412e66b520bf27e804534b2b36675473094"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/references/evaluation_contract.md",
+      "size_bytes": 306,
+      "sha256": "f328df5aa745cc96da499c379fd07c85cbbb50b64a3140afce29b34ca6f84528"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/requirements-dev.txt",
+      "size_bytes": 30,
+      "sha256": "25358a21b8e5c5b33a2563e81ba8fe6c0d371628b87aa2edbb1fb086a8477142"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/reviewer_db/patterns.csv",
+      "size_bytes": 120533,
+      "sha256": "c19e49b4bd994443404955d3886ffa08171894c0f18793ee653a215364353bce"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/reviewer_db/patterns.jsonl",
+      "size_bytes": 245102,
+      "sha256": "a2d657047805561da95f10ee0741d33594cf28d29de3a38fd6623349f5fa3d36"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/reviewer_db/summary.json",
+      "size_bytes": 899,
+      "sha256": "98964313bf9e470a126e4a7abcd15be1d28f62a9f635387cedad7dc2d9c2f462"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/scripts/extract_text_with_anchors.py",
+      "size_bytes": 1261,
+      "sha256": "4a13f4872027ff49559f35d4589321ace4a239f857be29ca79706d04844f4efe"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/scripts/render_review_docx.py",
+      "size_bytes": 971,
+      "sha256": "7ff84aa04e569d6f70d0d6e242dc244c160002d67421bb69049d682ff3a01a92"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/scripts/reviewer_db.py",
+      "size_bytes": 1659,
+      "sha256": "060ec7cd0a87f816d6947c03b1ff21371960c247de08c7d3943d5ee2bc3161d8"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/scripts/validate_package.py",
+      "size_bytes": 928,
+      "sha256": "1c351cb8851917caa4226c100c647db680a626e5eab72da5077c30da1be14dfc"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/templates/review_report.md",
+      "size_bytes": 953,
+      "sha256": "1f984c5318e670c5c4a962f54e90ab8b970704dc5f9cca35b198b4e786163719"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/tests/test_package.py",
+      "size_bytes": 640,
+      "sha256": "0728d988c32c86c1558491f347ff18f9d09c33c14a80d0a6f260a6bf358f798a"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/MANIFEST.json",
+      "size_bytes": 325,
+      "sha256": "810d6099968e429580a4d4682cd553ddf81ee6855b973004641abbc45d361595"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/README.md",
+      "size_bytes": 9367,
+      "sha256": "5affc97315c4ad1525ee460d537e0b242314c743850c24ff9a29392f7fee0b15"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/SKILL.md",
+      "size_bytes": 14194,
+      "sha256": "876524be40b6ff4f1f284261f41200807f56f828bf74dd459f2df4f1100e8bf8"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/checksums.sha256",
+      "size_bytes": 1711,
+      "sha256": "63957ec6ce7cfb08a69b1a06ad69833553f6561d4dfad57fe3b0f65dbf8f48d6"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/docs/SECURITY.md",
+      "size_bytes": 114,
+      "sha256": "b03eeec80a538412534e87c7545b42b88202bd4df41ec47007e7ae6cf18074aa"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/examples/evaluation_prediction.json",
+      "size_bytes": 260,
+      "sha256": "512b04d006a860772507927faa2cc4fff0de5254196e7396dd0c67db55cce3b6"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/references/claim_evidence_protocol.md",
+      "size_bytes": 550,
+      "sha256": "adfe900dcabad26503d74c784f3e62f58d32c1566eb8694acdc8a9f8d6b9d260"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/references/domain_gate.md",
+      "size_bytes": 158,
+      "sha256": "839300f3e8248c939dbdc2ee5316a70fa103842855f6e8feb15d1266af312fe1"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/references/evaluation_contract.md",
+      "size_bytes": 306,
+      "sha256": "f328df5aa745cc96da499c379fd07c85cbbb50b64a3140afce29b34ca6f84528"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/requirements-dev.txt",
+      "size_bytes": 30,
+      "sha256": "25358a21b8e5c5b33a2563e81ba8fe6c0d371628b87aa2edbb1fb086a8477142"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/reviewer_db/patterns.csv",
+      "size_bytes": 73540,
+      "sha256": "2f6bfddccecd05b585329e42cfcf0572e0aa5ec5f2e372f7bf24f16318ba7bc8"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/reviewer_db/patterns.jsonl",
+      "size_bytes": 187178,
+      "sha256": "9f6d7aea823ab9277befdc8f8bd63b7b6852b254f9f9727a56ac4f5551de90a2"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/reviewer_db/summary.json",
+      "size_bytes": 944,
+      "sha256": "01fef0421ad7777a778a3f7d333321fbc5554535b1b2489d6d6baf86f9d2ac45"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/scripts/extract_text_with_anchors.py",
+      "size_bytes": 1261,
+      "sha256": "4a13f4872027ff49559f35d4589321ace4a239f857be29ca79706d04844f4efe"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/scripts/render_review_docx.py",
+      "size_bytes": 971,
+      "sha256": "7ff84aa04e569d6f70d0d6e242dc244c160002d67421bb69049d682ff3a01a92"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/scripts/reviewer_db.py",
+      "size_bytes": 1659,
+      "sha256": "060ec7cd0a87f816d6947c03b1ff21371960c247de08c7d3943d5ee2bc3161d8"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/scripts/validate_package.py",
+      "size_bytes": 928,
+      "sha256": "1c351cb8851917caa4226c100c647db680a626e5eab72da5077c30da1be14dfc"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/templates/review_report.md",
+      "size_bytes": 953,
+      "sha256": "1f984c5318e670c5c4a962f54e90ab8b970704dc5f9cca35b198b4e786163719"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/tests/test_package.py",
+      "size_bytes": 640,
+      "sha256": "0728d988c32c86c1558491f347ff18f9d09c33c14a80d0a6f260a6bf358f798a"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/MANIFEST.json",
+      "size_bytes": 329,
+      "sha256": "6f896190b8fd3340d65c055d4950c196923a89069efb12535e87494bc8388a4c"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/README.md",
+      "size_bytes": 9114,
+      "sha256": "3ade347172a9f90909ccb3e755615bf336cc89e395ab24abd0535c6d8881b729"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/SKILL.md",
+      "size_bytes": 17308,
+      "sha256": "22e311e4734016efcb1e3bfc2e7391898a16cef9b596380692d5e92d569849b2"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/checksums.sha256",
+      "size_bytes": 1711,
+      "sha256": "8eec279ea3d3c9ed87b375e4bc19ba0785af6de8ae502d629267b62043a1fab8"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/docs/SECURITY.md",
+      "size_bytes": 114,
+      "sha256": "b03eeec80a538412534e87c7545b42b88202bd4df41ec47007e7ae6cf18074aa"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/examples/evaluation_prediction.json",
+      "size_bytes": 260,
+      "sha256": "512b04d006a860772507927faa2cc4fff0de5254196e7396dd0c67db55cce3b6"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/references/claim_evidence_protocol.md",
+      "size_bytes": 550,
+      "sha256": "adfe900dcabad26503d74c784f3e62f58d32c1566eb8694acdc8a9f8d6b9d260"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/references/domain_gate.md",
+      "size_bytes": 155,
+      "sha256": "04cae4bf14640de9ee8e430b7bf0a6c02894d92866b1b9d53ed0053cb2cf9a2e"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/references/evaluation_contract.md",
+      "size_bytes": 306,
+      "sha256": "f328df5aa745cc96da499c379fd07c85cbbb50b64a3140afce29b34ca6f84528"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/requirements-dev.txt",
+      "size_bytes": 30,
+      "sha256": "25358a21b8e5c5b33a2563e81ba8fe6c0d371628b87aa2edbb1fb086a8477142"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/reviewer_db/patterns.csv",
+      "size_bytes": 14134,
+      "sha256": "b2a56c315601e1ce209687fced2f03fe4570f97d3d92fc6f3dad6205fcca4298"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/reviewer_db/patterns.jsonl",
+      "size_bytes": 35726,
+      "sha256": "01e9ed266b0a75c29a021527eae202e95da0ba11e1c607430641800f31278b1f"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/reviewer_db/summary.json",
+      "size_bytes": 448,
+      "sha256": "067bfb572d76efd37bca503e0cf9111d292dfde91d651ea19561bc419ff10932"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/scripts/extract_text_with_anchors.py",
+      "size_bytes": 1261,
+      "sha256": "4a13f4872027ff49559f35d4589321ace4a239f857be29ca79706d04844f4efe"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/scripts/render_review_docx.py",
+      "size_bytes": 971,
+      "sha256": "7ff84aa04e569d6f70d0d6e242dc244c160002d67421bb69049d682ff3a01a92"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/scripts/reviewer_db.py",
+      "size_bytes": 1659,
+      "sha256": "060ec7cd0a87f816d6947c03b1ff21371960c247de08c7d3943d5ee2bc3161d8"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/scripts/validate_package.py",
+      "size_bytes": 928,
+      "sha256": "1c351cb8851917caa4226c100c647db680a626e5eab72da5077c30da1be14dfc"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/templates/review_report.md",
+      "size_bytes": 953,
+      "sha256": "1f984c5318e670c5c4a962f54e90ab8b970704dc5f9cca35b198b4e786163719"
+    },
+    {
+      "path": "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/tests/test_package.py",
+      "size_bytes": 640,
+      "sha256": "0728d988c32c86c1558491f347ff18f9d09c33c14a80d0a6f260a6bf358f798a"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/MANIFEST.json",
+      "size_bytes": 326,
+      "sha256": "00b574577b25c4b0f56b02f2a4b3854c4c33ca9e76f519740b66decf7dc8621f"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/README.md",
+      "size_bytes": 9394,
+      "sha256": "b6ee9f34fe1d232a783122864b7ba229b49fca586fbb3496b527987b3b237bde"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/SKILL.md",
+      "size_bytes": 16060,
+      "sha256": "067edb36d2da5f76891b1dec6216eb9526f0ef8653825d6aabc2ce8ad932da09"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/checksums.sha256",
+      "size_bytes": 1711,
+      "sha256": "1f7500716f8f2676c04dd62fe6de65c47619e842ec2212ad0f612aae375ab981"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/docs/SECURITY.md",
+      "size_bytes": 114,
+      "sha256": "b03eeec80a538412534e87c7545b42b88202bd4df41ec47007e7ae6cf18074aa"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/examples/evaluation_prediction.json",
+      "size_bytes": 260,
+      "sha256": "512b04d006a860772507927faa2cc4fff0de5254196e7396dd0c67db55cce3b6"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/references/claim_evidence_protocol.md",
+      "size_bytes": 550,
+      "sha256": "adfe900dcabad26503d74c784f3e62f58d32c1566eb8694acdc8a9f8d6b9d260"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/references/domain_gate.md",
+      "size_bytes": 168,
+      "sha256": "49325904ee361ce57aba612068e1cc3104a9782c302f5580c8dad687d923ebd7"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/references/evaluation_contract.md",
+      "size_bytes": 306,
+      "sha256": "f328df5aa745cc96da499c379fd07c85cbbb50b64a3140afce29b34ca6f84528"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/requirements-dev.txt",
+      "size_bytes": 24,
+      "sha256": "aed0a1ddadf1b30902a55ab1352702a4bea7e0b51e8212e1955dffd984c5d71e"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/reviewer_db/patterns.csv",
+      "size_bytes": 19375,
+      "sha256": "d8e6aee92379a69ee2d85627f2a60a0c5235417e92ceef7fbfb4b69ddbb9f5ca"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/reviewer_db/patterns.jsonl",
+      "size_bytes": 49497,
+      "sha256": "3d72f2212570043af02044a518e5d084bb024cf89b37c34b8795535d7d811c36"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/reviewer_db/summary.json",
+      "size_bytes": 922,
+      "sha256": "54bec4ab97d5748c0d40d3dbd9f0f8a2427c781a8c42254121ed6b57d8b70337"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/scripts/extract_text_with_anchors.py",
+      "size_bytes": 1261,
+      "sha256": "4a13f4872027ff49559f35d4589321ace4a239f857be29ca79706d04844f4efe"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/scripts/render_review_docx.py",
+      "size_bytes": 971,
+      "sha256": "7ff84aa04e569d6f70d0d6e242dc244c160002d67421bb69049d682ff3a01a92"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/scripts/reviewer_db.py",
+      "size_bytes": 1659,
+      "sha256": "060ec7cd0a87f816d6947c03b1ff21371960c247de08c7d3943d5ee2bc3161d8"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/scripts/validate_package.py",
+      "size_bytes": 928,
+      "sha256": "1c351cb8851917caa4226c100c647db680a626e5eab72da5077c30da1be14dfc"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/templates/review_report.md",
+      "size_bytes": 953,
+      "sha256": "1f984c5318e670c5c4a962f54e90ab8b970704dc5f9cca35b198b4e786163719"
+    },
+    {
+      "path": "nature-engineering-reviewer-skill/tests/test_package.py",
+      "size_bytes": 640,
+      "sha256": "0728d988c32c86c1558491f347ff18f9d09c33c14a80d0a6f260a6bf358f798a"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/LICENSE",
+      "size_bytes": 1114,
+      "sha256": "5d8efe17a64aefdebe73bb6998e3d6dd740797c9d573e1599cfffd164391e0cd"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/MANIFEST.json",
+      "size_bytes": 332,
+      "sha256": "64f72bd84085ea90517c724c45ad003293f567d7d8e776f078d69ece8a11592a"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/README.md",
+      "size_bytes": 9597,
+      "sha256": "27f93d85b00627ed6e05760a72802a4dc372281fb9307ec3aac02fc0c3ae7c49"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/SKILL.md",
+      "size_bytes": 14629,
+      "sha256": "c81652cdff51f42be28893a956e5d89eaae404319eea98989cdfae0dec9b22b4"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/checksums.sha256",
+      "size_bytes": 1711,
+      "sha256": "8bbdb803d81c953ef0993f14dec24585342e4d95cbffde3276f592f80daed996"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/docs/SECURITY.md",
+      "size_bytes": 114,
+      "sha256": "b03eeec80a538412534e87c7545b42b88202bd4df41ec47007e7ae6cf18074aa"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/examples/evaluation_prediction.json",
+      "size_bytes": 260,
+      "sha256": "512b04d006a860772507927faa2cc4fff0de5254196e7396dd0c67db55cce3b6"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/references/claim_evidence_protocol.md",
+      "size_bytes": 550,
+      "sha256": "adfe900dcabad26503d74c784f3e62f58d32c1566eb8694acdc8a9f8d6b9d260"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/references/domain_gate.md",
+      "size_bytes": 164,
+      "sha256": "b4f63061758b0bd717e428969a50526c3c5dae48e61bd58eb1b189899138a969"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/references/evaluation_contract.md",
+      "size_bytes": 306,
+      "sha256": "f328df5aa745cc96da499c379fd07c85cbbb50b64a3140afce29b34ca6f84528"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/requirements-dev.txt",
+      "size_bytes": 24,
+      "sha256": "aed0a1ddadf1b30902a55ab1352702a4bea7e0b51e8212e1955dffd984c5d71e"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/reviewer_db/patterns.csv",
+      "size_bytes": 70958,
+      "sha256": "223dc2fcc22f8a05732906c9bf6c04bafd0f209dcfc230000d955b801e831ef4"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/reviewer_db/patterns.jsonl",
+      "size_bytes": 167998,
+      "sha256": "e7e3573fda6ccce4d95d91badb84bb236136b65fd2f462b5acb7ec4e2ea286d9"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/reviewer_db/summary.json",
+      "size_bytes": 969,
+      "sha256": "ba58db120548be3f84acd56539a173a5b1d5a7ed73c4938ef68ee7d1217b2801"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/scripts/extract_text_with_anchors.py",
+      "size_bytes": 1261,
+      "sha256": "4a13f4872027ff49559f35d4589321ace4a239f857be29ca79706d04844f4efe"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/scripts/render_review_docx.py",
+      "size_bytes": 971,
+      "sha256": "7ff84aa04e569d6f70d0d6e242dc244c160002d67421bb69049d682ff3a01a92"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/scripts/reviewer_db.py",
+      "size_bytes": 1659,
+      "sha256": "060ec7cd0a87f816d6947c03b1ff21371960c247de08c7d3943d5ee2bc3161d8"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/scripts/validate_package.py",
+      "size_bytes": 928,
+      "sha256": "1c351cb8851917caa4226c100c647db680a626e5eab72da5077c30da1be14dfc"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/templates/review_report.md",
+      "size_bytes": 953,
+      "sha256": "1f984c5318e670c5c4a962f54e90ab8b970704dc5f9cca35b198b4e786163719"
+    },
+    {
+      "path": "nature-materials-science-reviewer-skill/tests/test_package.py",
+      "size_bytes": 640,
+      "sha256": "0728d988c32c86c1558491f347ff18f9d09c33c14a80d0a6f260a6bf358f798a"
+    },
+    {
+      "path": "pyproject.toml",
+      "size_bytes": 1303,
+      "sha256": "ad2b6fd81fa3f00b53a6eb1a42c42ad6103e3be7bcddeba1c661806f9fb42e4c"
+    },
+    {
+      "path": "requirements.lock",
+      "size_bytes": 219,
+      "sha256": "9264999af497fef123a64b0a24d532f43670de32fff34d5312c5db51badf984b"
+    },
+    {
+      "path": "scripts/_bootstrap.py",
+      "size_bytes": 197,
+      "sha256": "b9d7d3cb22cb7c62071bea73ecb717fe58d32b77dbbd32446203138cd69de13c"
+    },
+    {
+      "path": "scripts/check_metadata.py",
+      "size_bytes": 700,
+      "sha256": "af132e444329f30c7933db8b27e113e6633cbef57e3760001449a7ba6b938174"
+    },
+    {
+      "path": "scripts/run_benchmarks.py",
+      "size_bytes": 924,
+      "sha256": "be2ea2d316bf3ae8a97f1bdae78011b9cbb8b283fddf1a90a542239258fcced7"
+    },
+    {
+      "path": "scripts/sync_skill_assets.py",
+      "size_bytes": 308,
+      "sha256": "bf9c83520e90f73939053fefc3c347696a1e8cbf2eef3532971e9f5879d3b326"
+    },
+    {
+      "path": "scripts/validate_all.py",
+      "size_bytes": 681,
+      "sha256": "c76b27a2728cb6989b5e4c9459b95efcbbda108337310f1993c55c33d8a16ba3"
+    },
+    {
+      "path": "src/nature_reviewer_core/__init__.py",
+      "size_bytes": 220,
+      "sha256": "b33cc65e7919fabaf7d0c6ae8bdb400758020720c1beeef86a7a92d3706bd2c9"
+    },
+    {
+      "path": "src/nature_reviewer_core/cli.py",
+      "size_bytes": 2881,
+      "sha256": "75ae55ca1dca22624148dba05017d796bad2a91bb2253d995d60cfd56873099d"
+    },
+    {
+      "path": "src/nature_reviewer_core/discovery.py",
+      "size_bytes": 1035,
+      "sha256": "4d8be8389e9913357105f418e878f865353cafb123f2df0e77972f9e88628652"
+    },
+    {
+      "path": "src/nature_reviewer_core/evaluation.py",
+      "size_bytes": 4773,
+      "sha256": "663cfaeff9d7910d14aaf57d3050a0c131f1263618fa1674368f8771a94a5e6b"
+    },
+    {
+      "path": "src/nature_reviewer_core/extractors.py",
+      "size_bytes": 4587,
+      "sha256": "47cc51730d724a0a71224b5d8cd2dd9cba25f82ecb61d4b3ec9df018e7f9f1df"
+    },
+    {
+      "path": "src/nature_reviewer_core/models.py",
+      "size_bytes": 1451,
+      "sha256": "97968ef87dd664cc741d0250b8d2cb757b03c4514f55e596544d429a80ceb1ee"
+    },
+    {
+      "path": "src/nature_reviewer_core/panel.py",
+      "size_bytes": 2456,
+      "sha256": "f8d3dd101cd2ce3098a176c38bd14a1e88762888d44b504f757ede04f7a8851d"
+    },
+    {
+      "path": "src/nature_reviewer_core/patterns.py",
+      "size_bytes": 6025,
+      "sha256": "dd72b2f5ec174301e1d1393c20e05a7143e75bdc128d7742d8b5e0ad2dc9d3c8"
+    },
+    {
+      "path": "src/nature_reviewer_core/retrieval.py",
+      "size_bytes": 5792,
+      "sha256": "ff512a6a23e616578fcac2aea317b5cf4bf540d447956bfc29e7cfccf074b374"
+    },
+    {
+      "path": "src/nature_reviewer_core/security.py",
+      "size_bytes": 2886,
+      "sha256": "f23ddd4071399ddcf52105598cf211565292146646d632fc4db11a47885858be"
+    },
+    {
+      "path": "src/nature_reviewer_core/sync.py",
+      "size_bytes": 2625,
+      "sha256": "56362360b07d6b6d8653e2724844abb89894970de884fee58f9b58e565fb7020"
+    },
+    {
+      "path": "src/nature_reviewer_core/validation.py",
+      "size_bytes": 4231,
+      "sha256": "ec4e985ac6b8560d3aaca75747f38a826e6544b532e0d42e1dd705c680952d09"
+    },
+    {
+      "path": "tests/conftest.py",
+      "size_bytes": 197,
+      "sha256": "b9d7d3cb22cb7c62071bea73ecb717fe58d32b77dbbd32446203138cd69de13c"
+    },
+    {
+      "path": "tests/test_cli_sync.py",
+      "size_bytes": 802,
+      "sha256": "f00daf76207a142bd4fdb3d88df652fcb5c7913aead0f08895371ced8a2b0fa6"
+    },
+    {
+      "path": "tests/test_discovery_validation.py",
+      "size_bytes": 638,
+      "sha256": "5e3f69844260ef3147b1da8d0a019e7e95285abc74606b677c476201161da8ed"
+    },
+    {
+      "path": "tests/test_evaluation_panel.py",
+      "size_bytes": 1555,
+      "sha256": "d0daa6c95291bd4b597e2dd76a85d5d449c056cd3e7eed6bdb38ce58a28063e5"
+    },
+    {
+      "path": "tests/test_patterns_retrieval.py",
+      "size_bytes": 1285,
+      "sha256": "536e1017904d11feea146fb739494c18ed7c6cc3f6a5771f23210a330a80ed7d"
+    },
+    {
+      "path": "tests/test_security_extractors.py",
+      "size_bytes": 1631,
+      "sha256": "dcc0307fe6afc0ea0eef5647e1528319059d0d7b6e69e97432d76c49f2499998"
+    }
+  ]
+}

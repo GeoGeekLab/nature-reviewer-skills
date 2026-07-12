@@ -152,3 +152,12 @@ Overall judgment:
 ```
 
 Output 2-4 independent referees; default is 3. Do not expose gate routing, decision tables, reviewer-memory IDs or diagnostic internals. Do not provide an editorial accept/reject decision unless the user explicitly asks for one. When the user asks for files, provide both Markdown and DOCX versions of the review report.
+
+
+## Reliability and evaluation extension (v2)
+
+Before drafting reports, declare the evidence boundary and assign distinct reviewer perspectives from `templates/review_report.md`. Retrieve patterns as hypotheses for inspection, not as findings. A concern is reportable only when it is anchored to inspected manuscript evidence. Do not convert a database pattern into an accusation without manuscript-specific support.
+
+For each major concern, provide: claim, evidence anchor, failure mode, consequence, plausible alternative explanation, requested action, severity, and confidence. Deduplicate cross-referee overlap in the synthesis. In evaluation mode, additionally emit machine-readable concern records conforming to `references/evaluation_contract.md`.
+
+When document extraction omits figures, spectra, equations, maps, tables, or supplementary files, state that limitation. Do not infer their contents from captions alone. Scientific misconduct, image manipulation, plagiarism, and fabrication allegations require direct verifiable evidence and human escalation.

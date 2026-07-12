@@ -1,7 +1,0 @@
-check,result,value,note
-peer_review_file_count,PASS,35,public PRF PDFs downloaded
-page_count,PASS,1421,computed from local PDFs
-date_window,PASS,2024-01-01 to 2026-06-25,article publication date within target window except classic stress index not counted as PRF
-raw_review_text_final_skill,PASS,not included in skill release,raw PDFs are corpus inputs only
-classic_stress_weight,PASS,false,classic controversies are low-weight contextual stress-test anchors
-excluded_log,PASS,10,failed/excluded/deferred candidates recorded
