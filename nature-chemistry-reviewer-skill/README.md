@@ -1,6 +1,6 @@
 # Nature Chemistry Reviewer Skill
 
-![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-yellow.svg) ![Codex Skill](https://img.shields.io/badge/Codex-Skill-blue) ![Status](https://img.shields.io/badge/status-v1.0.1-green) ![Domain](https://img.shields.io/badge/domain-chemistry-brightgreen) ![Repo Size](https://img.shields.io/github/repo-size/GeoGeekLab/nature-reviewer-skills/nature-chemistry-reviewer-skill)
+![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-yellow.svg) ![Codex Skill](https://img.shields.io/badge/Codex-Skill-blue) ![Status](https://img.shields.io/badge/status-v1.0.1-green) ![Domain](https://img.shields.io/badge/domain-chemistry-brightgreen) 
 
 A Nature-style reviewer skill for rigorous evaluation of chemistry manuscripts.
 
