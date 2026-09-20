@@ -215,9 +215,7 @@ def annotate(
             if issue_id in seen_issues:
                 continue
             seen_issues.add(issue_id)
-            clean_concerns.append(
-                {"issue_id": issue_id, "severity": "minor", "anchors": []}
-            )
+            clean_concerns.append({"issue_id": issue_id, "severity": "minor", "anchors": []})
 
         outputs.append(
             json.dumps(
