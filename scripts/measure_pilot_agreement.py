@@ -118,8 +118,7 @@ def measure(
         "agreement_target": "presence/absence of the paired target issue",
         "overall": _binary_metrics(overall),
         "by_domain": {
-            domain: _binary_metrics(pairs)
-            for domain, pairs in sorted(by_domain.items())
+            domain: _binary_metrics(pairs) for domain, pairs in sorted(by_domain.items())
         },
     }
 
