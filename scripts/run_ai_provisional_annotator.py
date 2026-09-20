@@ -97,20 +97,21 @@ def _prompt(row: dict[str, Any], allowed: list[dict[str, str]]) -> str:
         )
         for issue in allowed
     )
+    allowed_ids = [issue["issue_id"] for issue in allowed]
     return f"""You are an annotation model for a controlled scientific-review benchmark.
 
-Your task is ONLY to code which issue IDs are explicitly and specifically identified in the review output.
+Code which supplied domain issue IDs are explicitly and specifically identified in the REVIEW OUTPUT.
 
-Important rules:
-- Judge the REVIEW OUTPUT against the MANUSCRIPT EXCERPT and the supplied domain codebook.
-- Do not infer benchmark condition, case type, target issue, paired counterpart, or gold label.
-- Do not reward generic criticism. Code an issue only if the review identifies the specific evidence failure or a scientifically equivalent formulation.
-- Do not invent issues that are not present in the review.
-- Multiple issue IDs are allowed. Zero issues is allowed.
-- Severity is "major" only if the review itself treats the concern as central/substantive; otherwise use "minor".
-- Use a short manuscript/review phrase as an anchor when possible.
-- Return JSON only, with exactly this shape:
-{{"concerns":[{{"issue_id":"...","severity":"major|minor","anchors":["short anchor"]}}]}}
+Rules:
+- Judge the REVIEW OUTPUT against the MANUSCRIPT EXCERPT and supplied codebook.
+- Do not infer condition, case type, target issue, pair, or gold.
+- Generic requests for more experiments/details/citations do not count.
+- Return only a subset of the ALLOWED ISSUE IDS. Zero IDs is allowed.
+- Never invent a new label.
+- Output JSON only, exactly: {{"issue_ids":["id-1","id-2"]}}
+
+ALLOWED ISSUE IDS
+{allowed_ids}
 
 DOMAIN CODEBOOK
 {codebook_text}
@@ -170,9 +171,10 @@ def annotate(
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.0,
                 "top_p": 1.0,
-                "seed": seed,
+                "seed": seed + attempts - 1,
                 "max_tokens": max_tokens,
                 "stream": False,
+                "response_format": {"type": "json_object"},
             }
             response = _post_json(f"{server_url.rstrip('/')}/v1/chat/completions", payload)
             choices = response.get("choices")
@@ -198,33 +200,24 @@ def annotate(
             raise RuntimeError(
                 f"{annotation_id}: annotation parser reached an impossible empty state"
             )
-        concerns = parsed.get("concerns", [])
-        if not isinstance(concerns, list):
-            raise ValueError(f"{annotation_id}: concerns must be a list")
+        issue_ids = parsed.get("issue_ids", [])
+        if not isinstance(issue_ids, list):
+            raise ValueError(f"{annotation_id}: issue_ids must be a list")
 
         clean_concerns = []
         invalid_issue_ids: list[str] = []
         seen_issues: set[str] = set()
-        for concern in concerns:
-            if not isinstance(concern, dict):
-                raise ValueError(f"{annotation_id}: concern must be an object")
-            issue_id = str(concern.get("issue_id", ""))
+        for value in issue_ids:
+            issue_id = str(value)
             if issue_id not in allowed_ids:
                 invalid_issue_ids.append(issue_id)
                 continue
             if issue_id in seen_issues:
                 continue
             seen_issues.add(issue_id)
-            severity = str(concern.get("severity", "minor")).lower()
-            if severity not in {"major", "minor"}:
-                severity = "minor"
-            anchors_raw = concern.get("anchors", [])
-            anchors = (
-                [str(value)[:200] for value in anchors_raw[:2]]
-                if isinstance(anchors_raw, list)
-                else []
+            clean_concerns.append(
+                {"issue_id": issue_id, "severity": "minor", "anchors": []}
             )
-            clean_concerns.append({"issue_id": issue_id, "severity": severity, "anchors": anchors})
 
         outputs.append(
             json.dumps(
@@ -287,7 +280,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", default="annotator-model")
     parser.add_argument("--annotator-id", required=True)
     parser.add_argument("--seed", type=int, required=True)
-    parser.add_argument("--max-tokens", type=int, default=180)
+    parser.add_argument("--max-tokens", type=int, default=96)
     parser.add_argument("--retries", type=int, default=2)
     args = parser.parse_args()
 
