@@ -6,6 +6,9 @@ on:
       - experiment/qwen25-3b-pilot-inference
     paths:
       - ".github/workflows/formal-pilot-inference-qwen25-3b.yml"
+      - "benchmarks/pilot_v1/FORMAL_INFERENCE_LOCK_QWEN25_3B.json"
+      - "scripts/run_formal_blinded_inference.py"
+      - "scripts/validate_formal_inference.py"
 
 permissions:
   contents: read
