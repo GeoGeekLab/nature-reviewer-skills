@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "suite": "controlled-v1",
+  "issues": [
+    {
+      "issue_id": "spatial-leakage",
+      "domain": "remote-sensing",
+      "challenge": "spatial-leakage",
+      "definition": "Pixel-random validation places spatially autocorrelated neighbours in training and test sets, so the reported transfer performance is not independent.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "qa-selection-bias",
+      "domain": "remote-sensing",
+      "challenge": "qa-selection-bias",
+      "definition": "Validation excludes low-quality and cloud-affected retrievals while the claim covers all-season product reliability, creating condition-dependent selection bias.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "support-scale-mismatch",
+      "domain": "remote-sensing",
+      "challenge": "support-scale-mismatch",
+      "definition": "A coarse-footprint reference is resampled to fine pixels and treated as independent fine-scale truth, so the claimed 10 m accuracy is unsupported.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "assimilation-validation-circularity",
+      "domain": "atmospheric-science",
+      "challenge": "assimilation-validation-circularity",
+      "definition": "The same observational network is assimilated into the analysis and then used as if it were an independent validation reference.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "attribution-without-internal-variability",
+      "domain": "atmospheric-science",
+      "challenge": "attribution-without-internal-variability",
+      "definition": "A short observed trend is causally attributed to one forcing without quantifying internal variability or testing alternative forcings.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "extreme-regime-validation",
+      "domain": "atmospheric-science",
+      "challenge": "extreme-regime-validation",
+      "definition": "Aggregate mean-error metrics do not validate the claimed skill for rare convective extremes.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "ungauged-basin-leakage",
+      "domain": "hydrology",
+      "challenge": "ungauged-basin-leakage",
+      "definition": "Randomly splitting daily records within the same basins does not test prediction in genuinely ungauged basins.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "water-balance-nonclosure",
+      "domain": "hydrology",
+      "challenge": "water-balance-nonclosure",
+      "definition": "The reported long-term fluxes do not close the catchment water balance within stated uncertainty, yet closure is asserted without resolving storage or bias.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "flood-metric-mismatch",
+      "domain": "hydrology",
+      "challenge": "flood-metric-mismatch",
+      "definition": "Average daily-flow performance is used to support a flood-warning claim without evaluating peak magnitude, timing, threshold exceedance, or reliability.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "causal-confounding",
+      "domain": "climate-ecology",
+      "challenge": "causal-confounding",
+      "definition": "An observational association is described as a causal warming effect without addressing co-varying precipitation, CO2, land use, or other plausible confounders.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "spatial-pseudoreplication",
+      "domain": "climate-ecology",
+      "challenge": "spatial-pseudoreplication",
+      "definition": "Hundreds of plots nested within only six landscapes are treated as independent replicates, overstating effective sample size and generalization.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "scope-extrapolation",
+      "domain": "climate-ecology",
+      "challenge": "scope-extrapolation",
+      "definition": "Evidence from one species in two valleys is generalized to global alpine-plant resilience without multispecies or multiregional support.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "mechanism-discrimination",
+      "domain": "chemistry",
+      "challenge": "mechanism-discrimination",
+      "definition": "Product yield and a non-specific inhibitor response do not discriminate the proposed reaction pathway from plausible alternatives.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "identity-purity",
+      "domain": "chemistry",
+      "challenge": "identity-purity",
+      "definition": "The identity and purity of the tested new compound are not established well enough to support downstream activity claims.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "transport-limitation",
+      "domain": "chemistry",
+      "challenge": "transport-limitation",
+      "definition": "Intrinsic catalytic kinetics are claimed without excluding external or internal mass-transfer limitations.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "validated-envelope",
+      "domain": "engineering",
+      "challenge": "validated-envelope",
+      "definition": "A two-hour laboratory stability test is extrapolated to multi-year field durability without evidence across the claimed operating envelope.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "benchmark-fairness",
+      "domain": "engineering",
+      "challenge": "benchmark-fairness",
+      "definition": "The proposed system and baselines are evaluated under different hardware and tuning budgets, so the superiority claim is not a matched comparison.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "batch-replication",
+      "domain": "engineering",
+      "challenge": "batch-replication",
+      "definition": "A single best device is used to support manufacturing reproducibility and yield claims without independent devices or fabrication batches.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "phase-identity",
+      "domain": "materials-science",
+      "challenge": "phase-identity",
+      "definition": "The evidence is insufficient to establish a new single phase; composition alone and a broad diffraction feature do not uniquely determine crystal phase identity.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "benchmark-comparability",
+      "domain": "materials-science",
+      "challenge": "benchmark-comparability",
+      "definition": "Electrochemical performance is compared across unmatched loading, current density, voltage window, and test conditions, making the superiority claim non-comparable.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "stability-claim-envelope",
+      "domain": "materials-science",
+      "challenge": "stability-claim-envelope",
+      "definition": "Short inert-atmosphere storage is presented as operational durability even though illumination, oxygen, moisture, thermal, and cycling stresses were not tested.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "sea-ice-metric-identity",
+      "domain": "polar-earth-system",
+      "challenge": "sea-ice-metric-identity",
+      "definition": "Sea-ice extent is treated as equivalent evidence for ice thickness and volume loss, although these are distinct physical quantities.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "state-dependent-missingness",
+      "domain": "polar-earth-system",
+      "challenge": "state-dependent-missingness",
+      "definition": "Missing optical observations are treated as random even though cloud, melt ponds, and polar-night conditions depend on the environmental state being estimated.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    },
+    {
+      "issue_id": "assimilation-lineage",
+      "domain": "polar-earth-system",
+      "challenge": "assimilation-lineage",
+      "definition": "A sea-ice product used to constrain the model is reused as the validation reference, making the reported skill circular.",
+      "coding_rule": "Code only when the review identifies the target evidence failure or a scientifically equivalent formulation.",
+      "negative_boundary": "Do not code a generic request for more data; the concern must identify the specific mismatch represented by this issue."
+    }
+  ]
+}
