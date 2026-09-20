@@ -20,12 +20,8 @@ def _metrics(scores: list[dict[str, Any]]) -> dict[str, float]:
     positive = [item for item in scores if item["case_type"] == "positive"]
     controls = [item for item in scores if item["case_type"] == "negative_control"]
 
-    essential_recall = _mean(
-        [float(item["essential_issue_recall"]) for item in positive]
-    )
-    specificity = _mean(
-        [float(bool(item["negative_control_pass"])) for item in controls]
-    )
+    essential_recall = _mean([float(item["essential_issue_recall"]) for item in positive])
+    specificity = _mean([float(bool(item["negative_control_pass"])) for item in controls])
 
     tp = sum(int(item["true_positive"]) for item in scores)
     fp = sum(int(item["false_positive"]) for item in scores)
@@ -44,17 +40,14 @@ def _metrics(scores: list[dict[str, Any]]) -> dict[str, float]:
         ctl = next(item for item in items if item["case_type"] == "negative_control")
         pair_outcomes.append(
             float(
-                float(pos["essential_issue_recall"]) == 1.0
-                and bool(ctl["negative_control_pass"])
+                float(pos["essential_issue_recall"]) == 1.0 and bool(ctl["negative_control_pass"])
             )
         )
 
     return {
         "essential_issue_recall": round(essential_recall, 4),
         "specificity": round(specificity, 4),
-        "essential_balanced_accuracy": round(
-            (essential_recall + specificity) / 2.0, 4
-        ),
+        "essential_balanced_accuracy": round((essential_recall + specificity) / 2.0, 4),
         "paired_pass_rate": round(_mean(pair_outcomes), 4),
         "micro_f1": round(micro_f1, 4),
     }
@@ -124,10 +117,7 @@ def paired_bootstrap_delta(
 
 def score_predictions(cases_path: Path, predictions_path: Path) -> list[dict[str, Any]]:
     predictions = load_predictions(predictions_path)
-    return [
-        score_case(case, predictions.get(case.case_id, []))
-        for case in load_cases(cases_path)
-    ]
+    return [score_case(case, predictions.get(case.case_id, [])) for case in load_cases(cases_path)]
 
 
 if __name__ == "__main__":
@@ -145,10 +135,7 @@ if __name__ == "__main__":
     scores_b = score_predictions(args.cases, args.predictions_b)
     metrics_a = _metrics(scores_a)
     metrics_b = _metrics(scores_b)
-    deltas = {
-        metric: round(metrics_b[metric] - metrics_a[metric], 4)
-        for metric in metrics_a
-    }
+    deltas = {metric: round(metrics_b[metric] - metrics_a[metric], 4) for metric in metrics_a}
 
     report = {
         "system_a": {"label": args.label_a, "metrics": metrics_a},
