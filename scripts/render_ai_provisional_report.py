@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
+import pathlib
 
 
 PRIMARY = [
@@ -14,7 +14,7 @@ PRIMARY = [
 SECONDARY = ["micro_precision", "micro_recall", "micro_f1"]
 
 
-def _json(path: Path) -> dict[str, object]:
+def _json(path: pathlib.Path) -> dict[str, object]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
         raise ValueError(f"Expected object in {path}")
@@ -29,13 +29,13 @@ def _fmt(value: object) -> str:
 
 def render(
     *,
-    agreement_path: Path,
-    consensus_path: Path,
-    a_path: Path,
-    b_path: Path,
-    intersection_path: Path,
-    union_path: Path,
-    output_path: Path,
+    agreement_path: pathlib.Path,
+    consensus_path: pathlib.Path,
+    a_path: pathlib.Path,
+    b_path: pathlib.Path,
+    intersection_path: pathlib.Path,
+    union_path: pathlib.Path,
+    output_path: pathlib.Path,
 ) -> dict[str, object]:
     agreement = _json(agreement_path)
     consensus = _json(consensus_path)
@@ -132,14 +132,14 @@ def render(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--agreement", type=Path, required=True)
-    parser.add_argument("--consensus", type=Path, required=True)
-    parser.add_argument("--annotator-a-analysis", type=Path, required=True)
-    parser.add_argument("--annotator-b-analysis", type=Path, required=True)
-    parser.add_argument("--intersection-analysis", type=Path, required=True)
-    parser.add_argument("--union-analysis", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--summary-json", type=Path, required=True)
+    parser.add_argument("--agreement", type=pathlib.Path, required=True)
+    parser.add_argument("--consensus", type=pathlib.Path, required=True)
+    parser.add_argument("--annotator-a-analysis", type=pathlib.Path, required=True)
+    parser.add_argument("--annotator-b-analysis", type=pathlib.Path, required=True)
+    parser.add_argument("--intersection-analysis", type=pathlib.Path, required=True)
+    parser.add_argument("--union-analysis", type=pathlib.Path, required=True)
+    parser.add_argument("--output", type=pathlib.Path, required=True)
+    parser.add_argument("--summary-json", type=pathlib.Path, required=True)
     args = parser.parse_args()
 
     result = render(
