@@ -157,6 +157,12 @@
       "doi": "10.1038/s41560-019-0529-5",
       "url": "https://doi.org/10.1038/s41560-019-0529-5",
       "relevance": "Defines stability stress categories and reporting practices for perovskite photovoltaic stability assessment."
+    },
+    "NSIDC_SEA_ICE_DEFINITIONS": {
+      "title": "Science of Sea Ice",
+      "type": "NSIDC scientific reference",
+      "url": "https://nsidc.org/learn/parts-cryosphere/sea-ice/science-sea-ice",
+      "relevance": "Defines sea-ice concentration, area, extent and thickness as distinct quantities and documents the standard extent threshold."
     }
   }
 }
