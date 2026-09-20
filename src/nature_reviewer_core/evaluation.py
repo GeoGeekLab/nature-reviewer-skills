@@ -180,7 +180,7 @@ def _numeric_metric(scores: list[dict[str, Any]], metric: str) -> list[float]:
     values: list[float] = []
     for score in scores:
         value = score.get(metric)
-        if isinstance(value, (int, float)):
+        if isinstance(value, int | float):
             values.append(float(value))
     return values
 
@@ -300,7 +300,7 @@ def _extract_summary_metric(summary: dict[str, Any], metric: str) -> float | Non
         value = summary.get("micro", {}).get("f1")
     else:
         raise ValueError(f"Unsupported bootstrap metric: {metric}")
-    return float(value) if isinstance(value, (int, float)) else None
+    return float(value) if isinstance(value, int | float) else None
 
 
 def _bootstrap_confidence_intervals(
@@ -319,7 +319,7 @@ def _bootstrap_confidence_intervals(
     if len(units) < 2:
         return {metric: None for metric in metrics}
 
-    rng = random.Random(seed)
+    rng = random.Random(seed)  # noqa: S311  # nosec B311
     sampled_metrics: dict[str, list[float]] = {metric: [] for metric in metrics}
     for _ in range(iterations):
         sampled_scores: list[dict[str, Any]] = []
