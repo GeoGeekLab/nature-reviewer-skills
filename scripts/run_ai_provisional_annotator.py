@@ -195,7 +195,9 @@ def annotate(
                     ) from None
 
         if parsed is None:
-            raise RuntimeError(f"{annotation_id}: annotation parser reached an impossible empty state")
+            raise RuntimeError(
+                f"{annotation_id}: annotation parser reached an impossible empty state"
+            )
         concerns = parsed.get("concerns", [])
         if not isinstance(concerns, list):
             raise ValueError(f"{annotation_id}: concerns must be a list")
