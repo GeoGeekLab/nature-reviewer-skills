@@ -92,3 +92,40 @@ def test_negative_control_false_positive_is_counted() -> None:
     assert score["negative_control_pass"] is False
     assert score["false_positive"] == 1
     assert score["precision"] is None
+
+
+def test_control_specificity_is_target_specific_when_challenge_is_known() -> None:
+    from nature_reviewer_core.models import BenchmarkCase
+
+    control = BenchmarkCase(
+        case_id="control-target",
+        domain="demo",
+        manuscript_text="A matched control excerpt with the target defect repaired.",
+        gold_concerns=(),
+        case_type="negative_control",
+        pair_id="pair-target",
+        challenge="target-issue",
+    )
+    unrelated = Concern("other-issue", "moderate", "A different coded concern")
+    score = score_case(control, [unrelated])
+
+    assert score["negative_control_pass"] is True
+    assert score["false_positive"] == 1
+
+
+def test_control_specificity_fails_when_target_issue_reappears() -> None:
+    from nature_reviewer_core.models import BenchmarkCase
+
+    control = BenchmarkCase(
+        case_id="control-target",
+        domain="demo",
+        manuscript_text="A matched control excerpt with the target defect repaired.",
+        gold_concerns=(),
+        case_type="negative_control",
+        pair_id="pair-target",
+        challenge="target-issue",
+    )
+    target = Concern("target-issue", "major", "The repaired target is incorrectly flagged")
+    score = score_case(control, [target])
+
+    assert score["negative_control_pass"] is False
