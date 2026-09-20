@@ -31,11 +31,10 @@ def _concern_from_dict(value: dict[str, Any]) -> Concern:
     )
 
 
-def load_case(path: Path) -> BenchmarkCase:
-    value = json.loads(path.read_text(encoding="utf-8"))
+def _case_from_dict(value: dict[str, Any], source: str = "<memory>") -> BenchmarkCase:
     case_type = str(value.get("case_type", "positive"))
     if case_type not in {"positive", "negative_control"}:
-        raise ValueError(f"Unsupported benchmark case_type in {path}: {case_type}")
+        raise ValueError(f"Unsupported benchmark case_type in {source}: {case_type}")
     return BenchmarkCase(
         case_id=str(value["case_id"]),
         domain=str(value["domain"]),
@@ -46,6 +45,39 @@ def load_case(path: Path) -> BenchmarkCase:
         challenge=str(value.get("challenge", "")),
         suite=str(value.get("suite", "")),
     )
+
+
+def load_case(path: Path) -> BenchmarkCase:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(value, dict):
+        raise ValueError(f"Expected one benchmark object in {path}")
+    return _case_from_dict(value, str(path))
+
+
+def load_cases(path: Path) -> list[BenchmarkCase]:
+    if path.is_dir():
+        return [load_case(case_path) for case_path in sorted(path.glob("*.json"))]
+
+    if path.suffix == ".jsonl":
+        cases: list[BenchmarkCase] = []
+        with path.open("r", encoding="utf-8") as handle:
+            for number, line in enumerate(handle, 1):
+                if not line.strip():
+                    continue
+                value = json.loads(line)
+                if not isinstance(value, dict):
+                    raise ValueError(f"Expected object at {path}:{number}")
+                cases.append(_case_from_dict(value, f"{path}:{number}"))
+        return cases
+
+    if path.suffix == ".json":
+        value = json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(value, list):
+            return [_case_from_dict(item, str(path)) for item in value]
+        if isinstance(value, dict):
+            return [_case_from_dict(value, str(path))]
+
+    raise ValueError(f"Unsupported benchmark case source: {path}")
 
 
 def load_predictions(path: Path) -> dict[str, list[Concern]]:
