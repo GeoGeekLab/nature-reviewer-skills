@@ -200,13 +200,15 @@ def annotate(
             raise ValueError(f"{annotation_id}: concerns must be a list")
 
         clean_concerns = []
+        invalid_issue_ids: list[str] = []
         seen_issues: set[str] = set()
         for concern in concerns:
             if not isinstance(concern, dict):
                 raise ValueError(f"{annotation_id}: concern must be an object")
             issue_id = str(concern.get("issue_id", ""))
             if issue_id not in allowed_ids:
-                raise ValueError(f"{annotation_id}: disallowed issue_id {issue_id!r}")
+                invalid_issue_ids.append(issue_id)
+                continue
             if issue_id in seen_issues:
                 continue
             seen_issues.add(issue_id)
@@ -245,6 +247,7 @@ def annotate(
                     "finish_reason": finish_reason,
                     "prompt_tokens": usage.get("prompt_tokens"),
                     "completion_tokens": usage.get("completion_tokens"),
+                    "invalid_issue_ids": invalid_issue_ids,
                 }
             )
             + "\n"
