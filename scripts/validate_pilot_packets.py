@@ -86,9 +86,7 @@ def validate(pilot_dir: Path) -> dict[str, Any]:
             if any(pair_ids[index] == pair_ids[index - 1] for index in range(1, len(pair_ids))):
                 raise ValueError(f"{condition} run {run_index}: adjacent pair counterparts")
 
-            packet_path = (
-                pilot_dir / "execution_packets" / f"{condition}_run_{run_index:02d}.jsonl"
-            )
+            packet_path = pilot_dir / "execution_packets" / f"{condition}_run_{run_index:02d}.jsonl"
             packets = _jsonl(packet_path)
             if len(packets) != expected_cases:
                 raise ValueError(f"{packet_path}: wrong packet count")
