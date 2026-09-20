@@ -34,3 +34,17 @@ Do not show initial annotators:
 - oracle predictions.
 
 For public scientific interpretation, use at least two independent domain-competent annotators and retain pre-adjudication labels before adjudication.
+
+
+## Agreement before adjudication
+
+With two independent annotation files:
+
+~~~bash
+python scripts/measure_pilot_agreement.py \
+  --pilot-dir pilot_runs/crd-v1-three-domain \
+  --annotator-a annotator_a.jsonl \
+  --annotator-b annotator_b.jsonl
+~~~
+
+The script reports observed agreement and Cohen's kappa for presence/absence of the paired target issue, overall and by domain. Run this **before** adjudication and preserve the result.
