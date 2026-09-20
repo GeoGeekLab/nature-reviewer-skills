@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
   "name": "nature-remote-sensing-reviewer-skill",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "license": "MIT",
   "skill_entrypoint": "SKILL.md",
   "pattern_count": 31,
-  "shared_runtime": "nature-reviewer-core>=2.1.0,<3",
+  "shared_runtime": "nature-reviewer-core>=2.2.0,<3",
   "generated": true,
   "evidence_boundary": "research-assistance only; expert validation required",
   "package_type": "domain_skill"
