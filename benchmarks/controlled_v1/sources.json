@@ -130,6 +130,33 @@
       "doi": "10.64898/2026.04.17.719279",
       "url": "https://doi.org/10.64898/2026.04.17.719279",
       "relevance": "Issue specification, justification, remedy, and manuscript anchoring."
+    },
+    "RS_SUPPORT_SCALE": {
+      "title": "On the effect of spatial variability and support on validation of remote sensing observations of CO2",
+      "type": "peer-reviewed article",
+      "doi": "10.1016/j.atmosenv.2016.03.014",
+      "url": "https://doi.org/10.1016/j.atmosenv.2016.03.014",
+      "relevance": "Directly addresses spatial-support mismatch and horizontal variability in remote-sensing validation."
+    },
+    "BATTERY_METRICS": {
+      "title": "Aligning academia and industry for unified battery performance metrics",
+      "type": "peer-reviewed article",
+      "url": "https://www.nature.com/articles/s41467-018-07599-8",
+      "relevance": "Identifies loading, voltage window, capacity basis, cyclability and other matched performance metrics needed for meaningful battery comparisons."
+    },
+    "BATTERY_BEST_PRACTICES": {
+      "title": "Best practices in lithium battery cell preparation and evaluation",
+      "type": "peer-reviewed perspective",
+      "doi": "10.1038/s43246-022-00286-8",
+      "url": "https://doi.org/10.1038/s43246-022-00286-8",
+      "relevance": "Documents how cell fabrication and test conditions influence battery performance and reproducibility."
+    },
+    "PEROVSKITE_ISOS": {
+      "title": "Consensus statement for stability assessment and reporting for perovskite photovoltaics based on ISOS procedures",
+      "type": "peer-reviewed consensus statement",
+      "doi": "10.1038/s41560-019-0529-5",
+      "url": "https://doi.org/10.1038/s41560-019-0529-5",
+      "relevance": "Defines stability stress categories and reporting practices for perovskite photovoltaic stability assessment."
     }
   }
 }
