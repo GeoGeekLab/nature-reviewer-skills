@@ -38,7 +38,7 @@ jobs:
       - name: Static-check experiment scripts
         run: |
           ruff check scripts/run_formal_blinded_inference.py scripts/validate_formal_inference.py
-          ruff format --diff scripts/run_formal_blinded_inference.py scripts/validate_formal_inference.py
+          ruff format --check scripts/run_formal_blinded_inference.py scripts/validate_formal_inference.py
           bandit -q scripts/run_formal_blinded_inference.py scripts/validate_formal_inference.py
 
       - name: Prepare blinded pilot packets
