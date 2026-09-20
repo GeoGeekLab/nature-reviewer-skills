@@ -1,0 +1,159 @@
+name: Formal CRD-v1 Qwen2.5-3B Pilot Inference
+
+on:
+  push:
+    branches:
+      - experiment/qwen25-3b-pilot-inference
+    paths:
+      - ".github/workflows/formal-pilot-inference-qwen25-3b.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: formal-crd-v1-qwen25-3b-pilot
+  cancel-in-progress: true
+
+jobs:
+  inference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install repository runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+          python -m pip install -e .
+
+      - name: Static-check experiment scripts
+        run: |
+          ruff check scripts/run_formal_blinded_inference.py scripts/validate_formal_inference.py
+          ruff format --check scripts/run_formal_blinded_inference.py scripts/validate_formal_inference.py
+          bandit -q scripts/run_formal_blinded_inference.py scripts/validate_formal_inference.py
+
+      - name: Prepare blinded pilot packets
+        run: |
+          MODEL_ID='bartowski/Qwen2.5-3B-Instruct-GGUF::Qwen2.5-3B-Instruct-Q4_K_M.gguf::sha256:9c9f56a391a3abbd5b89d0245bf6106081bcc3173119d4229235dd9d23253f94::llama.cpp-b10901'
+          python scripts/prepare_blinded_pilot.py \
+            --model-id "$MODEL_ID" \
+            --output .pilot_formal
+          python scripts/validate_pilot_packets.py .pilot_formal
+          cp benchmarks/pilot_v1/FORMAL_INFERENCE_LOCK_QWEN25_3B.json .pilot_formal/
+
+      - name: Download pinned llama.cpp CPU binary
+        run: |
+          mkdir -p .llama
+          curl --fail --location --retry 5 --retry-all-errors \
+            --output /tmp/llama-b10901.tar.gz \
+            https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-x64.tar.gz
+          echo "39f81161548723a23ae03476e7ce4b4ca86d64f6a7b417e023346680c47cf699  /tmp/llama-b10901.tar.gz" | sha256sum --check
+          tar -xzf /tmp/llama-b10901.tar.gz -C .llama
+          LLAMA_SERVER="$(find "$PWD/.llama" -type f -name llama-server | head -n 1)"
+          test -n "$LLAMA_SERVER"
+          chmod +x "$LLAMA_SERVER"
+          echo "LLAMA_SERVER=$LLAMA_SERVER" >> "$GITHUB_ENV"
+          echo "LLAMA_LIB_DIR=$(dirname "$LLAMA_SERVER")" >> "$GITHUB_ENV"
+          "$LLAMA_SERVER" --version | tee .pilot_formal/llama_cpp_version.txt
+
+      - name: Download and verify pinned Qwen2.5-3B GGUF
+        run: |
+          mkdir -p .models
+          curl --fail --location --retry 5 --retry-all-errors \
+            --output .models/Qwen2.5-3B-Instruct-Q4_K_M.gguf \
+            "https://huggingface.co/bartowski/Qwen2.5-3B-Instruct-GGUF/resolve/main/Qwen2.5-3B-Instruct-Q4_K_M.gguf?download=true"
+          echo "9c9f56a391a3abbd5b89d0245bf6106081bcc3173119d4229235dd9d23253f94  .models/Qwen2.5-3B-Instruct-Q4_K_M.gguf" | sha256sum --check
+          sha256sum .models/Qwen2.5-3B-Instruct-Q4_K_M.gguf > .pilot_formal/model_sha256.txt
+
+      - name: Start isolated local inference server
+        env:
+          LD_LIBRARY_PATH: ${{ env.LLAMA_LIB_DIR }}
+        run: |
+          "$LLAMA_SERVER" \
+            -m .models/Qwen2.5-3B-Instruct-Q4_K_M.gguf \
+            --alias pilot-model \
+            -c 12288 \
+            -t 4 \
+            -np 1 \
+            --host 127.0.0.1 \
+            --port 8080 \
+            > .pilot_formal/llama_server.log 2>&1 &
+          echo $! > .pilot_formal/llama_server.pid
+
+          ready=0
+          for attempt in $(seq 1 120); do
+            if curl --silent --fail http://127.0.0.1:8080/health >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 2
+          done
+          test "$ready" -eq 1
+          curl --silent --fail http://127.0.0.1:8080/health | tee .pilot_formal/server_health_before.json
+
+      - name: Run all 108 formal blinded inferences
+        env:
+          LD_LIBRARY_PATH: ${{ env.LLAMA_LIB_DIR }}
+        run: |
+          python scripts/run_formal_blinded_inference.py \
+            --pilot-dir .pilot_formal \
+            --server-url http://127.0.0.1:8080 \
+            --server-model pilot-model
+
+      - name: Validate complete formal inference
+        run: |
+          python scripts/validate_formal_inference.py .pilot_formal | tee .pilot_formal/validation_report.json
+          python scripts/build_pilot_annotation_packets.py \
+            --pilot-dir .pilot_formal \
+            --raw-outputs .pilot_formal/raw_outputs.jsonl \
+            | tee .pilot_formal/annotation_packet_build_report.json
+
+      - name: Record execution provenance
+        run: |
+          git rev-parse HEAD > .pilot_formal/execution_commit.txt
+          python --version > .pilot_formal/python_version.txt
+          uname -a > .pilot_formal/runner_uname.txt
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .pilot_formal/completed_at_utc.txt
+
+      - name: Upload formal raw inference artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: crd-v1-qwen25-3b-formal-inference
+          path: |
+            .pilot_formal/raw_outputs.jsonl
+            .pilot_formal/inference_metadata.jsonl
+            .pilot_formal/formal_inference_summary.json
+            .pilot_formal/run_manifest.json
+            .pilot_formal/private_mapping.json
+            .pilot_formal/annotation_packets.jsonl
+            .pilot_formal/annotation_mapping.json
+            .pilot_formal/validation_report.json
+            .pilot_formal/annotation_packet_build_report.json
+            .pilot_formal/FORMAL_INFERENCE_LOCK_QWEN25_3B.json
+            .pilot_formal/llama_cpp_version.txt
+            .pilot_formal/model_sha256.txt
+            .pilot_formal/server_health_before.json
+            .pilot_formal/execution_commit.txt
+            .pilot_formal/python_version.txt
+            .pilot_formal/runner_uname.txt
+            .pilot_formal/completed_at_utc.txt
+            .pilot_formal/llama_server.log
+          retention-days: 90
+
+      - name: Upload server log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crd-v1-qwen25-3b-inference-failure-log
+          path: |
+            .pilot_formal/llama_server.log
+            .pilot_formal/run_manifest.json
+            .pilot_formal/FORMAL_INFERENCE_LOCK_QWEN25_3B.json
+          if-no-files-found: ignore
+          retention-days: 30
