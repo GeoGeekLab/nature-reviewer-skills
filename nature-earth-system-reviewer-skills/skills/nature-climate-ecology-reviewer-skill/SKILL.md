@@ -1,12 +1,12 @@
 ---
 name: nature-climate-ecology-reviewer
 description: Nature-style climate and ecology manuscript reviewer skill for testing biodiversity, ecosystem-function, carbon-cycle, conservation, global-change and ecological-inference claims against sampling, causal design, model structure, uncertainty and management scope.
-version: "1.0.1"
+version: "2.2.0"
 language: en
 audience: ai-coding-agent, research-writing-agent, manuscript-review-agent
 scope: climate sciences, ecology, biodiversity, conservation, forest ecology, carbon cycle, nitrogen cycle, ecosystem modelling
 priority: claim-dependent-evidence-review
-license: "MIT OR Apache-2.0"
+license: "MIT"
 ---
 
 # Nature Climate-Ecology Reviewer Skill
