@@ -37,7 +37,7 @@ def _load_cases(source: Path) -> list[dict[str, Any]]:
 
 def validate_suite(source: Path) -> dict[str, Any]:
     cases = _load_cases(source)
-    source_catalog_path = source.parent / "sources.json" if source.is_file() else source.parent / "sources.json"
+    source_catalog_path = source.parent / "sources.json"
     source_catalog: set[str] | None = None
     if source_catalog_path.exists():
         catalog = _load(source_catalog_path)
