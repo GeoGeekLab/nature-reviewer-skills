@@ -5,48 +5,161 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](pyproject.toml)
 
-**Domain-aware scientific reviewer skills for stress-testing a manuscript before journal reviewers do.**
+**Domain-aware scientific peer-review skills for stress-testing manuscript claims, evidence, validation, uncertainty, and generalization before submission.**
 
-Nature Reviewer Skills helps researchers find the weaknesses that matter most in high-level peer review: unsupported claims, incomplete evidence chains, weak controls, invalid generalization, unresolved alternative explanations, uncertainty gaps, and conclusions that exceed the data.
-
-It is not a grammar checker and not a generic “review my paper” prompt. Each skill applies discipline-specific review gates and distilled reviewer-reasoning patterns to produce structured, revision-oriented scientific criticism.
+Nature Reviewer Skills is not a grammar checker and not a generic “review my paper” prompt. It routes scientific claims through discipline-specific evidence gates, retrieves relevant reviewer-reasoning patterns, and produces revision-oriented criticism anchored to the manuscript.
 
 > **Core principle:** the stronger the claim, the stronger and more discriminating the evidence must be.
 
-## Why use it?
+**7 domain reviewers · 1 polar orchestrator · 644 abstracted reviewer-reasoning patterns**
 
-A manuscript can be clearly written and still fail peer review because its central scientific claim is not adequately supported. This suite is designed to expose that mismatch before submission.
+> This is an independent open-source project. It is not affiliated with Nature Portfolio or Springer Nature.
 
-Use it to:
+## See the failure before a reviewer does
 
-- identify major scientific vulnerabilities before they appear in referee reports;
-- test whether conclusions are broader than the validation domain;
-- distinguish correlation, attribution, mechanism, and causality;
-- check whether controls, baselines, uncertainty analyses, and failure modes are sufficient;
-- simulate several reviewer perspectives with different evidence responsibilities;
-- convert criticism into specific experiments, analyses, controls, or claim revisions;
-- help students and research teams learn how rigorous scientific review reasons.
+A manuscript can be well written and still fail because its strongest claim outruns the evidence.
 
-## What the review focuses on
+**Illustrative, shortened example**
 
-| Review target | Questions the skills ask |
+Manuscript claim:
+
+~~~text
+"Our model generalizes across regions."
+~~~
+
+Available evidence:
+
+~~~text
+Validation uses random train/test splits from the same geographic distribution.
+~~~
+
+A domain-aware review should surface the real scientific risk:
+
+~~~text
+Major concern — Generalization exceeds the validation domain
+
+Evidence:
+Validation is limited to random splits drawn from the same geographic distribution.
+
+Why this matters:
+Spatial autocorrelation can inflate apparent performance and does not establish
+transfer to unseen regions.
+
+Required revision:
+Add geographically independent evaluation, quantify performance degradation,
+and either support the transferability claim or narrow the claim to the tested domain.
+~~~
+
+The goal is not to generate more comments. The goal is to identify the concerns most likely to change the claim, experiment, validation design, or interpretation.
+
+## Quick start
+
+### 1. Clone the repository
+
+~~~bash
+git clone https://github.com/GeoGeekLab/nature-reviewer-skills.git
+cd nature-reviewer-skills
+~~~
+
+### 2. Install the shared runtime
+
+The reviewer skills are \`SKILL.md\` packages. The shared Python runtime provides validation, retrieval, extraction, and evaluation tooling.
+
+Core installation:
+
+~~~bash
+python -m pip install -e .
+~~~
+
+Add PDF/DOCX extraction support when needed:
+
+~~~bash
+python -m pip install -e ".[documents]"
+~~~
+
+Development tools:
+
+~~~bash
+python -m pip install -e ".[dev]"
+~~~
+
+### 3. Load the reviewer you need
+
+Point a \`SKILL.md\`-capable agent runtime at one of the skill directories below, or copy that directory into the skills location used by your runtime.
+
+Example:
+
+~~~text
+nature-earth-system-reviewer-skills/
+  skills/
+    nature-remote-sensing-reviewer-skill/
+      SKILL.md
+~~~
+
+Then ask the agent to use that reviewer:
+
+~~~text
+Use the remote-sensing reviewer skill to conduct a rigorous pre-submission review.
+
+Identify the manuscript's central claims and test spatial independence, product validity,
+uncertainty, validation design, transferability, alternative explanations, and whether
+the conclusions exceed the evidence.
+
+For each major concern, anchor the criticism to manuscript evidence and give a concrete
+revision path.
+~~~
+
+> Runtime note: installation paths differ across agent systems. The repository is designed around \`SKILL.md\` packages; runtime-specific compatibility should be treated as tested only when that runtime has been explicitly validated.
+
+### 4. Validate the repository
+
+~~~bash
+python scripts/sync_skill_assets.py
+python scripts/validate_all.py
+python -m pytest
+~~~
+
+## Why not use a generic reviewer prompt?
+
+| Generic review prompt | Nature Reviewer Skills |
 |---|---|
-| Central claim | What is the strongest claim, and what evidence would be required to defend it? |
-| Evidence chain | Do data, preprocessing, methods, validation, interpretation, and conclusion form a defensible chain? |
-| Controls and baselines | Are the comparisons capable of distinguishing the proposed explanation from alternatives? |
-| Validation | Is testing independent, representative, and aligned with the claimed operating domain? |
-| Uncertainty | Are measurement, model, sampling, and inferential uncertainties quantified and propagated? |
-| Causality and mechanism | Does the evidence support mechanism, or only association and consistency? |
-| Generalization | Where does the evidence end, and where does extrapolation begin? |
-| Novelty and significance | Is the contribution genuinely new, consequential, and positioned against the strongest prior work? |
-| Reproducibility | Are methods, parameters, data, code, and reporting sufficient for verification? |
-| Revision path | What additional evidence, analysis, qualification, or narrowing would resolve the concern? |
+| Broad criticism across many dimensions | Claim-dependent, domain-specific evidence gates |
+| Often treats all concerns similarly | Distinguishes central scientific risks from local issues |
+| May criticize without locating the evidence | Requires evidence anchors when manuscript content is available |
+| Generic reproducibility and statistics checks | Discipline-specific failure modes such as spatial leakage, gauge representativeness, purity, benchmark fairness, or operating-envelope limits |
+| Usually one undifferentiated voice | Supports complementary reviewer roles and panel deduplication |
+| Can stop at criticism | Requires a revision direction for major concerns |
 
-## What you receive
+The intended advantage is **domain-specific evidence stress testing**, not simply a longer review.
 
-A typical run produces **2–4 referee-style reports** with complementary perspectives rather than one undifferentiated checklist.
+## Included reviewer skills
 
-Each major concern should include:
+### Earth-system science
+
+| Reviewer | Typical stress tests |
+|---|---|
+| [Remote sensing](nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill/) | spatial leakage, product validity, mixed pixels, QA screening, independent validation, uncertainty propagation, out-of-domain transfer |
+| [Atmospheric science](nature-earth-system-reviewer-skills/skills/nature-atmospheric-science-reviewer-skill/) | observation-model consistency, attribution, scale mismatch, forcing assumptions, internal variability, extremes |
+| [Hydrology](nature-earth-system-reviewer-skills/skills/nature-hydrology-reviewer-skill/) | water balance, gauge representativeness, calibration/validation separation, equifinality, event sampling, basin transfer |
+| [Climate and ecology](nature-earth-system-reviewer-skills/skills/nature-climate-ecology-reviewer-skill/) | confounding, mechanism, representativeness, driver separation, ecological scale, impact and policy overreach |
+
+### Chemistry, engineering, and materials
+
+| Reviewer | Typical stress tests |
+|---|---|
+| [Chemistry](nature-chemistry-reviewer-skill/) | identity and purity, discriminating controls, substrate scope, selectivity, mechanism, quantitative comparison |
+| [Engineering](nature-engineering-reviewer-skill/) | requirement-design-validation coherence, benchmark fairness, robustness, failure modes, operating envelope, deployment claims |
+| [Materials science](nature-materials-science-reviewer-skill/) | phase identity, characterization, structure-property relations, benchmark comparability, durability, processability, scalability |
+
+### Polar Earth-System Review Orchestrator
+
+The [Polar Earth-System Review Orchestrator](nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/) is an upper-layer coordinator, not an eighth foundational reviewer.
+
+It routes Arctic, Antarctic, Southern Ocean, cryosphere, polar atmosphere/ocean, ecology, biogeochemistry, remote-sensing, paleoclimate, and instrumentation claims to the relevant domain reviewers; adds polar-specific evidence gates; assigns non-overlapping reviewer responsibilities; and consolidates the final review.
+
+## What a major concern should contain
+
+A strong concern should make the scientific logic inspectable:
 
 1. **Claim under review**
 2. **Evidence anchor** — figure, table, section, method, result, or explicit missing evidence
@@ -55,61 +168,26 @@ Each major concern should include:
 5. **Alternative explanation or failure mode**
 6. **Actionable revision path**
 
-Example concern structure:
+A concern should be major only when it affects the central contribution or the reader's confidence in the evidence chain.
 
-```text
-Major concern — Generalization exceeds the validation domain
+## What the review stress-tests
 
-Claim:
-The model is presented as transferable across regions and seasons.
-
-Evidence:
-Validation is limited to random splits from the same geographic and temporal distribution.
-
-Why this matters:
-Random splitting does not test geographic or seasonal transfer and may preserve spatial,
-temporal, or preprocessing leakage.
-
-Required revision:
-Add geographically and temporally independent evaluation, quantify performance degradation,
-and either support the transferability claim or narrow it to the tested domain.
-```
-
-## Included reviewer skills
-
-The suite contains seven domain-specific skills, one Polar Earth-System Review Orchestrator, and 644 abstracted reviewer-reasoning patterns.
-
-| Skill | Best suited for | Typical stress tests |
-|---|---|---|
-| **Remote sensing** | Earth observation, retrievals, geospatial ML, mapping and trend products | spatial leakage, product validity, independent validation, uncertainty propagation, out-of-domain transfer |
-| **Atmospheric science** | observations, reanalysis, numerical models, atmospheric chemistry, extremes, AI weather/climate | observation–model consistency, attribution, scale mismatch, internal variability, forcing and boundary assumptions |
-| **Hydrology** | catchments, discharge, groundwater, drought, floods, water quality and water resources | water balance, variable identity, gauge representativeness, calibration/validation, equifinality, scale transfer |
-| **Climate and ecology** | climate impacts, ecosystems, carbon cycles, biodiversity, land use and conservation | confounding, ecological mechanism, representativeness, driver separation, management and policy overreach |
-| **Chemistry** | synthesis, catalysis, analytical chemistry, mechanisms, chemical biology and molecular discovery | identity and purity, discriminating controls, scope, selectivity, mechanistic support, reproducibility |
-| **Engineering** | devices, systems, robotics, biomedical and environmental engineering, physical AI | requirement–design–validation coherence, benchmark fairness, operating envelope, failure modes, real-world utility |
-| **Materials science** | synthesis, characterization, structure–property relations, stability and applications | phase identity, benchmark comparability, mechanism, durability, processability, scalability and application boundaries |
-
-
-## Polar Earth-System Review Orchestrator
-
-The repository now includes **one upper-layer polar orchestrator in addition to the seven domain skills**. It is not counted as an eighth discipline. It routes Arctic, Antarctic and Southern Ocean claims to the existing domain reviewers, applies 104 polar-specific evidence patterns, assigns non-overlapping reviewer roles, and consolidates the review.
-
-Typical checks include sparse and logistics-driven sampling, season and regional scope, sea-ice/glacier/permafrost variable identity, satellite-product lineage, mass and energy budgets, model geometry, internal variability, proxy chronology, community/Indigenous knowledge governance, and Antarctic environmental reporting.
-
-See [`nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/`](nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/). The package is colocated with the Earth-system skills but remains classified as an orchestrator by its manifest.
-
-## Who it is for
-
-- **Researchers** preparing manuscripts for selective journals
-- **Principal investigators** running internal pre-submission review
-- **Graduate students** learning evidence-centered scientific criticism
-- **Research teams** building manuscript quality-control workflows
-- **Editors and reviewers** structuring an initial claim–evidence audit
-- **Agent developers** building domain-aware scientific review systems
+| Review target | Core question |
+|---|---|
+| Central claim | What is the strongest claim, and what evidence would be required to defend it? |
+| Evidence chain | Do data, preprocessing, methods, validation, interpretation, and conclusion form a defensible chain? |
+| Controls and baselines | Can the comparison distinguish the proposed explanation from plausible alternatives? |
+| Validation | Is testing independent, representative, and aligned with the claimed operating domain? |
+| Uncertainty | Are important measurement, model, sampling, and inferential uncertainties quantified and propagated? |
+| Causality and mechanism | Does the evidence support mechanism or causality, or only association and consistency? |
+| Generalization | Where does the evidence end, and where does extrapolation begin? |
+| Novelty and significance | Is the contribution positioned against the strongest relevant prior work? |
+| Reproducibility | Are methods, parameters, data, code, and reporting sufficient for verification? |
+| Revision path | What additional evidence, analysis, control, or claim narrowing would resolve the concern? |
 
 ## How it works
 
-```text
+~~~text
 manuscript
    ↓
 identify central claims
@@ -123,159 +201,135 @@ stress-test controls, validation, uncertainty, mechanism, and scope
 generate complementary referee-style reports
    ↓
 deduplicate concerns and propose revision paths
-```
+~~~
 
 The reviewer-memory layer stores **abstracted, non-verbatim scientific reasoning patterns**, not copied referee reports. A pattern follows the logic:
 
-```text
+~~~text
 claim type → evidence risk → stress-test gate → reviewer concern → revision direction
-```
+~~~
 
-## Quick start
+## Evaluation status
 
-### 1. Clone the repository
+The repository contains a real evaluation framework, but the current public evidence should not be confused with independent proof of expert-level reviewing performance.
 
-```bash
-git clone https://github.com/GeoGeekLab/nature-reviewer-skills.git
-cd nature-reviewer-skills
-```
+Current public status:
 
-### 2. Install the shared runtime
+| Evidence | Status |
+|---|---|
+| Repository/package validation | Available |
+| Deterministic retrieval and schema tests | Available |
+| Synthetic benchmark pipeline | Available |
+| Public synthetic benchmark cases | 3 cases: chemistry, engineering, remote sensing |
+| Expert-labelled manuscript gold set | Not yet established publicly |
+| Blinded comparison against generic review prompts | Not yet established publicly |
+| Prospective evaluation on real submissions | Not yet established publicly |
 
-Core installation:
+The current synthetic benchmark cases report perfect pipeline metrics because the fixtures are constructed to test scoring and infrastructure behavior. They **do not demonstrate expert-level scientific-review quality**.
 
-```bash
-python -m pip install -e .
-```
+A credible performance claim requires expert-labelled manuscripts, negative controls, blinded comparisons, confidence intervals, and domain-specific error analysis.
 
-Install document support and development tools when needed:
+See:
 
-```bash
-python -m pip install -e ".[documents,dev]"
-```
+- [Evaluation protocol](docs/EVALUATION.md)
+- [Current synthetic benchmark report](benchmark-report.json)
+- [Test report](TEST_REPORT.md)
 
-### 3. Validate the repository
+The evaluation framework supports:
 
-```bash
-python scripts/sync_skill_assets.py
-python scripts/validate_all.py
-python -m pytest
-```
+- essential-issue recall;
+- concern precision and false-positive rate;
+- severity agreement;
+- evidence-anchor coverage and validity;
+- unsupported-citation rate;
+- duplicate-concern rate across panel members;
+- run-to-run stability;
+- human usefulness and actionability scores.
 
-### 4. Install or load a skill
+## Reliability and defensive behavior
 
-Copy the required skill directory into the skills directory used by your agent runtime, or point the runtime directly to its `SKILL.md`.
+The shared runtime includes:
 
-Earth-system skills are under:
+- typed Python models and validation;
+- deterministic field-weighted BM25 retrieval;
+- phrase boosts and query expansion;
+- confidence reporting and diversity-aware selection;
+- matrix CI and package validation;
+- defensive PDF/DOCX/archive/path/size/page-count limits;
+- checks intended to prevent fabricated citations, figures, page numbers, evidence, or misconduct allegations.
 
-```text
-nature-earth-system-reviewer-skills/skills/
-```
+Technical details:
 
-Other domain skills are at the repository root:
-
-```text
-nature-chemistry-reviewer-skill/
-nature-engineering-reviewer-skill/
-nature-materials-science-reviewer-skill/
-```
-
-## Example requests
-
-### Hydrology
-
-```text
-Use the hydrology reviewer skill to conduct a rigorous pre-submission review.
-Identify the central claims and test water-balance consistency, variable validity,
-validation independence, uncertainty, scale transfer, attribution, and whether the
-conclusions exceed the evidence.
-```
-
-### Materials science
-
-```text
-Review this manuscript using the materials-science reviewer skill. Focus on material
-identity, structure–property causality, benchmark comparability, stability, degradation,
-replicates, scalability, and whether the application claims are experimentally supported.
-```
-
-### Interdisciplinary manuscript
-
-```text
-Use the remote-sensing, atmospheric-science, and climate-ecology reviewer skills as a panel.
-Assign distinct responsibilities to each reviewer, avoid duplicate concerns, and produce a
-consolidated list of the highest-priority revisions.
-```
+- [Architecture](docs/ARCHITECTURE.md)
+- [Evaluation](docs/EVALUATION.md)
+- [Security](docs/SECURITY.md)
+- [Migration notes](docs/MIGRATION.md)
+- [Changelog](CHANGELOG.md)
 
 ## Command-line tools
 
-Search a skill’s reviewer-pattern database:
+Search a skill's reviewer-pattern database:
 
-```bash
+~~~bash
 nature-reviewer-search \
   --root nature-chemistry-reviewer-skill \
   --query "mechanism claim without discriminating controls" \
   --limit 5
-```
+~~~
 
 Validate a package:
 
-```bash
+~~~bash
 nature-reviewer-validate nature-chemistry-reviewer-skill
-```
+~~~
 
 Evaluate structured predictions:
 
-```bash
+~~~bash
 nature-reviewer-evaluate \
   benchmarks/cases \
   benchmarks/predictions/example_predictions.jsonl
-```
+~~~
 
 Extract manuscript text with anchors and defensive limits:
 
-```bash
+~~~bash
 python nature-chemistry-reviewer-skill/scripts/extract_text_with_anchors.py \
   manuscript.pdf \
   --output extracted.jsonl
-```
-
-## Reliability and evaluation
-
-The repository includes:
-
-- a shared typed Python runtime;
-- deterministic field-weighted BM25 retrieval;
-- phrase boosts, query expansion, confidence reporting, and diversity-aware selection;
-- root-level matrix CI;
-- package validation for all seven skills;
-- benchmark schemas and synthetic infrastructure fixtures;
-- metrics for issue recall, precision, severity agreement, evidence anchoring, and panel duplication;
-- defensive PDF, DOCX, archive, path, size, page-count, and extraction limits;
-- explicit safeguards against fabricated citations, figures, page numbers, evidence, or misconduct allegations.
-
-Technical design and evaluation details are documented in:
-
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
-- [`docs/EVALUATION.md`](docs/EVALUATION.md)
-- [`docs/SECURITY.md`](docs/SECURITY.md)
-- [`docs/MIGRATION.md`](docs/MIGRATION.md)
-- [`CHANGELOG.md`](CHANGELOG.md)
+~~~
 
 ## Repository layout
 
-```text
-src/nature_reviewer_core/           shared runtime
-scripts/                            repository-wide commands
-tests/                              shared-runtime tests
-benchmarks/                         schemas and benchmark fixtures
-.github/workflows/ci.yml            root-level continuous integration
-nature-chemistry-reviewer-skill/    chemistry skill
-nature-engineering-reviewer-skill/  engineering skill
+~~~text
+src/nature_reviewer_core/                 shared runtime
+scripts/                                  repository-wide validation and sync commands
+tests/                                    shared-runtime tests
+benchmarks/                               benchmark schemas and fixtures
+
+nature-earth-system-reviewer-skills/
+  skills/
+    nature-remote-sensing-reviewer-skill/
+    nature-atmospheric-science-reviewer-skill/
+    nature-hydrology-reviewer-skill/
+    nature-climate-ecology-reviewer-skill/
+    polar-earth-system-review-orchestrator/
+
+nature-chemistry-reviewer-skill/
+nature-engineering-reviewer-skill/
 nature-materials-science-reviewer-skill/
-nature-earth-system-reviewer-skills/skills/
-                                    four Earth-system skills
-```
+~~~
+
+The current layout reflects the project's history. A future migration may normalize all domain reviewers under one top-level \`skills/\` directory; paths should not be changed casually because agent integrations may already depend on them.
+
+## Who it is for
+
+- researchers preparing manuscripts for selective journals;
+- principal investigators running internal pre-submission review;
+- graduate students learning evidence-centered scientific criticism;
+- research teams building manuscript quality-control workflows;
+- editors and reviewers structuring an initial claim-evidence audit;
+- agent developers building domain-aware scientific review systems.
 
 ## Important limitations
 
@@ -290,9 +344,9 @@ It is not:
 - a tool for making unsupported research-misconduct allegations;
 - an official Nature Portfolio or Springer Nature product.
 
-The included synthetic benchmarks validate the software and evaluation pipeline, not expert-level scientific-review performance. Independent expert gold sets, blinded manuscript studies, negative controls, calibration, and prospective evaluation are still required.
-
 Figures, spectra, equations, maps, chemical structures, and other visual evidence require a multimodal runtime capable of inspecting the original manuscript content.
+
+The current public benchmark fixtures validate software and evaluation infrastructure. Independent expert gold sets, blinded manuscript studies, calibration, and prospective evaluation are still needed before making strong claims about review quality.
 
 ## Provenance and copyright boundary
 
@@ -300,18 +354,24 @@ The reviewer-memory databases contain generalized, non-verbatim reasoning patter
 
 The repository does not redistribute raw referee reports, identifiable reviewer language, private review material, or full copyrighted manuscripts.
 
+See the package-level provenance files and [security documentation](docs/SECURITY.md) for additional details.
+
 ## Contributing
 
-Contributions are welcome in the form of:
+Useful contributions include:
 
+- expert-annotated benchmark cases;
+- false-positive and negative-control cases;
 - new disciplinary reviewer skills;
 - stronger domain evidence gates;
-- expert-annotated benchmark cases;
-- false-positive and negative-control tests;
 - retrieval and deduplication improvements;
 - documentation and reproducibility improvements.
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Behavior-changing contributions should add or update benchmark cases.
+
+Scientific benchmark gold labels require at least two domain experts, an adjudication record, and inter-rater agreement reporting.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
@@ -319,4 +379,4 @@ Released under the [MIT License](LICENSE).
 
 ---
 
-**Nature Reviewer Skills helps researchers ask the difficult scientific questions before journal reviewers ask them.**
+**Stress-test the evidence before reviewers stress-test the paper.**
