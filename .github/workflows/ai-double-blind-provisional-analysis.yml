@@ -132,7 +132,7 @@ jobs:
             --model annotator-model \
             --annotator-id "${{ matrix.annotator_id }}" \
             --seed "${{ matrix.seed }}" \
-            --max-tokens 96 \
+            --max-tokens 64 \
             --retries 2 \
             | tee .ai_annotation/run_summary.json
 
