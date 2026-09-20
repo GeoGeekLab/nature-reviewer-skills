@@ -35,6 +35,12 @@ jobs:
         run: python scripts/validate_benchmark_suite.py benchmarks/controlled_v1/cases.jsonl
       - if: matrix.python-version == '3.12'
         run: python scripts/run_benchmarks.py benchmarks/controlled_v1/cases.jsonl benchmarks/controlled_v1/oracle_predictions.jsonl
+      - if: matrix.python-version == '3.12'
+        run: python scripts/prepare_blinded_pilot.py --model-id ci-harness-selftest --output .pilot_ci
+      - if: matrix.python-version == '3.12'
+        run: python scripts/validate_pilot_packets.py .pilot_ci
+      - if: matrix.python-version == '3.12'
+        run: python scripts/selftest_pilot_harness.py .pilot_ci
 
   package-matrix:
     runs-on: ubuntu-latest

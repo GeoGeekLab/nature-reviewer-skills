@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "pilot_id": "crd-v1-three-domain-pilot",
+  "source_suite": "controlled-v1",
+  "domains": [
+    "remote-sensing",
+    "chemistry",
+    "engineering"
+  ],
+  "expected_cases": 18,
+  "expected_pairs": 9,
+  "runs_per_case": 3,
+  "conditions": [
+    "generic",
+    "skill-assisted"
+  ],
+  "randomization_seed": 20260920,
+  "primary_endpoints": [
+    "essential_issue_recall",
+    "target_specificity",
+    "essential_balanced_accuracy",
+    "paired_pass_rate"
+  ],
+  "secondary_endpoints": [
+    "micro_precision",
+    "micro_recall",
+    "micro_f1"
+  ],
+  "bootstrap_iterations": 10000,
+  "bootstrap_unit": "pair_id",
+  "inference_policy": {
+    "web_access": false,
+    "external_retrieval": false,
+    "prompt_frozen": true,
+    "same_base_model_across_conditions": true,
+    "same_inference_settings_across_conditions": true
+  },
+  "interpretation": "Pilot feasibility and controlled diagnostic comparison only; not expert-equivalence evidence."
+}
