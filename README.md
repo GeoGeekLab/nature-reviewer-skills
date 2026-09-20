@@ -1,80 +1,103 @@
-# Nature Reviewer Skills
+<h1 align="center">Nature Reviewer Skills</h1>
 
-[![CI](https://github.com/GeoGeekLab/nature-reviewer-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/GeoGeekLab/nature-reviewer-skills/actions/workflows/ci.yml)
-[![Latest release](https://img.shields.io/github/v/release/GeoGeekLab/nature-reviewer-skills)](https://github.com/GeoGeekLab/nature-reviewer-skills/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](pyproject.toml)
+<p align="center"><strong>Find the evidence bug before peer review does.</strong></p>
+
+<p align="center">Nature-style scientific review for claims, controls, validation, uncertainty, mechanism, and generalization.</p>
 
 <p align="center">
-  <img src="assets/reffox/reffox-main.webp" alt="RefFox, the evidence-first mascot for Nature Reviewer Skills" width="280">
+  <a href="https://github.com/GeoGeekLab/nature-reviewer-skills/actions/workflows/ci.yml"><img src="https://github.com/GeoGeekLab/nature-reviewer-skills/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/GeoGeekLab/nature-reviewer-skills/releases"><img src="https://img.shields.io/github/v/release/GeoGeekLab/nature-reviewer-skills" alt="Latest release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="pyproject.toml"><img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg" alt="Python 3.10+"></a>
 </p>
 
-<p align="center"><strong>Your paper has bugs. RefFox tries to find them.</strong></p>
-<p align="center"><em>Suspicious by default. Evidence first.</em></p>
+<p align="center">
+  <a href="docs/ARCHITECTURE.md">Architecture</a> ·
+  <a href="#included-reviewer-skills">Reviewers</a> ·
+  <a href="#see-it-in-60-seconds">Failure cases</a> ·
+  <a href="#what-has-actually-been-validated">Validation</a> ·
+  <a href="docs/SECURITY.md">Security</a> ·
+  <a href="CHANGELOG.md">Changelog</a> ·
+  <a href="https://github.com/GeoGeekLab/nature-reviewer-skills/releases">Releases</a>
+</p>
 
+<p align="center">
+  <img src="assets/reffox/reffox-main.webp" alt="RefFox, the evidence-first mascot for Nature Reviewer Skills" width="360">
+</p>
 
-**Domain-aware scientific peer-review skills for stress-testing manuscript claims, evidence, validation, uncertainty, and generalization before submission.**
+<p align="center"><strong>Your paper has bugs. RefFox tries to find them.</strong><br>
+<em>Suspicious by default. Evidence first.</em></p>
 
-Nature Reviewer Skills is not a grammar checker and not a generic “review my paper” prompt. It routes scientific claims through discipline-specific evidence gates, retrieves relevant reviewer-reasoning patterns, and produces revision-oriented criticism anchored to the manuscript.
+Nature Reviewer Skills is not a grammar checker and not a generic “review my paper” prompt. It routes manuscript claims through discipline-specific evidence gates, retrieves relevant reviewer-reasoning patterns, and turns scientifically meaningful failures into evidence-anchored concerns with revision paths.
+
+<p align="center"><code>7 domain reviewers</code> · <code>1 polar orchestrator</code> · <code>644 reasoning patterns</code> · <code>48 controlled cases</code> · <code>24 matched pairs</code> · <code>108 blinded outputs</code></p>
+
+~~~text
+claim → evidence → domain gate → failure mode → major concern → revision path
+~~~
 
 > **Core principle:** the stronger the claim, the stronger and more discriminating the evidence must be.
 
-**7 domain reviewers · 1 polar orchestrator · 644 abstracted reviewer-reasoning patterns**
-
 > This is an independent open-source project. It is not affiliated with Nature Portfolio or Springer Nature.
 
-**[Meet RefFox →](assets/reffox/BRAND.md)** — the project’s evidence-first reviewer mascot for claim–evidence stress testing, controls, validation, uncertainty, and actionable revision paths.
+**[Meet RefFox →](assets/reffox/BRAND.md)**
 
-## See the failure before a reviewer does
+## See it in 60 seconds
 
-A manuscript can be well written and still fail because its strongest claim outruns the evidence.
+Three synthetic manuscript failures. Three domain reviewers. No installation required.
 
-**Illustrative, shortened example**
+<table>
+<tr>
+<td width="33%" align="center">
+<img src="assets/reffox/reffox-control-check.webp" alt="RefFox checking controls" width="96"><br>
+<strong>Remote sensing</strong><br>
+<code>trend ≠ sensor shift</code><br><br>
+A vegetation-trend breakpoint is confounded with a sensor transition.<br><br>
+<a href="examples/remote-sensing-trend-harmonization/">Open example →</a>
+</td>
+<td width="33%" align="center">
+<img src="assets/reffox/reffox-evidence-please.webp" alt="RefFox asking for stronger evidence" width="96"><br>
+<strong>Chemistry</strong><br>
+<code>peak area ≠ yield</code><br><br>
+Raw HPLC-UV area is treated as quantitative yield across chemically different products.<br><br>
+<a href="examples/chemistry-quantification-integrity/">Open example →</a>
+</td>
+<td width="33%" align="center">
+<img src="assets/reffox/reffox-bug-found.webp" alt="RefFox finding a scientific bug" width="96"><br>
+<strong>Engineering</strong><br>
+<code>human recovery ≠ autonomous</code><br><br>
+Human fault recovery and data-quality decisions sit inside a system claimed to be fully autonomous.<br><br>
+<a href="examples/engineering-autonomy-boundary/">Open example →</a>
+</td>
+</tr>
+</table>
 
-Manuscript claim:
-
-~~~text
-"Our model generalizes across regions."
-~~~
-
-Available evidence:
-
-~~~text
-Validation uses random train/test splits from the same geographic distribution.
-~~~
-
-A domain-aware review should surface the real scientific risk:
-
-~~~text
-Major concern — Generalization exceeds the validation domain
-
-Evidence:
-Validation is limited to random splits drawn from the same geographic distribution.
-
-Why this matters:
-Spatial autocorrelation can inflate apparent performance and does not establish
-transfer to unseen regions.
-
-Required revision:
-Add geographically independent evaluation, quantify performance degradation,
-and either support the transferability claim or narrow the claim to the tested domain.
-~~~
-
-The goal is not to generate more comments. The goal is to identify the concerns most likely to change the claim, experiment, validation design, or interpretation.
-
-## 60-second examples
-
-See complete, readable examples before installing anything:
-
-| Domain | What the reviewer catches | Example |
-|---|---|---|
-| Remote sensing | A vegetation-trend breakpoint is confounded with a sensor transition | [Trend harmonization example](examples/remote-sensing-trend-harmonization/) |
-| Chemistry | Raw HPLC-UV area is treated as quantitative yield across chemically different products | [Quantification integrity example](examples/chemistry-quantification-integrity/) |
-| Engineering | Human fault recovery and data-quality decisions sit inside a system claimed to be fully autonomous | [Autonomy-boundary example](examples/engineering-autonomy-boundary/) |
-
-Each example contains a **synthetic manuscript excerpt**, a **curated reference review**, and a short explanation of the scientific reasoning. These examples are deliberately separate from [CRD-v1](benchmarks/controlled_v1/): they are demonstrations of expected reviewer behavior, not benchmark results.
+Each example contains a **synthetic manuscript excerpt**, a **curated reference review**, and the reasoning behind the concern. These are demonstrations of expected reviewer behavior, not benchmark performance results.
 
 [Browse all examples →](examples/)
+
+## What has actually been validated
+
+The repository includes a controlled diagnostic benchmark, a preregistered blinded pilot, and full package/runtime validation. The status below separates **completed execution** from **scientific conclusions that are not yet established**.
+
+| Evidence layer | Current status |
+|---|---|
+| Repository/runtime validation | ✅ Python 3.10–3.13 CI + 8 independent reviewer-package matrices |
+| CRD-v1 controlled diagnostic | ✅ 48 synthetic cases / 24 matched counterfactual pairs / 8 review groups |
+| Negative-control specificity design | ✅ Matched repaired controls + target-specific specificity scoring |
+| Paired uncertainty analysis | ✅ Pair-cluster bootstrap confidence intervals supported |
+| Three-domain blinded pilot protocol | ✅ 18 cases / 9 matched pairs / 3 repeats / 2 conditions |
+| Formal blinded inference | ✅ **108 review outputs completed** — 54 generic + 54 skill-assisted |
+| Condition-blinded automated annotation | 🧪 Provisional experiment; separate from v2.2.0 release claims |
+| Published generic-vs-skill performance claim | ⏳ Not yet published |
+| Independent human/domain-expert gold validation | ⬜ Not yet established |
+| Prospective evaluation on real submissions | ⬜ Not yet established |
+
+The formal pilot covers **remote sensing, chemistry, and engineering**. Completing 108 blinded outputs establishes that the comparison protocol was executed; it does **not** by itself establish that the skill-assisted condition performs better.
+
+**Evidence trail:** [CRD-v1 benchmark card](benchmarks/controlled_v1/README.md) · [Pilot harness](benchmarks/pilot_v1/README.md) · [Pilot preregistration](benchmarks/pilot_v1/PREREGISTRATION.md) · [Run protocol](benchmarks/controlled_v1/RUN_PROTOCOL.md) · [Evaluation protocol](docs/EVALUATION.md)
+
+> **Boundary:** CRD-v1 is public, synthetic, and developer-authored. Oracle predictions are scorer/harness self-tests, not model-performance results. Independent expert validation and prospective real-manuscript evidence are still required before making strong claims about review quality.
 
 ## Quick start
 
@@ -238,30 +261,19 @@ The reviewer-memory layer stores **abstracted, non-verbatim scientific reasoning
 claim type → evidence risk → stress-test gate → reviewer concern → revision direction
 ~~~
 
-## Evaluation status
+## Evaluation protocol and evidence boundary
 
-The repository contains a real evaluation framework, but the current public evidence should not be confused with independent proof of expert-level reviewing performance.
-
-Current public status:
-
-| Evidence | Status |
-|---|---|
-| Repository/package validation | Available |
-| Legacy scorer/infrastructure fixtures | 3 synthetic cases |
-| Controlled Review Diagnostic v1 | **48 synthetic cases / 24 matched pairs / 8 review groups** |
-| Negative-control specificity | Supported |
-| Matched-pair bootstrap confidence intervals | Supported |
-| Frozen generic vs skill-assisted comparison protocol | Available |
-| Independently expert-labelled manuscript gold set | Not yet established |
-| Three-domain blinded pilot harness | Available: 18 cases / 9 matched pairs / 3 runs per case |
-| Published blinded generic-vs-skill model results | Not yet established |
-| Prospective evaluation on real submissions | Not yet established |
+The compact status table near the top of this README is the current evidence summary. The repository keeps the underlying protocol and diagnostic artifacts inspectable rather than collapsing them into a single “AI reviewer score.”
 
 [CRD-v1](benchmarks/controlled_v1/) is a source-backed **public development benchmark**. Every positive case has a matched negative control so a reviewer is rewarded for detecting a specific evidence failure and penalized for continuing to raise it after the failure has been repaired or the claim has been narrowed.
 
-The 48 cases are synthetic and the controlled gold labels are developer-authored. They **do not demonstrate expert-level scientific-review quality**. The included oracle predictions are only a scorer self-test and must not be presented as model performance.
+The benchmark contains **48 synthetic cases in 24 matched pairs across 8 review groups**. Controlled gold labels are developer-authored. The included oracle predictions are only scorer self-tests and must not be presented as model performance.
 
-A credible real-world performance claim still requires an access-controlled expert-labelled set, blinded model runs, independent annotation/adjudication, confidence intervals, and per-domain error analysis.
+The preregistered three-domain pilot covers remote sensing, chemistry, and engineering. Its formal blinded inference run completed **108 outputs: 54 generic and 54 skill-assisted**, with 3 repeated runs per case. Those outputs remain evidence about execution until they are annotated and analyzed under the locked protocol.
+
+Automated condition-blinded annotation is treated as **provisional analysis**, not independent human validation. A credible real-world performance claim still requires independent expert-labelled data, blinded annotation/adjudication, confidence intervals, per-domain error analysis, and prospective evaluation on real submissions.
+
+The evaluation framework supports essential-issue recall, target-specific negative-control specificity, balanced accuracy, concern precision, severity agreement, evidence anchors, panel duplication, matched-pair bootstrap uncertainty, and run-to-run stability.
 
 See:
 
@@ -273,8 +285,6 @@ See:
 - [Evaluation protocol](docs/EVALUATION.md)
 - [Legacy synthetic benchmark report](benchmark-report.json)
 - [Test report](TEST_REPORT.md)
-
-The evaluation framework supports essential-issue recall, negative-control specificity, balanced accuracy, concern precision, severity agreement, evidence anchors, panel duplication, matched-pair bootstrap uncertainty, and run-to-run stability.
 
 ## Reliability and defensive behavior
 
