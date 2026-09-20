@@ -1,9 +1,9 @@
 ---
 name: nature-materials-science-reviewer
 description: Nature-style materials science manuscript reviewer skill for testing materials design, synthesis, processing, structure-property, mechanism, stability, scalability, computational prediction and application claims against materials evidence chains.
-version: "1.0.1"
+version: "2.2.0"
 domain: materials science
-license: "MIT OR Apache-2.0"
+license: "MIT"
 ---
 
 # Nature Materials Science Reviewer Skill
