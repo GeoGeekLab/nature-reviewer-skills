@@ -11,3 +11,5 @@ dist/
 review_outputs/
 .extracted/
 .DS_Store
+pilot_runs/
+.pilot_ci/
