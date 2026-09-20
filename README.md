@@ -46,6 +46,7 @@ Three synthetic manuscript failures. Three domain reviewers. No installation req
 
 | Remote sensing | Chemistry | Engineering |
 |---|---|---|
+| ![RefFox checking controls](assets/reffox/reffox-control-check.png) | ![RefFox asking for stronger evidence](assets/reffox/reffox-evidence-please.png) | ![RefFox finding a scientific bug](assets/reffox/reffox-bug-found.png) |
 | **`trend ≠ sensor shift`** | **`peak area ≠ yield`** | **`human recovery ≠ autonomous`** |
 | A vegetation-trend breakpoint is confounded with a sensor transition. | Raw HPLC-UV area is treated as quantitative yield across chemically different products. | Human fault recovery and data-quality decisions sit inside a system claimed to be fully autonomous. |
 | [Open example →](examples/remote-sensing-trend-harmonization/) | [Open example →](examples/chemistry-quantification-integrity/) | [Open example →](examples/engineering-autonomy-boundary/) |
