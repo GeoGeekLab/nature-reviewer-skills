@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "name": "nature-reviewer-skills",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "license": "MIT",
   "skill_count": 7,
   "orchestrator_count": 1,

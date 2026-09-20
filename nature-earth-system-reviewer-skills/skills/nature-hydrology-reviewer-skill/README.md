@@ -1,6 +1,6 @@
 # Nature Hydrology Reviewer Skill
 
-![Version](https://img.shields.io/badge/version-2.1.0-blue)
+![Version](https://img.shields.io/badge/version-2.2.0-blue)
 ![Package type](https://img.shields.io/badge/package-domain%20skill-4c1)
 ![Domain](https://img.shields.io/badge/domain-hydrology-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-yellow)

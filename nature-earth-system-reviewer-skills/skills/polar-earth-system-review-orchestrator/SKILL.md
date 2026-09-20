@@ -1,7 +1,7 @@
 ---
 name: polar-earth-system-review-orchestrator
 description: Cross-disciplinary polar Earth-system manuscript review orchestrator for Arctic, Antarctic and Southern Ocean research. Routes claims to existing domain reviewer skills and applies polar-specific evidence gates for sparse observations, cryosphere variables, product dependence, conservation budgets, coupled attribution, paleoclimate archives and regional research responsibility.
-version: "2.1.0"
+version: "2.2.0"
 domain: polar Earth system, Arctic, Antarctic, Southern Ocean, cryosphere
 license: "MIT"
 package_type: orchestrator

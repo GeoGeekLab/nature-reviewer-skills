@@ -1,8 +1,8 @@
 ---
 name: nature-atmospheric-science-reviewer
 description: Nature-style atmospheric science manuscript reviewer skill for testing observation, reanalysis, model, aerosol-cloud-radiation, extreme-event, circulation-mechanism and attribution claims against their physical evidence chain.
-version: "1.0.1"
-license: "MIT OR Apache-2.0"
+version: "2.2.0"
+license: "MIT"
 ---
 
 # Nature Atmospheric Science Reviewer Skill

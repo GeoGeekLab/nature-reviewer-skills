@@ -1,9 +1,9 @@
 ---
 name: nature-chemistry-reviewer
 description: Nature-style chemistry manuscript reviewer skill for testing synthesis, catalysis, chemical biology, molecular/materials chemistry and analytical claims against identity, purity, controls, selectivity, mechanism, scope, reproducibility and quantitative comparison.
-version: "1.0.1"
+version: "2.2.0"
 domain: chemistry, chemical sciences, catalysis, synthesis, chemical biology, materials chemistry
-license: "MIT OR Apache-2.0"
+license: "MIT"
 ---
 
 # Nature Chemistry Reviewer Skill

@@ -1,8 +1,8 @@
 ---
 name: nature-remote-sensing-reviewer
 description: Nature-style remote-sensing manuscript reviewer skill for evaluating Earth-observation products, retrievals, machine-learning maps, validation design, uncertainty propagation, spatial transferability and claim-scope calibration.
-version: "1.0.1"
-license: "MIT OR Apache-2.0"
+version: "2.2.0"
+license: "MIT"
 ---
 
 # Nature Remote-Sensing Reviewer Skill

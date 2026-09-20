@@ -1,9 +1,9 @@
 ---
 name: nature-hydrology-reviewer
 description: Nature-style hydrology manuscript reviewer skill for testing streamflow, runoff, groundwater, water storage, drought, flood, hydroclimate and water-resource claims against water-balance closure, hydrologic signatures, model structure and observational constraints.
-version: "1.0.1"
+version: "2.2.0"
 domain: hydrology, hydroclimate, water resources
-license: "MIT OR Apache-2.0"
+license: "MIT"
 ---
 
 # Nature Hydrology Reviewer Skill
