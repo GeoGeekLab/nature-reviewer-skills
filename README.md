@@ -21,14 +21,23 @@
   <a href="https://github.com/GeoGeekLab/nature-reviewer-skills/releases">Releases</a>
 </p>
 
-![RefFox — the evidence-first mascot for Nature Reviewer Skills](assets/reffox/reffox-main.png)
+<p align="center">
+  <img src="./assets/reffox/reffox-main.png" alt="RefFox — the evidence-first mascot for Nature Reviewer Skills" width="230">
+</p>
 
 <p align="center"><strong>Your paper has bugs. RefFox tries to find them.</strong><br>
 <em>Suspicious by default. Evidence first.</em></p>
 
-Nature Reviewer Skills is not a grammar checker and not a generic “review my paper” prompt. It routes manuscript claims through discipline-specific evidence gates, retrieves relevant reviewer-reasoning patterns, and turns scientifically meaningful failures into evidence-anchored concerns with revision paths.
+<p align="center">Domain-aware reviewer skills that stress-test scientific claims and turn evidence failures into actionable revision paths.</p>
 
-<p align="center"><code>7 domain reviewers</code> · <code>1 polar orchestrator</code> · <code>644 reasoning patterns</code> · <code>48 controlled cases</code> · <code>24 matched pairs</code> · <code>108 blinded outputs</code></p>
+<p align="center">
+  <code>7 domain reviewers</code> ·
+  <code>1 polar orchestrator</code> ·
+  <code>644 reasoning patterns</code> ·
+  <code>48 controlled cases</code> ·
+  <code>24 matched pairs</code> ·
+  <code>108 blinded outputs</code>
+</p>
 
 ~~~text
 claim → evidence → domain gate → failure mode → major concern → revision path
@@ -42,41 +51,42 @@ claim → evidence → domain gate → failure mode → major concern → revisi
 
 ## See it in 60 seconds
 
-Three synthetic manuscript failures. Three domain reviewers. No installation required.
+Three synthetic failures. Three domains. One question: **does the evidence actually support the claim?**
 
 | Remote sensing | Chemistry | Engineering |
 |---|---|---|
 | ![RefFox checking controls](assets/reffox/reffox-control-check.png) | ![RefFox asking for stronger evidence](assets/reffox/reffox-evidence-please.png) | ![RefFox finding a scientific bug](assets/reffox/reffox-bug-found.png) |
-| **`trend ≠ sensor shift`** | **`peak area ≠ yield`** | **`human recovery ≠ autonomous`** |
-| A vegetation-trend breakpoint is confounded with a sensor transition. | Raw HPLC-UV area is treated as quantitative yield across chemically different products. | Human fault recovery and data-quality decisions sit inside a system claimed to be fully autonomous. |
-| [Open example →](examples/remote-sensing-trend-harmonization/) | [Open example →](examples/chemistry-quantification-integrity/) | [Open example →](examples/engineering-autonomy-boundary/) |
+| **BUG**: `trend ≠ sensor shift` | **BUG**: `peak area ≠ yield` | **BUG**: `human recovery ≠ autonomous` |
+| Sensor transition can masquerade as a vegetation breakpoint. | Raw HPLC-UV area is not automatically comparable quantitative yield. | Human recovery and data-quality decisions break a “fully autonomous” claim. |
+| **CHECK**: harmonization + independent validation | **CHECK**: calibrated quantification + response factors | **CHECK**: autonomy boundary + failure recovery |
+| [Open case →](examples/remote-sensing-trend-harmonization/) | [Open case →](examples/chemistry-quantification-integrity/) | [Open case →](examples/engineering-autonomy-boundary/) |
 
-Each example contains a **synthetic manuscript excerpt**, a **curated reference review**, and the reasoning behind the concern. These are demonstrations of expected reviewer behavior, not benchmark performance results.
+Each case contains a **synthetic manuscript excerpt**, a **curated reference review**, and the reasoning behind the concern. These demonstrate intended reviewer behavior; they are not model-performance scores.
 
 [Browse all examples →](examples/)
 
 ## What has actually been validated
 
-The repository includes a controlled diagnostic benchmark, a preregistered blinded pilot, and full package/runtime validation. The status below separates **completed execution** from **scientific conclusions that are not yet established**.
+Think of this as the project’s evidence stack. **PASS means executed/verified at that layer — not “AI reviewer proven superior.”**
 
-| Evidence layer | Current status |
-|---|---|
-| Repository/runtime validation | ✅ Python 3.10–3.13 CI + 8 independent reviewer-package matrices |
-| CRD-v1 controlled diagnostic | ✅ 48 synthetic cases / 24 matched counterfactual pairs / 8 review groups |
-| Negative-control specificity design | ✅ Matched repaired controls + target-specific specificity scoring |
-| Paired uncertainty analysis | ✅ Pair-cluster bootstrap confidence intervals supported |
-| Three-domain blinded pilot protocol | ✅ 18 cases / 9 matched pairs / 3 repeats / 2 conditions |
-| Formal blinded inference | ✅ **108 review outputs completed** — 54 generic + 54 skill-assisted |
-| Condition-blinded automated annotation | 🧪 Provisional experiment; separate from v2.2.0 release claims |
-| Published generic-vs-skill performance claim | ⏳ Not yet published |
-| Independent human/domain-expert gold validation | ⬜ Not yet established |
-| Prospective evaluation on real submissions | ⬜ Not yet established |
+| Layer | Artifact | Scale | Status | Claim ceiling |
+|---|---|---:|---|---|
+| Runtime | CI + package matrix | Python 3.10–3.13 + 8 reviewer packages | `PASS` | Repository installs, validates, and tests across the stated matrix |
+| Controlled diagnostic | CRD-v1 | 48 cases / 24 matched pairs / 8 review groups | `PASS` | Scoring harness can test target detection + repaired-control specificity |
+| Counterfactual controls | Matched negative controls | 24 repaired counterparts | `PASS` | Reviewer can be penalized for repeating a defect after it is repaired/narrowed |
+| Uncertainty | Pair-cluster bootstrap | Matched-pair resampling | `PASS` | Confidence intervals can respect pair dependence |
+| Blinded pilot protocol | 3 domains | 18 cases / 9 pairs / 3 repeats / 2 conditions | `LOCKED` | Comparison design is preregistered and reproducible |
+| Formal inference | Generic vs skill-assisted | **108 outputs** = 54 + 54 | `PASS` | The blinded inference protocol was fully executed |
+| Automated annotation | Condition-blinded AI annotation | Pilot outputs | `PROVISIONAL` | Exploratory analysis only; not independent expert validation |
+| Generic-vs-skill effect | Performance comparison | — | `OPEN` | No published superiority claim yet |
+| Human expert gold | Independent domain annotation | — | `OPEN` | No expert-equivalence claim |
+| Real submissions | Prospective manuscripts | — | `OPEN` | No real-world generalization claim yet |
 
-The formal pilot covers **remote sensing, chemistry, and engineering**. Completing 108 blinded outputs establishes that the comparison protocol was executed; it does **not** by itself establish that the skill-assisted condition performs better.
+**Formal pilot domains:** remote sensing · chemistry · engineering
 
-**Evidence trail:** [CRD-v1 benchmark card](benchmarks/controlled_v1/README.md) · [Pilot harness](benchmarks/pilot_v1/README.md) · [Pilot preregistration](benchmarks/pilot_v1/PREREGISTRATION.md) · [Run protocol](benchmarks/controlled_v1/RUN_PROTOCOL.md) · [Evaluation protocol](docs/EVALUATION.md)
+**Evidence trail:** [CRD-v1](benchmarks/controlled_v1/README.md) · [Pilot harness](benchmarks/pilot_v1/README.md) · [Preregistration](benchmarks/pilot_v1/PREREGISTRATION.md) · [Run protocol](benchmarks/controlled_v1/RUN_PROTOCOL.md) · [Evaluation protocol](docs/EVALUATION.md)
 
-> **Boundary:** CRD-v1 is public, synthetic, and developer-authored. Oracle predictions are scorer/harness self-tests, not model-performance results. Independent expert validation and prospective real-manuscript evidence are still required before making strong claims about review quality.
+> **Boundary:** CRD-v1 is public, synthetic, and developer-authored. Oracle predictions are scorer/harness self-tests, not model-performance results. The 108 blinded outputs prove protocol execution, not that skill-assisted review is better. Independent expert validation and prospective real-manuscript evidence remain open.
 
 ## Quick start
 
