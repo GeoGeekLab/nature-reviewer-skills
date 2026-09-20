@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+
+
 PRIMARY = [
     "essential_issue_recall",
     "target_specificity",
@@ -34,7 +36,7 @@ def render(
     intersection_path: Path,
     union_path: Path,
     output_path: Path,
-) -> dict[str, Any]:
+) -> dict[str, object]:
     agreement = _json(agreement_path)
     consensus = _json(consensus_path)
     analyses = {
