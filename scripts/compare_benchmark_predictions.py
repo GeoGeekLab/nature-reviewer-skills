@@ -91,7 +91,7 @@ def paired_bootstrap_delta(
         raise ValueError("Prediction files do not cover identical pair IDs")
 
     pair_ids = sorted(units_a)
-    rng = random.Random(seed)
+    rng = random.Random(seed)  # noqa: S311  # nosec B311
     metrics = (
         "essential_issue_recall",
         "specificity",
