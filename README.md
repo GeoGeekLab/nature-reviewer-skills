@@ -21,9 +21,7 @@
   <a href="https://github.com/GeoGeekLab/nature-reviewer-skills/releases">Releases</a>
 </p>
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/GeoGeekLab/nature-reviewer-skills/main/assets/reffox/reffox-main.png" alt="RefFox, the evidence-first mascot for Nature Reviewer Skills" width="360">
-</p>
+![RefFox — the evidence-first mascot for Nature Reviewer Skills](assets/reffox/reffox-main.png)
 
 <p align="center"><strong>Your paper has bugs. RefFox tries to find them.</strong><br>
 <em>Suspicious by default. Evidence first.</em></p>
@@ -46,31 +44,11 @@ claim → evidence → domain gate → failure mode → major concern → revisi
 
 Three synthetic manuscript failures. Three domain reviewers. No installation required.
 
-<table>
-<tr>
-<td width="33%" align="center">
-<img src="https://raw.githubusercontent.com/GeoGeekLab/nature-reviewer-skills/main/assets/reffox/reffox-control-check.png" alt="RefFox checking controls" width="96"><br>
-<strong>Remote sensing</strong><br>
-<code>trend ≠ sensor shift</code><br><br>
-A vegetation-trend breakpoint is confounded with a sensor transition.<br><br>
-<a href="examples/remote-sensing-trend-harmonization/">Open example →</a>
-</td>
-<td width="33%" align="center">
-<img src="https://raw.githubusercontent.com/GeoGeekLab/nature-reviewer-skills/main/assets/reffox/reffox-evidence-please.png" alt="RefFox asking for stronger evidence" width="96"><br>
-<strong>Chemistry</strong><br>
-<code>peak area ≠ yield</code><br><br>
-Raw HPLC-UV area is treated as quantitative yield across chemically different products.<br><br>
-<a href="examples/chemistry-quantification-integrity/">Open example →</a>
-</td>
-<td width="33%" align="center">
-<img src="https://raw.githubusercontent.com/GeoGeekLab/nature-reviewer-skills/main/assets/reffox/reffox-bug-found.png" alt="RefFox finding a scientific bug" width="96"><br>
-<strong>Engineering</strong><br>
-<code>human recovery ≠ autonomous</code><br><br>
-Human fault recovery and data-quality decisions sit inside a system claimed to be fully autonomous.<br><br>
-<a href="examples/engineering-autonomy-boundary/">Open example →</a>
-</td>
-</tr>
-</table>
+| Remote sensing | Chemistry | Engineering |
+|---|---|---|
+| **`trend ≠ sensor shift`** | **`peak area ≠ yield`** | **`human recovery ≠ autonomous`** |
+| A vegetation-trend breakpoint is confounded with a sensor transition. | Raw HPLC-UV area is treated as quantitative yield across chemically different products. | Human fault recovery and data-quality decisions sit inside a system claimed to be fully autonomous. |
+| [Open example →](examples/remote-sensing-trend-harmonization/) | [Open example →](examples/chemistry-quantification-integrity/) | [Open example →](examples/engineering-autonomy-boundary/) |
 
 Each example contains a **synthetic manuscript excerpt**, a **curated reference review**, and the reasoning behind the concern. These are demonstrations of expected reviewer behavior, not benchmark performance results.
 
