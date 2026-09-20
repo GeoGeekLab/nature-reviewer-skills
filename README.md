@@ -52,6 +52,20 @@ and either support the transferability claim or narrow the claim to the tested d
 
 The goal is not to generate more comments. The goal is to identify the concerns most likely to change the claim, experiment, validation design, or interpretation.
 
+## 60-second examples
+
+See complete, readable examples before installing anything:
+
+| Domain | What the reviewer catches | Example |
+|---|---|---|
+| Remote sensing | A vegetation-trend breakpoint is confounded with a sensor transition | [Trend harmonization example](examples/remote-sensing-trend-harmonization/) |
+| Chemistry | Raw HPLC-UV area is treated as quantitative yield across chemically different products | [Quantification integrity example](examples/chemistry-quantification-integrity/) |
+| Engineering | Human fault recovery and data-quality decisions sit inside a system claimed to be fully autonomous | [Autonomy-boundary example](examples/engineering-autonomy-boundary/) |
+
+Each example contains a **synthetic manuscript excerpt**, a **curated reference review**, and a short explanation of the scientific reasoning. These examples are deliberately separate from [CRD-v1](benchmarks/controlled_v1/): they are demonstrations of expected reviewer behavior, not benchmark results.
+
+[Browse all examples →](examples/)
+
 ## Quick start
 
 ### 1. Clone the repository
@@ -308,6 +322,7 @@ python nature-chemistry-reviewer-skill/scripts/extract_text_with_anchors.py \
 src/nature_reviewer_core/                 shared runtime
 scripts/                                  repository-wide validation and sync commands
 tests/                                    shared-runtime tests
+examples/                                 60-second curated review demonstrations
 benchmarks/                               benchmark schemas and fixtures
 
 nature-earth-system-reviewer-skills/
