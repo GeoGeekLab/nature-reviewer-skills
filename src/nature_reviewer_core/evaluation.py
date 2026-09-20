@@ -43,6 +43,7 @@ def _case_from_dict(value: dict[str, Any], source: str = "<memory>") -> Benchmar
         case_type=case_type,  # type: ignore[arg-type]
         pair_id=str(value.get("pair_id", "")),
         challenge=str(value.get("challenge", "")),
+        target_issue_id=str(value.get("target_issue_id", "")),
         suite=str(value.get("suite", "")),
     )
 
@@ -160,8 +161,8 @@ def score_case(case: BenchmarkCase, predicted: list[Concern]) -> dict[str, Any]:
             {metric: None for metric in _POSITIVE_METRICS if metric != "panel_duplicate_rate"}
         )
         result["panel_duplicate_rate"] = float(overlap["duplicate_rate"])
-        if case.challenge:
-            result["negative_control_pass"] = case.challenge not in predicted_ids
+        if case.target_issue_id:
+            result["negative_control_pass"] = case.target_issue_id not in predicted_ids
         else:
             result["negative_control_pass"] = len(predicted_ids) == 0
         return result
