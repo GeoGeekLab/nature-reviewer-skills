@@ -15,8 +15,7 @@ SKILL_PROMPT_PATH = ROOT / "benchmarks/controlled_v1/prompts/skill_assisted_revi
 
 SKILL_PATHS = {
     "remote-sensing": (
-        "nature-earth-system-reviewer-skills/skills/"
-        "nature-remote-sensing-reviewer-skill"
+        "nature-earth-system-reviewer-skills/skills/nature-remote-sensing-reviewer-skill"
     ),
     "chemistry": "nature-chemistry-reviewer-skill",
     "engineering": "nature-engineering-reviewer-skill",
