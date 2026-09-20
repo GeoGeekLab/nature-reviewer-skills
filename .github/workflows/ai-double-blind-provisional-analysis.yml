@@ -1,0 +1,277 @@
+name: CRD-v1 AI Double-Blind Provisional Analysis
+
+on:
+  push:
+    branches:
+      - analysis/ai-double-blind-provisional
+    paths:
+      - ".github/workflows/ai-double-blind-provisional-analysis.yml"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: crd-v1-ai-double-blind-provisional
+  cancel-in-progress: true
+
+jobs:
+  annotate:
+    name: annotate (${{ matrix.annotator_id }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - annotator_id: ai-annotator-a
+            model_name: Llama-3.2-3B-Instruct
+            model_file: Llama-3.2-3B-Instruct-Q4_K_M.gguf
+            model_url: https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf?download=true
+            model_sha256: 6c1a2b41161032677be168d354123594c0e6e67d2b9227c84f296ad037c728ff
+            seed: 73191
+          - annotator_id: ai-annotator-b
+            model_name: gemma-2-2b-it
+            model_file: gemma-2-2b-it-Q4_K_M.gguf
+            model_url: https://huggingface.co/bartowski/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q4_K_M.gguf?download=true
+            model_sha256: e0aee85060f168f0f2d8473d7ea41ce2f3230c1bc1374847505ea599288a7787
+            seed: 88421
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install repository runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+          python -m pip install -e .
+
+      - name: Download frozen formal inference artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: crd-v1-qwen25-3b-formal-inference
+          path: .source
+          repository: GeoGeekLab/nature-reviewer-skills
+          run-id: 35490070083
+          github-token: ${{ github.token }}
+
+      - name: Verify source artifact identity
+        run: |
+          test -f .source/annotation_packets.jsonl
+          test -f .source/private_mapping.json
+          test -f .source/annotation_mapping.json
+          test -f .source/raw_outputs.jsonl
+          python scripts/validate_formal_inference.py .source
+
+      - name: Download pinned llama.cpp CPU binary
+        run: |
+          mkdir -p .llama
+          curl --fail --location --retry 5 --retry-all-errors \
+            --output /tmp/llama-b10901.tar.gz \
+            https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-x64.tar.gz
+          echo "39f81161548723a23ae03476e7ce4b4ca86d64f6a7b417e023346680c47cf699  /tmp/llama-b10901.tar.gz" | sha256sum --check
+          tar -xzf /tmp/llama-b10901.tar.gz -C .llama
+          LLAMA_SERVER="$(find "$PWD/.llama" -type f -name llama-server | head -n 1)"
+          test -n "$LLAMA_SERVER"
+          chmod +x "$LLAMA_SERVER"
+          echo "LLAMA_SERVER=$LLAMA_SERVER" >> "$GITHUB_ENV"
+          echo "LLAMA_LIB_DIR=$(dirname "$LLAMA_SERVER")" >> "$GITHUB_ENV"
+
+      - name: Download and verify pinned annotator model
+        env:
+          MODEL_URL: ${{ matrix.model_url }}
+          MODEL_FILE: ${{ matrix.model_file }}
+          MODEL_SHA256: ${{ matrix.model_sha256 }}
+        run: |
+          mkdir -p .models .ai_annotation
+          curl --fail --location --retry 5 --retry-all-errors \
+            --output ".models/$MODEL_FILE" "$MODEL_URL"
+          echo "$MODEL_SHA256  .models/$MODEL_FILE" | sha256sum --check
+          sha256sum ".models/$MODEL_FILE" > .ai_annotation/model_sha256.txt
+
+      - name: Start isolated annotation server
+        env:
+          LD_LIBRARY_PATH: ${{ env.LLAMA_LIB_DIR }}
+          MODEL_FILE: ${{ matrix.model_file }}
+        run: |
+          "$LLAMA_SERVER" \
+            -m ".models/$MODEL_FILE" \
+            --alias annotator-model \
+            -c 4096 \
+            -t 4 \
+            -np 1 \
+            --host 127.0.0.1 \
+            --port 8080 \
+            > .ai_annotation/server.log 2>&1 &
+          echo $! > .ai_annotation/server.pid
+          ready=0
+          for attempt in $(seq 1 120); do
+            if curl --silent --fail http://127.0.0.1:8080/health >/dev/null; then
+              ready=1
+              break
+            fi
+            sleep 2
+          done
+          test "$ready" -eq 1
+
+      - name: Run 108 condition-blinded annotations
+        env:
+          LD_LIBRARY_PATH: ${{ env.LLAMA_LIB_DIR }}
+        run: |
+          python scripts/run_ai_provisional_annotator.py \
+            --packets .source/annotation_packets.jsonl \
+            --codebook benchmarks/controlled_v1/codebook.json \
+            --output .ai_annotation/annotations.jsonl \
+            --metadata .ai_annotation/metadata.jsonl \
+            --server-url http://127.0.0.1:8080 \
+            --model annotator-model \
+            --annotator-id "${{ matrix.annotator_id }}" \
+            --seed "${{ matrix.seed }}" \
+            --max-tokens 180 \
+            --retries 2 \
+            | tee .ai_annotation/run_summary.json
+
+      - name: Validate annotation coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          packet_ids = {
+              json.loads(line)["annotation_id"]
+              for line in Path(".source/annotation_packets.jsonl").read_text().splitlines()
+              if line.strip()
+          }
+          rows = [
+              json.loads(line)
+              for line in Path(".ai_annotation/annotations.jsonl").read_text().splitlines()
+              if line.strip()
+          ]
+          output_ids = [row["annotation_id"] for row in rows]
+          assert len(rows) == 108
+          assert len(set(output_ids)) == 108
+          assert set(output_ids) == packet_ids
+          print(json.dumps({"status": "pass", "annotation_count": len(rows)}))
+          PY
+
+      - name: Record annotator provenance
+        run: |
+          printf '%s\n' "${{ matrix.annotator_id }}" > .ai_annotation/annotator_id.txt
+          printf '%s\n' "${{ matrix.model_name }}" > .ai_annotation/model_name.txt
+          printf '%s\n' "${{ matrix.seed }}" > .ai_annotation/seed.txt
+          git rev-parse HEAD > .ai_annotation/analysis_commit.txt
+          cp benchmarks/pilot_v1/AI_PROVISIONAL_ANNOTATION_LOCK.json .ai_annotation/
+
+      - name: Upload independent annotation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: crd-v1-${{ matrix.annotator_id }}
+          path: .ai_annotation/
+          retention-days: 90
+
+  aggregate:
+    name: aggregate provisional analysis
+    needs: annotate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download frozen formal inference artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: crd-v1-qwen25-3b-formal-inference
+          path: .source
+          repository: GeoGeekLab/nature-reviewer-skills
+          run-id: 35490070083
+          github-token: ${{ github.token }}
+
+      - name: Download annotator A
+        uses: actions/download-artifact@v4
+        with:
+          name: crd-v1-ai-annotator-a
+          path: .annotator_a
+
+      - name: Download annotator B
+        uses: actions/download-artifact@v4
+        with:
+          name: crd-v1-ai-annotator-b
+          path: .annotator_b
+
+      - name: Build agreement and consensus
+        run: |
+          mkdir -p .analysis
+          python scripts/measure_pilot_agreement.py \
+            --pilot-dir .source \
+            --annotator-a .annotator_a/annotations.jsonl \
+            --annotator-b .annotator_b/annotations.jsonl \
+            --output .analysis/agreement.json
+
+          python scripts/build_ai_provisional_consensus.py \
+            --annotator-a .annotator_a/annotations.jsonl \
+            --annotator-b .annotator_b/annotations.jsonl \
+            --intersection .analysis/intersection_annotations.jsonl \
+            --union .analysis/union_annotations.jsonl \
+            | tee .analysis/consensus_report.json
+
+      - name: Score both annotators and consensus views
+        run: |
+          python scripts/analyze_pilot_annotations.py \
+            --pilot-dir .source \
+            --annotations .annotator_a/annotations.jsonl \
+            --iterations 10000 --seed 20260920 \
+            --output .analysis/annotator_a_analysis.json >/dev/null
+
+          python scripts/analyze_pilot_annotations.py \
+            --pilot-dir .source \
+            --annotations .annotator_b/annotations.jsonl \
+            --iterations 10000 --seed 20260920 \
+            --output .analysis/annotator_b_analysis.json >/dev/null
+
+          python scripts/analyze_pilot_annotations.py \
+            --pilot-dir .source \
+            --annotations .analysis/intersection_annotations.jsonl \
+            --iterations 10000 --seed 20260920 \
+            --output .analysis/intersection_analysis.json >/dev/null
+
+          python scripts/analyze_pilot_annotations.py \
+            --pilot-dir .source \
+            --annotations .analysis/union_annotations.jsonl \
+            --iterations 10000 --seed 20260920 \
+            --output .analysis/union_analysis.json >/dev/null
+
+      - name: Render provisional report
+        run: |
+          python scripts/render_ai_provisional_report.py \
+            --agreement .analysis/agreement.json \
+            --consensus .analysis/consensus_report.json \
+            --annotator-a-analysis .analysis/annotator_a_analysis.json \
+            --annotator-b-analysis .analysis/annotator_b_analysis.json \
+            --intersection-analysis .analysis/intersection_analysis.json \
+            --union-analysis .analysis/union_analysis.json \
+            --output .analysis/AI_PROVISIONAL_RESULTS.md \
+            --summary-json .analysis/AI_PROVISIONAL_RESULTS.json
+
+          cp .annotator_a/annotations.jsonl .analysis/annotator_a_annotations.jsonl
+          cp .annotator_b/annotations.jsonl .analysis/annotator_b_annotations.jsonl
+          cp .annotator_a/metadata.jsonl .analysis/annotator_a_metadata.jsonl
+          cp .annotator_b/metadata.jsonl .analysis/annotator_b_metadata.jsonl
+          cp benchmarks/pilot_v1/AI_PROVISIONAL_ANNOTATION_LOCK.json .analysis/
+          git rev-parse HEAD > .analysis/analysis_commit.txt
+          sha256sum .analysis/* > .analysis/checksums.sha256
+
+      - name: Upload provisional analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: crd-v1-ai-double-blind-provisional-analysis
+          path: .analysis/
+          retention-days: 90
