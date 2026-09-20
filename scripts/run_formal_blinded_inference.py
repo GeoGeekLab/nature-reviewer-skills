@@ -6,9 +6,9 @@ import json
 import time
 import urllib.error
 import urllib.request
-from urllib.parse import urlparse
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 from nature_reviewer_core.patterns import load_patterns
 from nature_reviewer_core.retrieval import search_patterns
