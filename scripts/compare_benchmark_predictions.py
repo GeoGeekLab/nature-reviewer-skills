@@ -99,8 +99,13 @@ def paired_bootstrap_delta(
             rng.choice(pair_ids)  # noqa: S311  # nosec B311
             for _index in range(len(pair_ids))
         ]
-        sampled_a = [item for pair_id in sampled_ids for item in units_a[pair_id]]
-        sampled_b = [item for pair_id in sampled_ids for item in units_b[pair_id]]
+        sampled_a: list[dict[str, Any]] = []
+        sampled_b: list[dict[str, Any]] = []
+        for draw_index, pair_id in enumerate(sampled_ids):
+            for item in units_a[pair_id]:
+                sampled_a.append({**item, "pair_id": f"bootstrap-{draw_index}"})
+            for item in units_b[pair_id]:
+                sampled_b.append({**item, "pair_id": f"bootstrap-{draw_index}"})
         metrics_a = _metrics(sampled_a)
         metrics_b = _metrics(sampled_b)
         for metric in metrics:
