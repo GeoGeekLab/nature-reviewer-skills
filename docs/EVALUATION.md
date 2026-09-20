@@ -32,6 +32,8 @@ Uncertainty is reported using bootstrap resampling at the **matched pair** level
 
 CRD-v1 gold labels are developer-authored controlled labels. They are useful for method development and regression testing, but are not independent expert gold.
 
+The challenge set also overlaps with the reviewer skills' existing evidence-gate taxonomy. This construction bias is intentional for diagnostic testing but means CRD-v1 is not an unbiased sample of open-world review failures. Comparative claims must therefore be limited to the controlled challenge set unless an independently designed held-out benchmark confirms them.
+
 ## Level 3 — held-out expert evaluation
 
 A credible claim about real manuscript-review quality requires an evaluation set that is separate from skill development and inaccessible during model/prompt development.
