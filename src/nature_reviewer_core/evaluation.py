@@ -157,9 +157,7 @@ def score_case(case: BenchmarkCase, predicted: list[Concern]) -> dict[str, Any]:
     if case.case_type == "negative_control":
         overlap = concern_overlap(list(predicted_by_id.values()))
         result.update(
-            {
-                metric: None for metric in _POSITIVE_METRICS if metric != "panel_duplicate_rate"
-            }
+            {metric: None for metric in _POSITIVE_METRICS if metric != "panel_duplicate_rate"}
         )
         result["panel_duplicate_rate"] = float(overlap["duplicate_rate"])
         result["negative_control_pass"] = len(predicted_ids) == 0
@@ -211,10 +209,7 @@ def _aggregate_core(scores: list[dict[str, Any]], include_domains: bool = True) 
     positive = [item for item in scores if item.get("case_type") != "negative_control"]
     controls = [item for item in scores if item.get("case_type") == "negative_control"]
 
-    macro = {
-        metric: _mean(_numeric_metric(positive, metric))
-        for metric in _POSITIVE_METRICS
-    }
+    macro = {metric: _mean(_numeric_metric(positive, metric)) for metric in _POSITIVE_METRICS}
 
     tp = sum(int(item["true_positive"]) for item in scores)
     fp = sum(int(item["false_positive"]) for item in scores)
