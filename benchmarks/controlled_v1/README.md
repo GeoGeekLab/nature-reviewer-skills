@@ -13,6 +13,10 @@ Controlled Review Diagnostic (CRD-v1) tests whether a scientific reviewer detect
 
 CRD-v1 is a **public development benchmark**, not an expert-equivalence benchmark. Gold labels are developer-authored from controlled perturbations and methodological guidance. They have not yet been independently labelled by two domain experts.
 
+### Construction-bias warning
+
+The challenge taxonomy overlaps intentionally with evidence risks already represented in the reviewer skills. CRD-v1 therefore measures whether those intended risks are activated correctly and whether the reviewer remains specific on matched controls. It is **not an unbiased sample of all problems that occur in scientific manuscripts**, and a skill-assisted advantage on CRD-v1 must not be generalized to open-world peer review. A stronger comparative study should use challenge selection and gold construction performed independently of the skill authors.
+
 ## Why matched controls?
 
 A reviewer can obtain high issue recall by criticizing everything. Each challenge therefore contains one flawed excerpt and one matched control in which the target defect is repaired or the claim is narrowed to match the evidence.
