@@ -51,13 +51,14 @@
   "annotation_generation": {
     "temperature": 0,
     "top_p": 1,
-    "max_completion_tokens": 96,
+    "max_completion_tokens": 64,
     "technical_json_retries": 2,
     "output_schema": {
       "issue_ids": "array of zero or more allowed domain issue IDs; maximum three"
     },
-    "json_object_enforced": true,
-    "retry_seed_policy": "base seed + attempt index; retries only for invalid JSON"
+    "json_object_enforced": false,
+    "retry_seed_policy": "base seed + attempt index; retries only for invalid JSON",
+    "structured_output": "llama.cpp GBNF grammar constraining output to zero-to-three allowed issue IDs"
   },
   "consensus": {
     "primary": "intersection",
@@ -74,6 +75,10 @@
   },
   "technical_revision": {
     "reason": "Initial blinded execution produced truncated verbose JSON on the first anonymous packet. No condition, case type, target issue, gold, or private mapping was inspected. No valid annotator artifact was produced.",
-    "action": "Reduce output to issue_ids only, enforce JSON-object mode, and vary seed only on technical JSON retries."
+    "action": "Reduce output to issue_ids only, enforce JSON-object mode, and vary seed only on technical JSON retries.",
+    "second_revision": {
+      "reason": "A second blinded attempt showed that json_object mode was not reliably enforced by the pinned llama.cpp/model combination; one anonymous packet emitted Python code.",
+      "action": "Constrain decoding with per-domain GBNF grammar so only valid compact issue-id JSON can be generated. No condition, target, case type, gold, or private mapping was inspected."
+    }
   }
 }
