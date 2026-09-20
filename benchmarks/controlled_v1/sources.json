@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "references": {
+    "RS_SPATIAL_CV": {
+      "title": "Spatially autocorrelated training and validation samples inflate performance assessment of convolutional neural networks",
+      "type": "peer-reviewed article",
+      "doi": "10.1016/j.ophoto.2022.100018",
+      "url": "https://doi.org/10.1016/j.ophoto.2022.100018",
+      "relevance": "Spatially independent validation for geospatial ML."
+    },
+    "RS_SPATIAL_PLUS": {
+      "title": "Spatial+: A new cross-validation method to evaluate geospatial machine learning models",
+      "type": "peer-reviewed article",
+      "doi": "10.1016/j.jag.2023.103364",
+      "url": "https://doi.org/10.1016/j.jag.2023.103364",
+      "relevance": "Geographic and feature-space separation in validation."
+    },
+    "ATM_INDEPENDENT_VERIFICATION": {
+      "title": "The MERRA-2 Aerosol Reanalysis, 1980 Onward. Part I",
+      "type": "peer-reviewed article",
+      "doi": "10.1175/JCLI-D-16-0609.1",
+      "url": "https://doi.org/10.1175/JCLI-D-16-0609.1",
+      "relevance": "Independent observations for evaluating assimilated atmospheric products."
+    },
+    "ATM_VERIFICATION_PITFALLS": {
+      "title": "On the Reliability of Surface Observations and the Pitfalls of Verification Against Own Analyses",
+      "type": "peer-reviewed article",
+      "doi": "10.1002/met.70129",
+      "url": "https://doi.org/10.1002/met.70129",
+      "relevance": "Pitfalls of non-independent atmospheric verification."
+    },
+    "WMO_NOWCAST_VERIFICATION": {
+      "title": "Nowcasting Guidelines – A Summary",
+      "type": "WMO guidance",
+      "url": "https://public.wmo.int/media/magazine-article/nowcasting-guidelines-summary",
+      "relevance": "Representative forecast-observation sets and fit-for-purpose metrics."
+    },
+    "IPCC_ATTRIBUTION": {
+      "title": "Good Practice Guidance Paper on Detection and Attribution",
+      "type": "IPCC guidance",
+      "url": "https://www.ipcc.ch/site/assets/uploads/2018/08/ipcc_good_practice_guidance_paper_anthropogenic.pdf",
+      "relevance": "Internal variability, alternative forcings, and uncertainty in attribution."
+    },
+    "HYDRO_EP621": {
+      "title": "Review and development of ASABE Engineering Practice 621",
+      "type": "peer-reviewed technical note",
+      "doi": "10.13031/trans.12806",
+      "url": "https://doi.org/10.13031/trans.12806",
+      "relevance": "Hydrologic calibration, validation, and fitness-for-purpose evaluation."
+    },
+    "WMO_HYDRO_VERIFY": {
+      "title": "WMO issues guidelines on verification of hydrological forecasts",
+      "type": "WMO guidance",
+      "url": "https://wmo.int/media/news/wmo-issues-guidelines-verification-of-hydrological-forecasts",
+      "relevance": "Accuracy, bias, reliability, resolution, and event-relevant verification."
+    },
+    "ECO_CAUSAL": {
+      "title": "Best practices for moving from correlation to causation in ecological research",
+      "type": "peer-reviewed article",
+      "doi": "10.1038/s41467-026-69878-z",
+      "url": "https://doi.org/10.1038/s41467-026-69878-z",
+      "relevance": "Causal questions, confounding, and causal-task design in ecology."
+    },
+    "RSC_EXPERIMENTAL_REPORTING": {
+      "title": "Experimental reporting",
+      "type": "Royal Society of Chemistry guidance",
+      "url": "https://www.rsc.org/publishing/publish-with-us/publish-a-journal-article/experimental-reporting",
+      "relevance": "Reproducible experimental detail and compound characterization."
+    },
+    "CATALYSIS_RIGOR": {
+      "title": "Improving the rigor and reproducibility of catalyst testing and evaluation in the laboratory",
+      "type": "peer-reviewed article",
+      "doi": "10.1016/j.jcat.2024.115408",
+      "url": "https://doi.org/10.1016/j.jcat.2024.115408",
+      "relevance": "Transport controls and interpretable intrinsic catalyst performance."
+    },
+    "ACS_CATALYSIS_BENCHMARK": {
+      "title": "Toward Benchmarking in Catalysis Science",
+      "type": "peer-reviewed perspective",
+      "doi": "10.1021/acscatal.6b00183",
+      "url": "https://doi.org/10.1021/acscatal.6b00183",
+      "relevance": "Matched, reproducible catalyst benchmarking."
+    },
+    "NIST_MEASUREMENT": {
+      "title": "NIST/SEMATECH Engineering Statistics Handbook, Chapter 2",
+      "type": "NIST handbook",
+      "url": "https://www.nist.gov/publications/nistsematech-engineering-statistics-handbook-chapter-2-measurement-process",
+      "relevance": "Repeatability, reproducibility, stability, calibration, and uncertainty."
+    },
+    "NIST_VV": {
+      "title": "A B C of Engineering Statistics and a Reference Benchmark Approach to Verification and Validation",
+      "type": "NIST publication",
+      "url": "https://www.nist.gov/publications/b-c-engineering-statistics-and-reference-benchmark-approach-verification-and-validation",
+      "relevance": "Experimental design, error analysis, and uncertainty in engineering V&V."
+    },
+    "NIST_MATERIALS_REVIEW": {
+      "title": "NIST Thermodynamics Research Center Review Checklist",
+      "type": "NIST guidance",
+      "url": "https://trc.nist.gov/review-checklist/",
+      "relevance": "Material identity, raw data, method validation, and reproducibility."
+    },
+    "NATURE_REPORTING": {
+      "title": "Reporting standards and availability of data, materials, code and protocols",
+      "type": "journal reporting policy",
+      "url": "https://www.nature.com/npjmatdeg/editorial-policies/reporting-standards",
+      "relevance": "Transparent experimental design and reproducibility."
+    },
+    "POLAR_INTERNAL": {
+      "title": "Polar orchestrator distillation report",
+      "type": "repository provenance report",
+      "path": "nature-earth-system-reviewer-skills/skills/polar-earth-system-review-orchestrator/corpus/distillation_report.md",
+      "relevance": "Public-source basis for polar-specific evidence risks."
+    },
+    "HLE_BENCHMARK_METHOD": {
+      "title": "A benchmark of expert-level academic questions to assess AI capabilities",
+      "type": "peer-reviewed benchmark paper",
+      "doi": "10.1038/s41586-025-09962-4",
+      "url": "https://doi.org/10.1038/s41586-025-09962-4",
+      "relevance": "Benchmark curation, public review, domain reporting, contamination awareness."
+    },
+    "GRE_BENCH_METHOD": {
+      "title": "Benchmarking LLMs' Judgments with No Gold Standard",
+      "type": "ICLR 2025 paper",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/a9b0e4e205bdf232da9f74bfb9469539-Abstract-Conference.html",
+      "relevance": "Subjective peer-review evaluation and contamination concerns."
+    },
+    "REVIEWBENCH_METHOD": {
+      "title": "ReviewBench: An Extensible Framework for Benchmarking Human and AI Manuscript Review",
+      "type": "2026 preprint",
+      "doi": "10.64898/2026.04.17.719279",
+      "url": "https://doi.org/10.64898/2026.04.17.719279",
+      "relevance": "Issue specification, justification, remedy, and manuscript anchoring."
+    },
+    "RS_SUPPORT_SCALE": {
+      "title": "On the effect of spatial variability and support on validation of remote sensing observations of CO2",
+      "type": "peer-reviewed article",
+      "doi": "10.1016/j.atmosenv.2016.03.014",
+      "url": "https://doi.org/10.1016/j.atmosenv.2016.03.014",
+      "relevance": "Directly addresses spatial-support mismatch and horizontal variability in remote-sensing validation."
+    },
+    "BATTERY_METRICS": {
+      "title": "Aligning academia and industry for unified battery performance metrics",
+      "type": "peer-reviewed article",
+      "url": "https://www.nature.com/articles/s41467-018-07599-8",
+      "relevance": "Identifies loading, voltage window, capacity basis, cyclability and other matched performance metrics needed for meaningful battery comparisons."
+    },
+    "BATTERY_BEST_PRACTICES": {
+      "title": "Best practices in lithium battery cell preparation and evaluation",
+      "type": "peer-reviewed perspective",
+      "doi": "10.1038/s43246-022-00286-8",
+      "url": "https://doi.org/10.1038/s43246-022-00286-8",
+      "relevance": "Documents how cell fabrication and test conditions influence battery performance and reproducibility."
+    },
+    "PEROVSKITE_ISOS": {
+      "title": "Consensus statement for stability assessment and reporting for perovskite photovoltaics based on ISOS procedures",
+      "type": "peer-reviewed consensus statement",
+      "doi": "10.1038/s41560-019-0529-5",
+      "url": "https://doi.org/10.1038/s41560-019-0529-5",
+      "relevance": "Defines stability stress categories and reporting practices for perovskite photovoltaic stability assessment."
+    },
+    "NSIDC_SEA_ICE_DEFINITIONS": {
+      "title": "Science of Sea Ice",
+      "type": "NSIDC scientific reference",
+      "url": "https://nsidc.org/learn/parts-cryosphere/sea-ice/science-sea-ice",
+      "relevance": "Defines sea-ice concentration, area, extent and thickness as distinct quantities and documents the standard extent threshold."
+    }
+  }
+}

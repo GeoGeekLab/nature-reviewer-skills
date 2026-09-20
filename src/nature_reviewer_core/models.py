@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any, Literal
 
 Severity = Literal["critical", "major", "moderate", "minor", "editorial", "unknown"]
+BenchmarkCaseType = Literal["positive", "negative_control"]
 
 
 @dataclass(frozen=True, slots=True)
@@ -59,3 +60,8 @@ class BenchmarkCase:
     domain: str
     manuscript_text: str
     gold_concerns: tuple[Concern, ...]
+    case_type: BenchmarkCaseType = "positive"
+    pair_id: str = ""
+    challenge: str = ""
+    target_issue_id: str = ""
+    suite: str = ""

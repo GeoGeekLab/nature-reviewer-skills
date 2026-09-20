@@ -31,6 +31,10 @@ jobs:
       - run: mypy src/nature_reviewer_core
       - run: bandit -q -r src scripts
       - run: python scripts/run_benchmarks.py benchmarks/cases benchmarks/predictions/example_predictions.jsonl
+      - if: matrix.python-version == '3.12'
+        run: python scripts/validate_benchmark_suite.py benchmarks/controlled_v1/cases.jsonl
+      - if: matrix.python-version == '3.12'
+        run: python scripts/run_benchmarks.py benchmarks/controlled_v1/cases.jsonl benchmarks/controlled_v1/oracle_predictions.jsonl
 
   package-matrix:
     runs-on: ubuntu-latest

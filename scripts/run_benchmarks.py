@@ -6,7 +6,7 @@ from pathlib import Path
 
 import _bootstrap  # noqa: F401
 
-from nature_reviewer_core.evaluation import aggregate, load_case, load_predictions, score_case
+from nature_reviewer_core.evaluation import aggregate, load_cases, load_predictions, score_case
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -16,8 +16,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     predictions = load_predictions(args.predictions)
     scores = []
-    for path in sorted(args.cases.glob("*.json")):
-        case = load_case(path)
+    for case in load_cases(args.cases):
         scores.append(score_case(case, predictions.get(case.case_id, [])))
     report = {"cases": scores, "aggregate": aggregate(scores)}
     rendered = json.dumps(report, ensure_ascii=False, indent=2) + "\n"

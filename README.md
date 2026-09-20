@@ -223,33 +223,31 @@ Current public status:
 | Evidence | Status |
 |---|---|
 | Repository/package validation | Available |
-| Deterministic retrieval and schema tests | Available |
-| Synthetic benchmark pipeline | Available |
-| Public synthetic benchmark cases | 3 cases: chemistry, engineering, remote sensing |
-| Expert-labelled manuscript gold set | Not yet established publicly |
-| Blinded comparison against generic review prompts | Not yet established publicly |
-| Prospective evaluation on real submissions | Not yet established publicly |
+| Legacy scorer/infrastructure fixtures | 3 synthetic cases |
+| Controlled Review Diagnostic v1 | **48 synthetic cases / 24 matched pairs / 8 review groups** |
+| Negative-control specificity | Supported |
+| Matched-pair bootstrap confidence intervals | Supported |
+| Frozen generic vs skill-assisted comparison protocol | Available |
+| Independently expert-labelled manuscript gold set | Not yet established |
+| Published blinded generic-vs-skill model results | Not yet established |
+| Prospective evaluation on real submissions | Not yet established |
 
-The current synthetic benchmark cases report perfect pipeline metrics because the fixtures are constructed to test scoring and infrastructure behavior. They **do not demonstrate expert-level scientific-review quality**.
+[CRD-v1](benchmarks/controlled_v1/) is a source-backed **public development benchmark**. Every positive case has a matched negative control so a reviewer is rewarded for detecting a specific evidence failure and penalized for continuing to raise it after the failure has been repaired or the claim has been narrowed.
 
-A credible performance claim requires expert-labelled manuscripts, negative controls, blinded comparisons, confidence intervals, and domain-specific error analysis.
+The 48 cases are synthetic and the controlled gold labels are developer-authored. They **do not demonstrate expert-level scientific-review quality**. The included oracle predictions are only a scorer self-test and must not be presented as model performance.
+
+A credible real-world performance claim still requires an access-controlled expert-labelled set, blinded model runs, independent annotation/adjudication, confidence intervals, and per-domain error analysis.
 
 See:
 
+- [CRD-v1 benchmark card](benchmarks/controlled_v1/README.md)
+- [Blinded run protocol](benchmarks/controlled_v1/RUN_PROTOCOL.md)
+- [Annotation protocol](benchmarks/controlled_v1/ANNOTATION_PROTOCOL.md)
 - [Evaluation protocol](docs/EVALUATION.md)
-- [Current synthetic benchmark report](benchmark-report.json)
+- [Legacy synthetic benchmark report](benchmark-report.json)
 - [Test report](TEST_REPORT.md)
 
-The evaluation framework supports:
-
-- essential-issue recall;
-- concern precision and false-positive rate;
-- severity agreement;
-- evidence-anchor coverage and validity;
-- unsupported-citation rate;
-- duplicate-concern rate across panel members;
-- run-to-run stability;
-- human usefulness and actionability scores.
+The evaluation framework supports essential-issue recall, negative-control specificity, balanced accuracy, concern precision, severity agreement, evidence anchors, panel duplication, matched-pair bootstrap uncertainty, and run-to-run stability.
 
 ## Reliability and defensive behavior
 
