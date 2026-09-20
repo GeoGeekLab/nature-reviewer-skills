@@ -85,6 +85,20 @@ def _domain_codebook(codebook: dict[str, Any], domain: str) -> list[dict[str, st
     return result
 
 
+
+def _gbnf_grammar(allowed: list[dict[str, str]]) -> str:
+    terminals = " | ".join(
+        json.dumps(json.dumps(issue["issue_id"])) for issue in allowed
+    )
+    return "\n".join(
+        [
+            'root ::= "{" ws "\\\"issue_ids\\\"" ws ":" ws "[" ws (items)? ws "]" ws "}"',
+            'items ::= issue | issue ws "," ws issue | issue ws "," ws issue ws "," ws issue',
+            f"issue ::= {terminals}",
+            'ws ::= [ \\t\\n\\r]*',
+        ]
+    )
+
 def _prompt(row: dict[str, Any], allowed: list[dict[str, str]]) -> str:
     codebook_text = "\n\n".join(
         "\n".join(
@@ -157,6 +171,7 @@ def annotate(
         allowed = _domain_codebook(codebook, domain)
         allowed_ids = {issue["issue_id"] for issue in allowed}
         prompt = _prompt(row, allowed)
+        grammar = _gbnf_grammar(allowed)
 
         parsed: dict[str, Any] | None = None
         raw_text = ""
@@ -174,7 +189,7 @@ def annotate(
                 "seed": seed + attempts - 1,
                 "max_tokens": max_tokens,
                 "stream": False,
-                "response_format": {"type": "json_object"},
+                "grammar": grammar,
             }
             response = _post_json(f"{server_url.rstrip('/')}/v1/chat/completions", payload)
             choices = response.get("choices")
@@ -278,7 +293,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", default="annotator-model")
     parser.add_argument("--annotator-id", required=True)
     parser.add_argument("--seed", type=int, required=True)
-    parser.add_argument("--max-tokens", type=int, default=96)
+    parser.add_argument("--max-tokens", type=int, default=64)
     parser.add_argument("--retries", type=int, default=2)
     args = parser.parse_args()
 
