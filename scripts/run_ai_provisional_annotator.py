@@ -116,10 +116,10 @@ DOMAIN CODEBOOK
 {codebook_text}
 
 MANUSCRIPT EXCERPT
-{row['manuscript_text']}
+{row["manuscript_text"]}
 
 REVIEW OUTPUT
-{row['review_text']}
+{row["review_text"]}
 """
 
 
@@ -221,9 +221,7 @@ def annotate(
                 if isinstance(anchors_raw, list)
                 else []
             )
-            clean_concerns.append(
-                {"issue_id": issue_id, "severity": severity, "anchors": anchors}
-            )
+            clean_concerns.append({"issue_id": issue_id, "severity": severity, "anchors": anchors})
 
         outputs.append(
             json.dumps(
