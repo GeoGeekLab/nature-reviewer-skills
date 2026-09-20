@@ -194,7 +194,8 @@ def annotate(
                         f"{annotation_id}: invalid JSON after {attempts} attempts: {raw_text[:400]}"
                     ) from None
 
-        assert parsed is not None
+        if parsed is None:
+            raise RuntimeError(f"{annotation_id}: annotation parser reached an impossible empty state")
         concerns = parsed.get("concerns", [])
         if not isinstance(concerns, list):
             raise ValueError(f"{annotation_id}: concerns must be a list")
