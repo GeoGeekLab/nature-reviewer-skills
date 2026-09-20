@@ -3,9 +3,6 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any
-
-
 PRIMARY = [
     "essential_issue_recall",
     "target_specificity",
@@ -15,14 +12,14 @@ PRIMARY = [
 SECONDARY = ["micro_precision", "micro_recall", "micro_f1"]
 
 
-def _json(path: Path) -> dict[str, Any]:
+def _json(path: Path) -> dict[str, object]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
         raise ValueError(f"Expected object in {path}")
     return value
 
 
-def _fmt(value: Any) -> str:
+def _fmt(value: object) -> str:
     if isinstance(value, float):
         return f"{value:.4f}"
     return str(value)
