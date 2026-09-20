@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "name": "RefFox",
-  "canonical_asset": "reffox-main.webp",
-  "format": "webp",
+  "canonical_asset": "reffox-main.png",
+  "format": "png",
   "background": "transparent",
   "tagline": "Suspicious by default. Evidence first.",
   "assets": [
     {
-      "file": "reffox-main.webp",
+      "file": "reffox-main.png",
       "role": "primary",
       "dimensions": [
         320,
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "file": "reffox-bug-found.webp",
+      "file": "reffox-bug-found.png",
       "role": "bug-found",
       "dimensions": [
         96,
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "file": "reffox-control-check.webp",
+      "file": "reffox-control-check.png",
       "role": "control-check",
       "dimensions": [
         96,
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "file": "reffox-evidence-please.webp",
+      "file": "reffox-evidence-please.png",
       "role": "evidence-request",
       "dimensions": [
         96,

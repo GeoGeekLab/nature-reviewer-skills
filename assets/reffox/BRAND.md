@@ -22,7 +22,7 @@ The canonical character has orange-and-cream fox coloring, round black glasses, 
 
 | Asset | Role | Recommended use |
 |---|---|---|
-| `reffox-main.webp` | **Canonical primary mascot** | README hero, docs landing pages, announcements |
+| `reffox-main.png` | **Canonical primary mascot** | README hero, docs landing pages, announcements |
 | `reffox-avatar.webp` | Compact head/avatar | Small cards, profile/icon contexts |
 | `reffox-mono.webp` | Monochrome mark | One-color contexts, stamps, subtle document marks |
 | `reffox-reviewer.webp` | General scientific review | Review workflow and examples |
@@ -35,14 +35,14 @@ The primary mascot is intentionally the **green-check / upward-evidence-path** v
 
 ## Usage rules
 
-- Use `reffox-main.webp` as the canonical primary artwork.
+- Use `reffox-main.png` as the canonical primary artwork.
 - Use `reffox-avatar.webp` when the full mascot would become visually unreadable.
 - Use `reffox-mono.webp` for restrained one-color placements.
 - Use action stickers as callouts supporting technical content, not as substitutes for technical content.
 - Preserve the transparent background and original aspect ratio.
 - Do not stretch, recolor, mirror, or add unofficial logos to the character.
 - Prefer an approximately **80% technical/scientific : 20% mascot/brand** balance in repository documentation.
-- Repository WebP files are optimized derivatives. Avoid repeated lossy re-encoding.
+- Repository PNG files are optimized derivatives. Avoid repeated lossy re-encoding.
 
 ## Language and affiliation boundary
 
