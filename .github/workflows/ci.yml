@@ -27,7 +27,7 @@ jobs:
       - run: python scripts/validate_all.py
       - run: python -m pytest --cov=nature_reviewer_core --cov-report=term-missing
       - run: ruff check .
-      - run: ruff format --diff .
+      - run: ruff format --check .
       - run: mypy src/nature_reviewer_core
       - run: bandit -q -r src scripts
       - run: python scripts/run_benchmarks.py benchmarks/cases benchmarks/predictions/example_predictions.jsonl
