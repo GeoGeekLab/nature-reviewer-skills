@@ -58,6 +58,7 @@ def validate_suite(source: Path) -> dict[str, Any]:
         pair_id = str(case.get("pair_id", ""))
         domain = str(case.get("domain", ""))
         source_keys = case.get("source_keys", [])
+        target_issue_id = str(case.get("target_issue_id", ""))
         text = str(case.get("manuscript_text", ""))
         concerns = case.get("gold_concerns", [])
 
@@ -69,6 +70,8 @@ def validate_suite(source: Path) -> dict[str, Any]:
             raise ValueError(f"{case_id}: missing domain")
         if not isinstance(source_keys, list) or not source_keys:
             raise ValueError(f"{case_id}: source_keys must be a non-empty list")
+        if not target_issue_id:
+            raise ValueError(f"{case_id}: missing target_issue_id")
         if source_catalog is not None:
             unknown_sources = sorted(set(str(key) for key in source_keys) - source_catalog)
             if unknown_sources:
@@ -77,6 +80,8 @@ def validate_suite(source: Path) -> dict[str, Any]:
             raise ValueError(f"{case_id}: manuscript_text is too short for a diagnostic case")
         if case_type == "positive" and len(concerns) != 1:
             raise ValueError(f"{case_id}: positive cases must contain exactly one gold concern")
+        if case_type == "positive" and str(concerns[0].get("issue_id", "")) != target_issue_id:
+            raise ValueError(f"{case_id}: gold issue must equal target_issue_id")
         if case_type == "negative_control" and concerns:
             raise ValueError(f"{case_id}: negative controls must have no gold concerns")
 
@@ -91,8 +96,9 @@ def validate_suite(source: Path) -> dict[str, Any]:
             raise ValueError(f"{pair_id}: pair must contain one positive and one negative control")
         domains = {str(item["domain"]) for item in pair}
         challenges = {str(item.get("challenge", "")) for item in pair}
-        if len(domains) != 1 or len(challenges) != 1:
-            raise ValueError(f"{pair_id}: domain/challenge mismatch within pair")
+        target_issues = {str(item.get("target_issue_id", "")) for item in pair}
+        if len(domains) != 1 or len(challenges) != 1 or len(target_issues) != 1:
+            raise ValueError(f"{pair_id}: domain/challenge/target mismatch within pair")
         texts = {str(item["manuscript_text"]) for item in pair}
         if len(texts) != 2:
             raise ValueError(f"{pair_id}: positive and control text must differ")
