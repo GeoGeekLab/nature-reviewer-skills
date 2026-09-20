@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "analysis_id": "crd-v1-three-domain-ai-double-blind-provisional-v1",
+  "source_inference": {
+    "workflow_run_id": 35490070083,
+    "artifact_name": "crd-v1-qwen25-3b-formal-inference",
+    "inference_commit": "9c57902adfe5ef80308fa5ecba866f9be0050917"
+  },
+  "blinding": {
+    "annotators_may_see": [
+      "annotation_id",
+      "domain",
+      "manuscript_text",
+      "review_text",
+      "domain_codebook"
+    ],
+    "annotators_must_not_see": [
+      "condition",
+      "case_type",
+      "pair_id",
+      "target_issue_id",
+      "gold_concerns",
+      "oracle_predictions",
+      "private_mapping"
+    ]
+  },
+  "annotators": [
+    {
+      "id": "ai-annotator-a",
+      "model": "Llama-3.2-3B-Instruct",
+      "gguf_repository": "bartowski/Llama-3.2-3B-Instruct-GGUF",
+      "gguf_file": "Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+      "gguf_sha256": "6c1a2b41161032677be168d354123594c0e6e67d2b9227c84f296ad037c728ff",
+      "seed": 73191
+    },
+    {
+      "id": "ai-annotator-b",
+      "model": "gemma-2-2b-it",
+      "gguf_repository": "bartowski/gemma-2-2b-it-GGUF",
+      "gguf_file": "gemma-2-2b-it-Q4_K_M.gguf",
+      "gguf_sha256": "e0aee85060f168f0f2d8473d7ea41ce2f3230c1bc1374847505ea599288a7787",
+      "seed": 88421
+    }
+  ],
+  "inference_engine": {
+    "name": "llama.cpp",
+    "release": "b10901",
+    "binary_asset": "llama-b10901-bin-ubuntu-x64.tar.gz",
+    "binary_sha256": "39f81161548723a23ae03476e7ce4b4ca86d64f6a7b417e023346680c47cf699"
+  },
+  "annotation_generation": {
+    "temperature": 0,
+    "top_p": 1,
+    "max_completion_tokens": 180,
+    "technical_json_retries": 2
+  },
+  "consensus": {
+    "primary": "intersection",
+    "sensitivity": "union",
+    "rationale": "With two AI annotators and no human adjudicator, intersection is a conservative agreement-only consensus; union is reported as a sensitivity bound."
+  },
+  "reporting": {
+    "label": "automated provisional annotation",
+    "prohibited_claims": [
+      "independent human validation",
+      "expert annotation",
+      "expert equivalence"
+    ]
+  }
+}
