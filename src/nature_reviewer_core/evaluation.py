@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import json
 import random
-from collections import Counter, defaultdict
+from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from .models import BenchmarkCase, BenchmarkCaseType, Concern
+from .models import BenchmarkCase, Concern
 from .panel import concern_overlap
 from .patterns import normalize_severity
 
@@ -324,7 +324,7 @@ def _bootstrap_confidence_intervals(
     for _ in range(iterations):
         sampled_scores: list[dict[str, Any]] = []
         for _index in range(len(units)):
-            sampled_scores.extend(rng.choice(units))
+            sampled_scores.extend(rng.choice(units))  # noqa: S311  # nosec B311
         summary = _aggregate_core(sampled_scores, include_domains=False)
         for metric in metrics:
             value = _extract_summary_metric(summary, metric)
