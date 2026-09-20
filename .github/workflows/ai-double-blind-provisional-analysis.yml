@@ -122,6 +122,7 @@ jobs:
         env:
           LD_LIBRARY_PATH: ${{ env.LLAMA_LIB_DIR }}
         run: |
+          set -o pipefail
           python scripts/run_ai_provisional_annotator.py \
             --packets .source/annotation_packets.jsonl \
             --codebook benchmarks/controlled_v1/codebook.json \
@@ -131,7 +132,7 @@ jobs:
             --model annotator-model \
             --annotator-id "${{ matrix.annotator_id }}" \
             --seed "${{ matrix.seed }}" \
-            --max-tokens 180 \
+            --max-tokens 96 \
             --retries 2 \
             | tee .ai_annotation/run_summary.json
 
