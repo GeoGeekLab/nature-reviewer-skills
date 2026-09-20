@@ -105,6 +105,7 @@ def test_control_specificity_is_target_specific_when_challenge_is_known() -> Non
         case_type="negative_control",
         pair_id="pair-target",
         challenge="target-issue",
+        target_issue_id="target-issue",
     )
     unrelated = Concern("other-issue", "moderate", "A different coded concern")
     score = score_case(control, [unrelated])
@@ -124,6 +125,7 @@ def test_control_specificity_fails_when_target_issue_reappears() -> None:
         case_type="negative_control",
         pair_id="pair-target",
         challenge="target-issue",
+        target_issue_id="target-issue",
     )
     target = Concern("target-issue", "major", "The repaired target is incorrectly flagged")
     score = score_case(control, [target])
