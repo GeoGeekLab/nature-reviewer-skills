@@ -63,4 +63,5 @@ class BenchmarkCase:
     case_type: BenchmarkCaseType = "positive"
     pair_id: str = ""
     challenge: str = ""
+    target_issue_id: str = ""
     suite: str = ""
