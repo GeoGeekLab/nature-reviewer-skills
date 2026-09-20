@@ -55,7 +55,7 @@ Three synthetic failures. Three domains. One question: **does the evidence actua
 
 | Remote sensing | Chemistry | Engineering |
 |---|---|---|
-| ![RefFox checking controls](assets/reffox/reffox-control-check.png) | ![RefFox asking for stronger evidence](assets/reffox/reffox-evidence-please.png) | ![RefFox finding a scientific bug](assets/reffox/reffox-bug-found.png) |
+| <p align="center"><img src="./assets/reffox/reffox-control-check.png" alt="RefFox checking controls"></p> | <p align="center"><img src="./assets/reffox/reffox-evidence-please.png" alt="RefFox asking for stronger evidence"></p> | <p align="center"><img src="./assets/reffox/reffox-bug-found.png" alt="RefFox finding a scientific bug"></p> |
 | **BUG**: `trend ≠ sensor shift` | **BUG**: `peak area ≠ yield` | **BUG**: `human recovery ≠ autonomous` |
 | Sensor transition can masquerade as a vegetation breakpoint. | Raw HPLC-UV area is not automatically comparable quantitative yield. | Human recovery and data-quality decisions break a “fully autonomous” claim. |
 | **CHECK**: harmonization + independent validation | **CHECK**: calibrated quantification + response factors | **CHECK**: autonomy boundary + failure recovery |
