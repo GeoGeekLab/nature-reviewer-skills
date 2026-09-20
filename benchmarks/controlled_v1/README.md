@@ -21,7 +21,7 @@ The challenge taxonomy overlaps intentionally with evidence risks already repres
 
 A reviewer can obtain high issue recall by criticizing everything. Each challenge therefore contains one flawed excerpt and one matched control in which the target defect is repaired or the claim is narrowed to match the evidence.
 
-Primary endpoints are essential-issue recall, negative-control specificity, essential balanced accuracy, and matched-pair pass rate. Secondary metrics include micro precision/F1, severity agreement, evidence-anchor coverage, and duplicate-concern rate.
+Primary endpoints are essential-issue recall, target-specific negative-control specificity, essential balanced accuracy, and matched-pair pass rate. Secondary metrics include micro precision/F1, severity agreement, evidence-anchor coverage, and duplicate-concern rate.
 
 ## Domains
 
