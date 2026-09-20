@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/reffox/reffox-main.webp" alt="RefFox, the evidence-first mascot for Nature Reviewer Skills" width="360">
+  <img src="https://raw.githubusercontent.com/GeoGeekLab/nature-reviewer-skills/main/assets/reffox/reffox-main.webp" alt="RefFox, the evidence-first mascot for Nature Reviewer Skills" width="360">
 </p>
 
 <p align="center"><strong>Your paper has bugs. RefFox tries to find them.</strong><br>
@@ -49,21 +49,21 @@ Three synthetic manuscript failures. Three domain reviewers. No installation req
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="assets/reffox/reffox-control-check.webp" alt="RefFox checking controls" width="96"><br>
+<img src="https://raw.githubusercontent.com/GeoGeekLab/nature-reviewer-skills/main/assets/reffox/reffox-control-check.webp" alt="RefFox checking controls" width="96"><br>
 <strong>Remote sensing</strong><br>
 <code>trend ≠ sensor shift</code><br><br>
 A vegetation-trend breakpoint is confounded with a sensor transition.<br><br>
 <a href="examples/remote-sensing-trend-harmonization/">Open example →</a>
 </td>
 <td width="33%" align="center">
-<img src="assets/reffox/reffox-evidence-please.webp" alt="RefFox asking for stronger evidence" width="96"><br>
+<img src="https://raw.githubusercontent.com/GeoGeekLab/nature-reviewer-skills/main/assets/reffox/reffox-evidence-please.webp" alt="RefFox asking for stronger evidence" width="96"><br>
 <strong>Chemistry</strong><br>
 <code>peak area ≠ yield</code><br><br>
 Raw HPLC-UV area is treated as quantitative yield across chemically different products.<br><br>
 <a href="examples/chemistry-quantification-integrity/">Open example →</a>
 </td>
 <td width="33%" align="center">
-<img src="assets/reffox/reffox-bug-found.webp" alt="RefFox finding a scientific bug" width="96"><br>
+<img src="https://raw.githubusercontent.com/GeoGeekLab/nature-reviewer-skills/main/assets/reffox/reffox-bug-found.webp" alt="RefFox finding a scientific bug" width="96"><br>
 <strong>Engineering</strong><br>
 <code>human recovery ≠ autonomous</code><br><br>
 Human fault recovery and data-quality decisions sit inside a system claimed to be fully autonomous.<br><br>
