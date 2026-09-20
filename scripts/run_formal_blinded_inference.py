@@ -183,11 +183,7 @@ def run(
                 skill_root = ROOT / skill_path
                 context = _skill_context(skill_root, manuscript_text)
                 skill_context_sha256 = _sha256_text(context)
-                system_prompt = (
-                    system_prompt
-                    + "\n\n"
-                    + context
-                )
+                system_prompt = system_prompt + "\n\n" + context
             elif "skill_path" in packet:
                 raise ValueError(f"{blind_id}: generic packet unexpectedly contains skill_path")
 
