@@ -42,3 +42,53 @@ def test_example_predictions_score_perfectly() -> None:
     assert result["macro"]["f1"] == 1.0
     assert result["macro"]["severity_agreement"] == 1.0
     assert result["macro"]["anchor_coverage"] == 1.0
+
+
+def test_negative_control_does_not_depress_positive_macro_metrics() -> None:
+    from nature_reviewer_core.models import BenchmarkCase
+
+    positive = BenchmarkCase(
+        case_id="p",
+        domain="demo",
+        manuscript_text="positive",
+        gold_concerns=(Concern("issue", "major", "target", anchors=("paragraph:1",)),),
+        case_type="positive",
+        pair_id="pair",
+    )
+    control = BenchmarkCase(
+        case_id="c",
+        domain="demo",
+        manuscript_text="control",
+        gold_concerns=(),
+        case_type="negative_control",
+        pair_id="pair",
+    )
+    positive_score = score_case(
+        positive,
+        [Concern("issue", "major", "target", anchors=("paragraph:1",))],
+    )
+    control_score = score_case(control, [])
+    result = aggregate([positive_score, control_score])
+
+    assert result["macro"]["f1"] == 1.0
+    assert result["controls"]["specificity"] == 1.0
+    assert result["essential_balanced_accuracy"] == 1.0
+    assert result["paired_pass_rate"] == 1.0
+
+
+def test_negative_control_false_positive_is_counted() -> None:
+    from nature_reviewer_core.models import BenchmarkCase
+
+    control = BenchmarkCase(
+        case_id="c",
+        domain="demo",
+        manuscript_text="control",
+        gold_concerns=(),
+        case_type="negative_control",
+        pair_id="pair",
+    )
+    score = score_case(control, [Concern("invented", "major", "unsupported concern")])
+
+    assert score["negative_control_pass"] is False
+    assert score["false_positive"] == 1
+    assert score["precision"] is None
