@@ -6,6 +6,7 @@ import json
 import time
 import urllib.error
 import urllib.request
+from urllib.parse import urlparse
 from pathlib import Path
 from typing import Any
 
@@ -96,14 +97,18 @@ def _skill_context(skill_root: Path, manuscript_text: str) -> str:
 
 
 def _post_json(url: str, payload: dict[str, Any], timeout: int = 900) -> dict[str, Any]:
-    request = urllib.request.Request(
+    parsed = urlparse(url)
+    if parsed.scheme != "http" or parsed.hostname not in {"127.0.0.1", "localhost"}:
+        raise ValueError("Formal inference may call only the isolated local HTTP server")
+
+    request = urllib.request.Request(  # noqa: S310  # nosec B310
         url,
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"},
         method="POST",
     )
     try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:  # noqa: S310
+        with urllib.request.urlopen(request, timeout=timeout) as response:  # noqa: S310  # nosec B310
             value = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
