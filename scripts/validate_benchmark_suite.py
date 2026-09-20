@@ -37,6 +37,14 @@ def _load_cases(source: Path) -> list[dict[str, Any]]:
 
 def validate_suite(source: Path) -> dict[str, Any]:
     cases = _load_cases(source)
+    source_catalog_path = source.parent / "sources.json" if source.is_file() else source.parent / "sources.json"
+    source_catalog: set[str] | None = None
+    if source_catalog_path.exists():
+        catalog = _load(source_catalog_path)
+        references = catalog.get("references", {})
+        if not isinstance(references, dict):
+            raise ValueError(f"{source_catalog_path}: references must be an object")
+        source_catalog = set(str(key) for key in references)
     case_ids = [str(case["case_id"]) for case in cases]
     if len(case_ids) != len(set(case_ids)):
         raise ValueError("Duplicate case_id values found")
@@ -61,6 +69,10 @@ def validate_suite(source: Path) -> dict[str, Any]:
             raise ValueError(f"{case_id}: missing domain")
         if not isinstance(source_keys, list) or not source_keys:
             raise ValueError(f"{case_id}: source_keys must be a non-empty list")
+        if source_catalog is not None:
+            unknown_sources = sorted(set(str(key) for key in source_keys) - source_catalog)
+            if unknown_sources:
+                raise ValueError(f"{case_id}: unknown source_keys {unknown_sources}")
         if len(text) < 250:
             raise ValueError(f"{case_id}: manuscript_text is too short for a diagnostic case")
         if case_type == "positive" and len(concerns) != 1:
