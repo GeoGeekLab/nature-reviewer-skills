@@ -243,6 +243,7 @@ Current public status:
 | Matched-pair bootstrap confidence intervals | Supported |
 | Frozen generic vs skill-assisted comparison protocol | Available |
 | Independently expert-labelled manuscript gold set | Not yet established |
+| Three-domain blinded pilot harness | Available: 18 cases / 9 matched pairs / 3 runs per case |
 | Published blinded generic-vs-skill model results | Not yet established |
 | Prospective evaluation on real submissions | Not yet established |
 
@@ -255,6 +256,8 @@ A credible real-world performance claim still requires an access-controlled expe
 See:
 
 - [CRD-v1 benchmark card](benchmarks/controlled_v1/README.md)
+- [Three-domain blinded pilot harness](benchmarks/pilot_v1/README.md)
+- [Pilot preregistration](benchmarks/pilot_v1/PREREGISTRATION.md)
 - [Blinded run protocol](benchmarks/controlled_v1/RUN_PROTOCOL.md)
 - [Annotation protocol](benchmarks/controlled_v1/ANNOTATION_PROTOCOL.md)
 - [Evaluation protocol](docs/EVALUATION.md)
