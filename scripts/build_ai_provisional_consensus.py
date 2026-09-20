@@ -88,7 +88,8 @@ def build(a_path: Path, b_path: Path, intersection_path: Path, union_path: Path)
                             "severity": (
                                 "major"
                                 if any(
-                                    str(source.get(issue_id, {}).get("severity", "minor")) == "major"
+                                    str(source.get(issue_id, {}).get("severity", "minor"))
+                                    == "major"
                                     for source in (a_issues, b_issues)
                                 )
                                 else "minor"
