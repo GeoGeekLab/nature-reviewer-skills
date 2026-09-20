@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "name": "RefFox",
+  "canonical_asset": "reffox-main.webp",
+  "format": "webp",
+  "background": "transparent",
+  "tagline": "Suspicious by default. Evidence first.",
+  "assets": [
+    {
+      "file": "reffox-main.webp",
+      "role": "primary",
+      "dimensions": [
+        320,
+        320
+      ]
+    },
+    {
+      "file": "reffox-avatar.webp",
+      "role": "avatar",
+      "dimensions": [
+        192,
+        192
+      ]
+    },
+    {
+      "file": "reffox-mono.webp",
+      "role": "monochrome-mark",
+      "dimensions": [
+        192,
+        192
+      ]
+    },
+    {
+      "file": "reffox-reviewer.webp",
+      "role": "general-review",
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "file": "reffox-bug-found.webp",
+      "role": "bug-found",
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "file": "reffox-major-concern.webp",
+      "role": "major-concern",
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "file": "reffox-control-check.webp",
+      "role": "control-check",
+      "dimensions": [
+        96,
+        96
+      ]
+    },
+    {
+      "file": "reffox-evidence-please.webp",
+      "role": "evidence-request",
+      "dimensions": [
+        96,
+        96
+      ]
+    }
+  ],
+  "usage_boundary": "Independent project mascot; not affiliated with Nature Portfolio or Springer Nature."
+}

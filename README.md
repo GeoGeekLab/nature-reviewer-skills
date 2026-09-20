@@ -5,6 +5,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](pyproject.toml)
 
+<p align="center">
+  <img src="assets/reffox/reffox-main.webp" alt="RefFox, the evidence-first mascot for Nature Reviewer Skills" width="280">
+</p>
+
+<p align="center"><strong>Your paper has bugs. RefFox tries to find them.</strong></p>
+<p align="center"><em>Suspicious by default. Evidence first.</em></p>
+
+
 **Domain-aware scientific peer-review skills for stress-testing manuscript claims, evidence, validation, uncertainty, and generalization before submission.**
 
 Nature Reviewer Skills is not a grammar checker and not a generic “review my paper” prompt. It routes scientific claims through discipline-specific evidence gates, retrieves relevant reviewer-reasoning patterns, and produces revision-oriented criticism anchored to the manuscript.
@@ -14,6 +22,8 @@ Nature Reviewer Skills is not a grammar checker and not a generic “review my p
 **7 domain reviewers · 1 polar orchestrator · 644 abstracted reviewer-reasoning patterns**
 
 > This is an independent open-source project. It is not affiliated with Nature Portfolio or Springer Nature.
+
+**[Meet RefFox →](assets/reffox/BRAND.md)** — the project’s evidence-first reviewer mascot for claim–evidence stress testing, controls, validation, uncertainty, and actionable revision paths.
 
 ## See the failure before a reviewer does
 
