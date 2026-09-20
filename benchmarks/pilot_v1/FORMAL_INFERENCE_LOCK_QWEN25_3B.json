@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "experiment_id": "crd-v1-three-domain-qwen25-3b-q4km-20260920",
+  "purpose": "Formal blinded inference for the preregistered CRD-v1 three-domain pilot.",
+  "source": {
+    "repository": "GeoGeekLab/nature-reviewer-skills",
+    "pilot_source_commit": "169e406742357cde79fee7ddcc5468eeb41f6b63",
+    "pilot_config": "benchmarks/pilot_v1/config.json",
+    "cases": "benchmarks/controlled_v1/cases.jsonl"
+  },
+  "model": {
+    "family": "Qwen2.5-3B-Instruct",
+    "gguf_repository": "bartowski/Qwen2.5-3B-Instruct-GGUF",
+    "gguf_file": "Qwen2.5-3B-Instruct-Q4_K_M.gguf",
+    "gguf_sha256": "9c9f56a391a3abbd5b89d0245bf6106081bcc3173119d4229235dd9d23253f94",
+    "quantization": "Q4_K_M",
+    "license": "Qwen Research License"
+  },
+  "inference_engine": {
+    "name": "llama.cpp",
+    "release": "b10901",
+    "binary_asset": "llama-b10901-bin-ubuntu-x64.tar.gz",
+    "binary_sha256": "39f81161548723a23ae03476e7ce4b4ca86d64f6a7b417e023346680c47cf699"
+  },
+  "generation": {
+    "context_tokens": 12288,
+    "max_completion_tokens": 450,
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "run_seeds": {
+      "1": 202609201,
+      "2": 202609202,
+      "3": 202609203
+    }
+  },
+  "execution": {
+    "web_access": false,
+    "external_retrieval": false,
+    "stateless_request_per_packet": true,
+    "conditions": [
+      "generic",
+      "skill-assisted"
+    ],
+    "runs_per_case": 3,
+    "expected_cases": 18,
+    "expected_raw_outputs": 108
+  },
+  "skill_condition": {
+    "include_skill_md": true,
+    "include_reference_markdown": true,
+    "local_pattern_retrieval": {
+      "enabled": true,
+      "limit": 8,
+      "diversify": true,
+      "query_source": "manuscript_text only"
+    },
+    "forbidden_sources": [
+      "case_id",
+      "pair_id",
+      "case_type",
+      "challenge",
+      "target_issue_id",
+      "source_keys",
+      "gold_concerns",
+      "oracle_predictions",
+      "private_mapping"
+    ]
+  },
+  "interpretation": "Public synthetic controlled diagnostic pilot only; not expert-equivalence evidence."
+}
