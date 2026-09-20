@@ -322,6 +322,7 @@ python nature-chemistry-reviewer-skill/scripts/extract_text_with_anchors.py \
 src/nature_reviewer_core/                 shared runtime
 scripts/                                  repository-wide validation and sync commands
 tests/                                    shared-runtime tests
+examples/                                 60-second curated review demonstrations
 benchmarks/                               benchmark schemas and fixtures
 
 nature-earth-system-reviewer-skills/
