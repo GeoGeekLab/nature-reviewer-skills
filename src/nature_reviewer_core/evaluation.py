@@ -160,7 +160,10 @@ def score_case(case: BenchmarkCase, predicted: list[Concern]) -> dict[str, Any]:
             {metric: None for metric in _POSITIVE_METRICS if metric != "panel_duplicate_rate"}
         )
         result["panel_duplicate_rate"] = float(overlap["duplicate_rate"])
-        result["negative_control_pass"] = len(predicted_ids) == 0
+        if case.challenge:
+            result["negative_control_pass"] = case.challenge not in predicted_ids
+        else:
+            result["negative_control_pass"] = len(predicted_ids) == 0
         return result
 
     result.update(_positive_metrics(case, predicted_by_id, gold_by_id))
@@ -318,8 +321,13 @@ def _bootstrap_confidence_intervals(
     sampled_metrics: dict[str, list[float]] = {metric: [] for metric in metrics}
     for _ in range(iterations):
         sampled_scores: list[dict[str, Any]] = []
-        for _index in range(len(units)):
-            sampled_scores.extend(rng.choice(units))  # noqa: S311  # nosec B311
+        for draw_index in range(len(units)):
+            unit = rng.choice(units)  # noqa: S311  # nosec B311
+            for score in unit:
+                sampled = dict(score)
+                if sampled.get("pair_id"):
+                    sampled["pair_id"] = f"bootstrap-{draw_index}"
+                sampled_scores.append(sampled)
         summary = _aggregate_core(sampled_scores, include_domains=False)
         for metric in metrics:
             value = _extract_summary_metric(summary, metric)
