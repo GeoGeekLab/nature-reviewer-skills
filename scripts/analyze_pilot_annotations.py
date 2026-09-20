@@ -70,12 +70,10 @@ def _pair_contributions(rows: list[dict[str, Any]]) -> dict[str, dict[str, float
             raise ValueError(f"Pair {pair_id} is missing positive or control runs")
 
         positive_detection = [
-            float(str(row["target_issue_id"]) in row["predicted_issue_ids"])
-            for row in positives
+            float(str(row["target_issue_id"]) in row["predicted_issue_ids"]) for row in positives
         ]
         control_specificity = [
-            float(str(row["target_issue_id"]) not in row["predicted_issue_ids"])
-            for row in controls
+            float(str(row["target_issue_id"]) not in row["predicted_issue_ids"]) for row in controls
         ]
 
         positive_by_run = {int(row["run_index"]): row for row in positives}
@@ -98,11 +96,7 @@ def _pair_contributions(rows: list[dict[str, Any]]) -> dict[str, dict[str, float
         tp = fp = fn = 0
         for row in items:
             predicted = set(row["predicted_issue_ids"])
-            gold = (
-                {str(row["target_issue_id"])}
-                if row["case_type"] == "positive"
-                else set()
-            )
+            gold = {str(row["target_issue_id"])} if row["case_type"] == "positive" else set()
             tp += len(predicted & gold)
             fp += len(predicted - gold)
             fn += len(gold - predicted)
@@ -192,8 +186,7 @@ def analyze(
         )
 
     contributions = {
-        condition: _pair_contributions(rows)
-        for condition, rows in rows_by_condition.items()
+        condition: _pair_contributions(rows) for condition, rows in rows_by_condition.items()
     }
     if set(contributions) != {"generic", "skill-assisted"}:
         raise ValueError("Expected generic and skill-assisted conditions")
@@ -214,12 +207,8 @@ def analyze(
     }
 
     rng = random.Random(seed)  # noqa: S311  # nosec B311
-    sampled_generic: dict[str, list[float]] = {
-        metric: [] for metric in observed["generic"]
-    }
-    sampled_skill: dict[str, list[float]] = {
-        metric: [] for metric in observed["skill-assisted"]
-    }
+    sampled_generic: dict[str, list[float]] = {metric: [] for metric in observed["generic"]}
+    sampled_skill: dict[str, list[float]] = {metric: [] for metric in observed["skill-assisted"]}
     sampled_delta: dict[str, list[float]] = {metric: [] for metric in delta}
 
     for _ in range(iterations):
@@ -247,16 +236,10 @@ def analyze(
     domains = sorted({str(row["domain"]) for row in private_mapping})
     for domain in domains:
         domain_pairs = sorted(
-            {
-                str(row["pair_id"])
-                for row in private_mapping
-                if str(row["domain"]) == domain
-            }
+            {str(row["pair_id"]) for row in private_mapping if str(row["domain"]) == domain}
         )
         by_domain[domain] = {
-            condition: _round_metrics(
-                _metrics_from_pairs(domain_pairs, contributions[condition])
-            )
+            condition: _round_metrics(_metrics_from_pairs(domain_pairs, contributions[condition]))
             for condition in ("generic", "skill-assisted")
         }
 
@@ -264,10 +247,7 @@ def analyze(
         "pair_count": len(pair_ids),
         "bootstrap_iterations": iterations,
         "bootstrap_unit": "pair_id with all repeated runs and both conditions retained",
-        "observed": {
-            condition: _round_metrics(metrics)
-            for condition, metrics in observed.items()
-        },
+        "observed": {condition: _round_metrics(metrics) for condition, metrics in observed.items()},
         "delta_skill_minus_generic": _round_metrics(delta),
         "bootstrap_95ci": {
             "generic": intervals(sampled_generic),
