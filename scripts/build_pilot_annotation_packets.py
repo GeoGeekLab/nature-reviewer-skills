@@ -37,9 +37,7 @@ def _shuffle_without_adjacent_case(
     for _attempt in range(10_000):
         candidate = list(rows)
         rng.shuffle(candidate)  # noqa: S311  # nosec B311
-        case_ids = [
-            str(mapping_by_blind[str(row["blind_id"])]["case_id"]) for row in candidate
-        ]
+        case_ids = [str(mapping_by_blind[str(row["blind_id"])]["case_id"]) for row in candidate]
         if all(case_ids[index] != case_ids[index - 1] for index in range(1, len(case_ids))):
             return candidate
     raise RuntimeError("Could not construct annotation order without adjacent repeated cases")
