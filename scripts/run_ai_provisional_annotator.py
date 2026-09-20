@@ -85,19 +85,17 @@ def _domain_codebook(codebook: dict[str, Any], domain: str) -> list[dict[str, st
     return result
 
 
-
 def _gbnf_grammar(allowed: list[dict[str, str]]) -> str:
-    terminals = " | ".join(
-        json.dumps(json.dumps(issue["issue_id"])) for issue in allowed
-    )
+    terminals = " | ".join(json.dumps(json.dumps(issue["issue_id"])) for issue in allowed)
     return "\n".join(
         [
             'root ::= "{" ws "\\\"issue_ids\\\"" ws ":" ws "[" ws (items)? ws "]" ws "}"',
             'items ::= issue | issue ws "," ws issue | issue ws "," ws issue ws "," ws issue',
             f"issue ::= {terminals}",
-            'ws ::= [ \\t\\n\\r]*',
+            "ws ::= [ \\t\\n\\r]*",
         ]
     )
+
 
 def _prompt(row: dict[str, Any], allowed: list[dict[str, str]]) -> str:
     codebook_text = "\n\n".join(
