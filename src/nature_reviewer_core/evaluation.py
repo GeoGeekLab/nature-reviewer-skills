@@ -96,6 +96,13 @@ def load_predictions(path: Path) -> dict[str, list[Concern]]:
     return predictions
 
 
+def _panel_duplicate_rate(concerns: list[Concern]) -> float:
+    value = concern_overlap(concerns).get("duplicate_rate")
+    if not isinstance(value, int | float):
+        raise TypeError("concern_overlap duplicate_rate must be numeric")
+    return float(value)
+
+
 def _positive_metrics(
     case: BenchmarkCase,
     predicted_by_id: dict[str, Concern],
@@ -123,7 +130,7 @@ def _positive_metrics(
         item.issue_id for item in case.gold_concerns if item.severity in {"critical", "major"}
     }
     essential_recall = len(essential_gold & predicted_ids) / max(len(essential_gold), 1)
-    overlap = concern_overlap(list(predicted_by_id.values()))
+    duplicate_rate = _panel_duplicate_rate(list(predicted_by_id.values()))
     return {
         "precision": round(precision, 4),
         "recall": round(recall, 4),
@@ -131,7 +138,7 @@ def _positive_metrics(
         "essential_issue_recall": round(essential_recall, 4),
         "severity_agreement": round(severity_matches / max(len(matched), 1), 4),
         "anchor_coverage": round(anchor_hits / max(len(matched), 1), 4),
-        "panel_duplicate_rate": float(overlap["duplicate_rate"]),
+        "panel_duplicate_rate": duplicate_rate,
     }
 
 
@@ -156,11 +163,11 @@ def score_case(case: BenchmarkCase, predicted: list[Concern]) -> dict[str, Any]:
     }
 
     if case.case_type == "negative_control":
-        overlap = concern_overlap(list(predicted_by_id.values()))
+        duplicate_rate = _panel_duplicate_rate(list(predicted_by_id.values()))
         result.update(
             {metric: None for metric in _POSITIVE_METRICS if metric != "panel_duplicate_rate"}
         )
-        result["panel_duplicate_rate"] = float(overlap["duplicate_rate"])
+        result["panel_duplicate_rate"] = duplicate_rate
         if case.target_issue_id:
             result["negative_control_pass"] = case.target_issue_id not in predicted_ids
         else:
