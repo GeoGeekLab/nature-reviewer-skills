@@ -1,9 +1,9 @@
 ---
 name: nature-engineering-reviewer
 description: Nature-style engineering manuscript reviewer skill for testing devices, robots, platforms, systems, algorithms embodied in physical systems and engineering methods against requirements, validation, benchmarking, uncertainty, robustness and failure modes.
-version: "1.0.1"
+version: "2.2.0"
 domain: engineering, applied physics, robotics, devices, systems engineering
-license: "MIT OR Apache-2.0"
+license: "MIT"
 ---
 
 # Nature Engineering Reviewer Skill
