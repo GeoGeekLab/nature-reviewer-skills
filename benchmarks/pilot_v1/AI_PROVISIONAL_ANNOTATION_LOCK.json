@@ -51,8 +51,13 @@
   "annotation_generation": {
     "temperature": 0,
     "top_p": 1,
-    "max_completion_tokens": 180,
-    "technical_json_retries": 2
+    "max_completion_tokens": 96,
+    "technical_json_retries": 2,
+    "output_schema": {
+      "issue_ids": "array of zero or more allowed domain issue IDs; maximum three"
+    },
+    "json_object_enforced": true,
+    "retry_seed_policy": "base seed + attempt index; retries only for invalid JSON"
   },
   "consensus": {
     "primary": "intersection",
@@ -66,5 +71,9 @@
       "expert annotation",
       "expert equivalence"
     ]
+  },
+  "technical_revision": {
+    "reason": "Initial blinded execution produced truncated verbose JSON on the first anonymous packet. No condition, case type, target issue, gold, or private mapping was inspected. No valid annotator artifact was produced.",
+    "action": "Reduce output to issue_ids only, enforce JSON-object mode, and vary seed only on technical JSON retries."
   }
 }
