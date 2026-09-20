@@ -61,31 +61,11 @@ git clone https://github.com/GeoGeekLab/nature-reviewer-skills.git
 cd nature-reviewer-skills
 ~~~
 
-### 2. Install the shared runtime
+### 2. Load a reviewer skill
 
-The reviewer skills are \`SKILL.md\` packages. The shared Python runtime provides validation, retrieval, extraction, and evaluation tooling.
+For basic agent use, you do **not** need to install the Python runtime first.
 
-Core installation:
-
-~~~bash
-python -m pip install -e .
-~~~
-
-Add PDF/DOCX extraction support when needed:
-
-~~~bash
-python -m pip install -e ".[documents]"
-~~~
-
-Development tools:
-
-~~~bash
-python -m pip install -e ".[dev]"
-~~~
-
-### 3. Load the reviewer you need
-
-Point a \`SKILL.md\`-capable agent runtime at one of the skill directories below, or copy that directory into the skills location used by your runtime.
+Point a `SKILL.md`-capable agent runtime at the full skill directory you want to use, or copy that directory into the skills location used by your runtime.
 
 Example:
 
@@ -94,6 +74,9 @@ nature-earth-system-reviewer-skills/
   skills/
     nature-remote-sensing-reviewer-skill/
       SKILL.md
+      reviewer_db/
+      references/
+      templates/
 ~~~
 
 Then ask the agent to use that reviewer:
@@ -109,9 +92,31 @@ For each major concern, anchor the criticism to manuscript evidence and give a c
 revision path.
 ~~~
 
-> Runtime note: installation paths differ across agent systems. The repository is designed around \`SKILL.md\` packages; runtime-specific compatibility should be treated as tested only when that runtime has been explicitly validated.
+> Runtime note: installation paths differ across agent systems. The repository is designed around `SKILL.md` packages; runtime-specific compatibility should be treated as tested only when that runtime has been explicitly validated.
 
-### 4. Validate the repository
+### 3. Optional: install the shared Python runtime
+
+Install this when you want the repository's validation, retrieval, extraction, or evaluation CLI tooling.
+
+Core runtime:
+
+~~~bash
+python -m pip install -e .
+~~~
+
+Add PDF/DOCX extraction support:
+
+~~~bash
+python -m pip install -e ".[documents]"
+~~~
+
+Development tools:
+
+~~~bash
+python -m pip install -e ".[dev]"
+~~~
+
+### 4. Optional: validate the repository
 
 ~~~bash
 python scripts/sync_skill_assets.py
@@ -320,7 +325,7 @@ nature-engineering-reviewer-skill/
 nature-materials-science-reviewer-skill/
 ~~~
 
-The current layout reflects the project's history. A future migration may normalize all domain reviewers under one top-level \`skills/\` directory; paths should not be changed casually because agent integrations may already depend on them.
+The current layout reflects the project's history. A future migration may normalize all domain reviewers under one top-level `skills/` directory; paths should not be changed casually because agent integrations may already depend on them.
 
 ## Who it is for
 
