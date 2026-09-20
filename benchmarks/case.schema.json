@@ -49,9 +49,63 @@
             "items": {
               "type": "string"
             }
+          },
+          "reviewer_id": {
+            "type": "string"
           }
         }
       }
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "suite": {
+      "type": "string"
+    },
+    "case_type": {
+      "enum": [
+        "positive",
+        "negative_control"
+      ]
+    },
+    "pair_id": {
+      "type": "string"
+    },
+    "challenge": {
+      "type": "string"
+    },
+    "target_issue_id": {
+      "type": "string"
+    },
+    "design": {
+      "type": "string"
+    },
+    "source_keys": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "synthetic": {
+          "type": "boolean"
+        },
+        "text_origin": {
+          "type": "string"
+        },
+        "gold_status": {
+          "type": "string"
+        },
+        "design_note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
     }
   }
 }
