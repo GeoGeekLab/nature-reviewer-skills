@@ -58,6 +58,7 @@ controlled_v1/
     skill_assisted_review.md
   RUN_PROTOCOL.md
   ANNOTATION_PROTOCOL.md
+  DATA_AUDIT.md
 ~~~
 
 oracle_predictions.jsonl is a scorer self-test only. It is **not a model result**.
@@ -70,6 +71,8 @@ python scripts/run_benchmarks.py \
   benchmarks/controlled_v1/cases.jsonl \
   benchmarks/controlled_v1/oracle_predictions.jsonl
 ~~~
+
+See [DATA_AUDIT.md](DATA_AUDIT.md) for dataset balance, excerpt-length statistics, pair-similarity diagnostics, and representativeness limits.
 
 ## Interpretation limit
 
