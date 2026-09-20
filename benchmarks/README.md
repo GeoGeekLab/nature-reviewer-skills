@@ -66,3 +66,18 @@ python scripts/compare_benchmark_predictions.py \
 The comparison script reports matched-pair bootstrap 95% intervals for the difference in essential-issue recall, specificity, balanced accuracy, paired pass rate, and micro-F1.
 
 Read [CRD-v1 RUN_PROTOCOL.md](controlled_v1/RUN_PROTOCOL.md) and [ANNOTATION_PROTOCOL.md](controlled_v1/ANNOTATION_PROTOCOL.md) before generating benchmark results.
+
+
+## 3. Three-domain blinded pilot harness
+
+[`benchmarks/pilot_v1/`](pilot_v1/) freezes a first controlled comparison on Remote Sensing, Chemistry, and Engineering:
+
+- 18 CRD-v1 cases / 9 matched pairs;
+- three repeated runs per case per condition;
+- generic vs skill-assisted arms with the same base model;
+- gold-free execution packets;
+- condition-blinded annotation packets;
+- pre-adjudication Cohen's kappa tooling;
+- pair-clustered bootstrap analysis.
+
+The harness is pre-registered and executable, but **no model-performance result is claimed yet**. A valid run requires a fresh model context that has not been exposed to CRD-v1 gold metadata.
