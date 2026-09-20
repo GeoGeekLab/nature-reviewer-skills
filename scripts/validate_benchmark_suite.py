@@ -11,12 +11,32 @@ def _load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def validate_suite(cases_dir: Path) -> dict[str, Any]:
-    files = sorted(cases_dir.glob("*.json"))
-    if not files:
-        raise ValueError(f"No benchmark cases found in {cases_dir}")
+def _load_cases(source: Path) -> list[dict[str, Any]]:
+    if source.is_dir():
+        files = sorted(source.glob("*.json"))
+        if not files:
+            raise ValueError(f"No benchmark cases found in {source}")
+        return [_load(path) for path in files]
 
-    cases = [_load(path) for path in files]
+    if source.suffix == ".jsonl":
+        cases: list[dict[str, Any]] = []
+        with source.open("r", encoding="utf-8") as handle:
+            for number, line in enumerate(handle, 1):
+                if not line.strip():
+                    continue
+                value = json.loads(line)
+                if not isinstance(value, dict):
+                    raise ValueError(f"Expected object at {source}:{number}")
+                cases.append(value)
+        if not cases:
+            raise ValueError(f"No benchmark cases found in {source}")
+        return cases
+
+    raise ValueError(f"Unsupported benchmark case source: {source}")
+
+
+def validate_suite(source: Path) -> dict[str, Any]:
+    cases = _load_cases(source)
     case_ids = [str(case["case_id"]) for case in cases]
     if len(case_ids) != len(set(case_ids)):
         raise ValueError("Duplicate case_id values found")
