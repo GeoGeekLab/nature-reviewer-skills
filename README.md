@@ -1,7 +1,5 @@
 <h1 align="center">Nature Reviewer Skills</h1>
 
-<p align="center"><strong>Find the evidence bug before peer review does.</strong></p>
-
 <p align="center">Nature-style scientific review for claims, controls, validation, uncertainty, mechanism, and generalization.</p>
 
 <p align="center">
@@ -51,14 +49,13 @@ claim → evidence → domain gate → failure mode → major concern → revisi
 
 ## See it in 60 seconds
 
-Three synthetic failures. Three domains. One question: **does the evidence actually support the claim?**
+Three synthetic examples showing how evidence chains can fail across domains.
 
 | Remote sensing | Chemistry | Engineering |
 |---|---|---|
 | <p align="center"><img src="./assets/reffox/reffox-control-check.png" alt="RefFox checking controls"></p> | <p align="center"><img src="./assets/reffox/reffox-evidence-please.png" alt="RefFox asking for stronger evidence"></p> | <p align="center"><img src="./assets/reffox/reffox-bug-found.png" alt="RefFox finding a scientific bug"></p> |
-| **BUG**: `trend ≠ sensor shift` | **BUG**: `peak area ≠ yield` | **BUG**: `human recovery ≠ autonomous` |
 | Sensor transition can masquerade as a vegetation breakpoint. | Raw HPLC-UV area is not automatically comparable quantitative yield. | Human recovery and data-quality decisions break a “fully autonomous” claim. |
-| **CHECK**: harmonization + independent validation | **CHECK**: calibrated quantification + response factors | **CHECK**: autonomy boundary + failure recovery |
+| **REVIEW FOCUS**: harmonization + independent validation | **REVIEW FOCUS**: calibrated quantification + response factors | **REVIEW FOCUS**: autonomy boundary + failure recovery |
 | [Open case →](examples/remote-sensing-trend-harmonization/) | [Open case →](examples/chemistry-quantification-integrity/) | [Open case →](examples/engineering-autonomy-boundary/) |
 
 Each case contains a **synthetic manuscript excerpt**, a **curated reference review**, and the reasoning behind the concern. These demonstrate intended reviewer behavior; they are not model-performance scores.
