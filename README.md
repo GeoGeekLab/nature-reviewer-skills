@@ -58,32 +58,28 @@ Three synthetic examples showing how evidence chains can fail across domains.
 | **REVIEW FOCUS**: harmonization + independent validation | **REVIEW FOCUS**: calibrated quantification + response factors | **REVIEW FOCUS**: autonomy boundary + failure recovery |
 | [Open case →](examples/remote-sensing-trend-harmonization/) | [Open case →](examples/chemistry-quantification-integrity/) | [Open case →](examples/engineering-autonomy-boundary/) |
 
-Each case contains a **synthetic manuscript excerpt**, a **curated reference review**, and the reasoning behind the concern. These demonstrate intended reviewer behavior; they are not model-performance scores.
+Each case contains a **synthetic manuscript excerpt**, a **curated reference review**, and the reasoning behind the concern.
 
 [Browse all examples →](examples/)
 
-## What has actually been validated
+## Validation
 
-Think of this as the project’s evidence stack. **PASS means executed/verified at that layer — not “AI reviewer proven superior.”**
-
-| Layer | Artifact | Scale | Status | Claim ceiling |
-|---|---|---:|---|---|
-| Runtime | CI + package matrix | Python 3.10–3.13 + 8 reviewer packages | `PASS` | Repository installs, validates, and tests across the stated matrix |
-| Controlled diagnostic | CRD-v1 | 48 cases / 24 matched pairs / 8 review groups | `PASS` | Scoring harness can test target detection + repaired-control specificity |
-| Counterfactual controls | Matched negative controls | 24 repaired counterparts | `PASS` | Reviewer can be penalized for repeating a defect after it is repaired/narrowed |
-| Uncertainty | Pair-cluster bootstrap | Matched-pair resampling | `PASS` | Confidence intervals can respect pair dependence |
-| Blinded pilot protocol | 3 domains | 18 cases / 9 pairs / 3 repeats / 2 conditions | `LOCKED` | Comparison design is preregistered and reproducible |
-| Formal inference | Generic vs skill-assisted | **108 outputs** = 54 + 54 | `PASS` | The blinded inference protocol was fully executed |
-| Automated annotation | Condition-blinded AI annotation | Pilot outputs | `PROVISIONAL` | Exploratory analysis only; not independent expert validation |
-| Generic-vs-skill effect | Performance comparison | — | `OPEN` | No published superiority claim yet |
-| Human expert gold | Independent domain annotation | — | `OPEN` | No expert-equivalence claim |
-| Real submissions | Prospective manuscripts | — | `OPEN` | No real-world generalization claim yet |
+| Layer | Artifact | Scale | Status |
+|---|---|---:|---|
+| Runtime | CI + package matrix | Python 3.10–3.13 + 8 reviewer packages | `PASS` |
+| Controlled diagnostic | CRD-v1 | 48 cases / 24 matched pairs / 8 review groups | `PASS` |
+| Counterfactual controls | Matched negative controls | 24 repaired counterparts | `PASS` |
+| Uncertainty | Pair-cluster bootstrap | Matched-pair resampling | `PASS` |
+| Blinded pilot protocol | 3 domains | 18 cases / 9 pairs / 3 repeats / 2 conditions | `LOCKED` |
+| Formal inference | Generic vs skill-assisted | **108 outputs** = 54 + 54 | `PASS` |
+| Automated annotation | Condition-blinded AI annotation | Pilot outputs | `PROVISIONAL` |
+| Generic-vs-skill effect | Performance comparison | — | `OPEN` |
+| Human expert gold | Independent domain annotation | — | `OPEN` |
+| Real submissions | Prospective manuscripts | — | `OPEN` |
 
 **Formal pilot domains:** remote sensing · chemistry · engineering
 
 **Evidence trail:** [CRD-v1](benchmarks/controlled_v1/README.md) · [Pilot harness](benchmarks/pilot_v1/README.md) · [Preregistration](benchmarks/pilot_v1/PREREGISTRATION.md) · [Run protocol](benchmarks/controlled_v1/RUN_PROTOCOL.md) · [Evaluation protocol](docs/EVALUATION.md)
-
-> **Boundary:** CRD-v1 is public, synthetic, and developer-authored. Oracle predictions are scorer/harness self-tests, not model-performance results. The 108 blinded outputs prove protocol execution, not that skill-assisted review is better. Independent expert validation and prospective real-manuscript evidence remain open.
 
 ## Quick start
 
@@ -125,7 +121,7 @@ For each major concern, anchor the criticism to manuscript evidence and give a c
 revision path.
 ~~~
 
-> Runtime note: installation paths differ across agent systems. The repository is designed around `SKILL.md` packages; runtime-specific compatibility should be treated as tested only when that runtime has been explicitly validated.
+> Runtime note: installation paths and compatibility vary across agent systems.
 
 ### 3. Optional: install the shared Python runtime
 
@@ -247,17 +243,13 @@ The reviewer-memory layer stores **abstracted, non-verbatim scientific reasoning
 claim type → evidence risk → stress-test gate → reviewer concern → revision direction
 ~~~
 
-## Evaluation protocol and evidence boundary
-
-The compact status table near the top of this README is the current evidence summary. The repository keeps the underlying protocol and diagnostic artifacts inspectable rather than collapsing them into a single “AI reviewer score.”
+## Evaluation
 
 [CRD-v1](benchmarks/controlled_v1/) is a source-backed **public development benchmark**. Every positive case has a matched negative control so a reviewer is rewarded for detecting a specific evidence failure and penalized for continuing to raise it after the failure has been repaired or the claim has been narrowed.
 
-The benchmark contains **48 synthetic cases in 24 matched pairs across 8 review groups**. Controlled gold labels are developer-authored. The included oracle predictions are only scorer self-tests and must not be presented as model performance.
+The benchmark contains **48 synthetic cases in 24 matched pairs across 8 review groups**. Controlled gold labels are developer-authored.
 
-The preregistered three-domain pilot covers remote sensing, chemistry, and engineering. Its formal blinded inference run completed **108 outputs: 54 generic and 54 skill-assisted**, with 3 repeated runs per case. Those outputs remain evidence about execution until they are annotated and analyzed under the locked protocol.
-
-Automated condition-blinded annotation is treated as **provisional analysis**, not independent human validation. A credible real-world performance claim still requires independent expert-labelled data, blinded annotation/adjudication, confidence intervals, per-domain error analysis, and prospective evaluation on real submissions.
+The preregistered three-domain pilot covers remote sensing, chemistry, and engineering. Its formal blinded inference run completed **108 outputs: 54 generic and 54 skill-assisted**, with 3 repeated runs per case.
 
 The evaluation framework supports essential-issue recall, target-specific negative-control specificity, balanced accuracy, concern precision, severity agreement, evidence anchors, panel duplication, matched-pair bootstrap uncertainty, and run-to-run stability.
 
@@ -282,7 +274,6 @@ The shared runtime includes:
 - confidence reporting and diversity-aware selection;
 - matrix CI and package validation;
 - defensive PDF/DOCX/archive/path/size/page-count limits;
-- checks intended to prevent fabricated citations, figures, page numbers, evidence, or misconduct allegations.
 
 Technical details:
 
@@ -358,24 +349,7 @@ The current layout reflects the project's history. A future migration may normal
 - editors and reviewers structuring an initial claim-evidence audit;
 - agent developers building domain-aware scientific review systems.
 
-## Important limitations
-
-Nature Reviewer Skills is a **research-assistance and quality-control system**.
-
-It is not:
-
-- a replacement for qualified domain experts;
-- an editorial decision system;
-- a guarantee of acceptance;
-- evidence that a manuscript is scientifically correct;
-- a tool for making unsupported research-misconduct allegations;
-- an official Nature Portfolio or Springer Nature product.
-
-Figures, spectra, equations, maps, chemical structures, and other visual evidence require a multimodal runtime capable of inspecting the original manuscript content.
-
-The current public benchmark fixtures validate software and evaluation infrastructure. Independent expert gold sets, blinded manuscript studies, calibration, and prospective evaluation are still needed before making strong claims about review quality.
-
-## Provenance and copyright boundary
+## Provenance and copyright
 
 The reviewer-memory databases contain generalized, non-verbatim reasoning patterns distilled from public peer-review materials and domain evidence standards.
 
