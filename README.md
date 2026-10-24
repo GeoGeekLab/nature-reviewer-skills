@@ -390,4 +390,4 @@ Released under the [MIT License](LICENSE).
 
 ---
 
-**Ask sharper questions. Strengthen the scientific argument. Make every revision count.**
+**“Work, Finish, Publish.”** — *Michael Faraday*
