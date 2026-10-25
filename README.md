@@ -22,6 +22,9 @@
 <p align="center">
   <img src="./assets/reffox/reffox-main.png" alt="RefFox, the Nature Reviewer Skills mascot" width="230">
 </p>
+<!-- GeoGeekLab VIS: existing mascot / canonical illustration retained -->
+<p align="center"><sub><a href="https://github.com/GeoGeekLab/geogeeklab-visual-identity/blob/main/identity-sheets/nature-reviewer-skills.md">RefFox identity system ↗</a></sub></p>
+
 
 <p align="center"><strong>Meet RefFox: sharper questions, clearer revisions.</strong></p>
 
